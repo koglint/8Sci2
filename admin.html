@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        
+/* admin.html */
+.admin-container {
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+}
+
+.admin-container h2 {
+    margin-top: 0;
+}
+
+.admin-container label {
+    display: block;
+    margin: 10px 0;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; 
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #F44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.back-button:hover {
+    background-color: #D32F2F;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+#topics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#topics-container .collapsible {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#topics-container .collapsible:hover {
+    background-color: #0056b3;
+}
+
+#topics-container .content {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #8c2424;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: -1px;
+}
+
+#topics-container .content label {
+    display: block;
+    width: 100%;
+}
+
+#topics-container .content label .toggle-switch {
+    margin-top: 5px;
+}
+
+#topics-container .collapsible.active+.content {
+    display: flex;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <h1> Admin Controls </h1>
+
+        <!-- Customise Avatar Toggle -->
+        <div class="toggle-container">
+            <label>
+                Customise Avatar Button
+                <div class="toggle-switch">
+                    <input type="checkbox" id="toggle-customise-avatar">
+                    <span class="slider"></span>
+                </div>
+            </label>
+        </div>
+
+        <!-- Edit Names Toggle -->
+        <div class="toggle-container">
+            <label>
+                Edit Names Button
+                <div class="toggle-switch">
+                    <input type="checkbox" id="toggle-edit-names">
+                    <span class="slider"></span>
+                </div>
+            </label>
+        </div>
+
+        <!-- Sync Lessons Button -->
+        <button id="sync-lessons-button" class="sync-button">Sync Missing Lessons</button>
+
+
+        <!-- Test Field Toggle -->
+        <button id="test-field-button" class="test-button">Toggle Test Field</button>
+
+
+        <h3>Lesson Controls</h3>
+        <div id="topics-container" class="controls-container"></div>
+    </div>
+
+    <script type="module">
+        import { auth, db } from "./firebase-config.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        import {
+            doc,
+            getDoc,
+            setDoc,
+            getDocs,
+            collection,
+            updateDoc
+        } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+
+        onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    const userId = user.uid;
+                    const adminDocRef = doc(db, "admins", userId);
+
+                    try {
+                        const adminDoc = await getDoc(adminDocRef);
+                        if (adminDoc.exists()) {
+                            console.log("Admin verified. Access granted.");
+                            // Admin verified, continue loading the page
+                        } else {
+                            console.warn("Access denied. User is not an admin.");
+                            window.location.href = "403.html"; // Redirect unauthorized users
+                        }
+                    } catch (error) {
+                        console.error("Error checking admin status:", error);
+                        window.location.href = "403.html"; // Redirect in case of errors
+                    }
+                } else {
+                    console.warn("No user logged in. Redirecting to login...");
+                    window.location.href = "login.html"; // Redirect if no user is logged in
+                }
+            });
+
+            
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log("Admin page loaded.");
+
+            const topicsContainer = document.getElementById('topics-container');
+            const customiseAvatarToggle = document.getElementById('toggle-customise-avatar');
+            const editNamesToggle = document.getElementById('toggle-edit-names');
+
+            const adminSettingsRef = doc(db, "admin", "settings");
+
+            // Function to load admin settings
+            const loadAdminSettings = async () => {
+                try {
+                    const adminDoc = await getDoc(adminSettingsRef);
+
+                    if (adminDoc.exists()) {
+                        const settings = adminDoc.data();
+                        console.log("Admin settings loaded:", settings);
+
+                        // Set the state of the customise avatar toggle
+                        customiseAvatarToggle.checked = settings.customiseAvatarEnabled || false;
+
+                        // Dynamically load topics and lesson toggles
+                        await loadTopicsAndLessons(settings);
+                    } else {
+                        console.warn("No admin settings found.");
+                    }
+                } catch (error) {
+                    console.error("Error loading admin settings:", error);
+                }
+            };
+
+            // Function to save admin settings
+            const saveAdminSettings = async (key, value) => {
+                try {
+                    console.log(`Saving admin setting: ${key} = ${value}`);
+                    await setDoc(adminSettingsRef, { [key]: value }, { merge: true });
+                    console.log("Admin setting saved successfully.");
+                } catch (error) {
+                    console.error("Error saving admin settings:", error);
+                }
+            };
+
+            // Load the state of the Edit Names toggle
+            const loadEditNamesState = async () => {
+                try {
+                    const adminDoc = await getDoc(adminSettingsRef);
+
+                    if (adminDoc.exists()) {
+                        const settings = adminDoc.data();
+                        editNamesToggle.checked = settings.editNamesEnabled || false;
+                    } else {
+                        console.warn("No admin settings found.");
+                    }
+                } catch (error) {
+                    console.error("Error loading admin settings:", error);
+                }
+            };
+
+            // Save the state of the Edit Names toggle
+            editNamesToggle.addEventListener("change", () => {
+                saveAdminSettings("editNamesEnabled", editNamesToggle.checked);
+            });
+
+            await loadEditNamesState(); // Load state when the page is loaded
+
+
+            // Function to load topics and lessons from JSON files
+            const loadTopicsAndLessons = async (settings) => {
+                try {
+                    const topicsResponse = await fetch("./json/topics.json");
+                    const topicsData = await topicsResponse.json();
+
+                    for (const topic of topicsData.topics) {
+                        const topicResponse = await fetch(topic.file);
+                        const topicData = await topicResponse.json();
+
+                        // Create collapsible topic section
+                        const collapsibleButton = document.createElement("button");
+                        collapsibleButton.type = "button";
+                        collapsibleButton.className = "collapsible";
+                        collapsibleButton.textContent = topic.title;
+
+                        const contentDiv = document.createElement("div");
+                        contentDiv.className = "content";
+                        contentDiv.id = `topic${topic.id}-controls-container`;
+
+                        // Generate toggles for each lesson in the topic
+                        for (const lesson of topicData.lessons) {
+                            const toggleLabel = createToggleSwitch(
+                                topic.id,
+                                lesson.lesson,
+                                settings[`topic${topic.id}Lesson${lesson.lesson}`] || false
+                            );
+                            contentDiv.appendChild(toggleLabel);
+                        }
+
+                        topicsContainer.appendChild(collapsibleButton);
+                        topicsContainer.appendChild(contentDiv);
+
+                        // Add collapsible toggle behavior
+                        collapsibleButton.addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            contentDiv.style.display =
+                                contentDiv.style.display === "block" ? "none" : "block";
+                        });
+                    }
+                } catch (error) {
+                    console.error("Error loading topics and lessons:", error);
+                }
+            };
+
+            // Function to create toggle switches dynamically
+            const createToggleSwitch = (topicId, lessonId, currentState) => {
+                const id = `topic${topicId}Lesson${lessonId}`;
+                const label = document.createElement("label");
+                label.classList.add("lesson-toggle");
+                label.innerHTML = `
+                    Topic ${topicId} Lesson ${lessonId}
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="${id}" ${currentState ? "checked" : ""}>
+                        <span class="slider"></span>
+                    </div>
+                `;
+
+                const input = label.querySelector("input");
+                input.addEventListener("change", () => {
+                    saveAdminSettings(id, input.checked);
+                });
+
+                return label;
+            };
+
+            // Add event listener for customise avatar toggle
+            customiseAvatarToggle.addEventListener("change", () => {
+                saveAdminSettings("customiseAvatarEnabled", customiseAvatarToggle.checked);
+            });
+
+            await loadAdminSettings();
+        });
+
+
+        // Function to sync missing lessons for all users
+            const syncMissingLessons = async () => {
+                console.log("Sync Missing Lessons Button Clicked");
+
+                try {
+                    // Fetch topics JSON
+                    const topicsResponse = await fetch("./json/topics.json");
+                    const topicsData = await topicsResponse.json();
+
+                    // Fetch all users from Firestore
+                    const usersSnapshot = await getDocs(collection(db, "users"));
+                    const users = usersSnapshot.docs;
+
+                    for (const topic of topicsData.topics) {
+                        console.log(`Processing topic: ${topic.title}`);
+                        const topicResponse = await fetch(topic.file);
+                        const topicData = await topicResponse.json();
+
+                        const topicKey = `topic${topic.id}`; // e.g., "topic1"
+                        const topicId = topic.id;
+                        const numberOfLessons = topicData.numberOfLessons;
+                        console.log(`Number of lessons in ${topic.title}: ${numberOfLessons}`);
+
+                        for (const userDoc of users) {
+                            const userRef = userDoc.ref;
+                            const userData = userDoc.data();
+                            const completedTasks = userData.completedTasks || {};
+                            const topicTasks = completedTasks[topicKey] || {};
+
+                            console.log(`Processing user: ${userDoc.id}`);
+
+                            const updates = {};
+                            for (let lesson = 1; lesson <= numberOfLessons; lesson++) {
+                                const mustField = `${topicId}-lesson${lesson}-must`;
+                                const shouldField = `${topicId}-lesson${lesson}-should`;
+                                const couldField = `${topicId}-lesson${lesson}-could`;
+
+
+                                if (!topicTasks[mustField]) {
+                                    updates[mustField] = { completed: false, timestamp: null };
+                                    console.log(`Adding missing field: ${mustField}`);
+                                }
+                                if (!topicTasks[shouldField]) {
+                                    updates[shouldField] = { completed: false, timestamp: null };
+                                    console.log(`Adding missing field: ${shouldField}`);
+                                }
+                                if (!topicTasks[couldField]) {
+                                    updates[couldField] = { completed: false, timestamp: null };
+                                    console.log(`Adding missing field: ${couldField}`);
+                                }
+                            }
+
+                            // Update Firestore if there are missing fields
+                            if (Object.keys(updates).length > 0) {
+                                console.log(`Updating user ${userDoc.id} with missing fields for ${topicKey}...`);
+                                await updateDoc(userRef, {
+                                    [`completedTasks.${topicKey}`]: {
+                                        ...topicTasks,
+                                        ...updates
+                                    }
+                                });
+                                console.log(`Successfully updated user ${userDoc.id}`);
+                            } else {
+                                console.log(`No missing fields for user ${userDoc.id} in ${topicKey}`);
+                            }
+                        }
+                    }
+
+                    console.log("Sync Missing Lessons completed successfully.");
+                } catch (error) {
+                    console.error("Error syncing missing lessons:", error);
+                }
+            };
+
+
+
+
+
+        const testFieldButton = document.getElementById('test-field-button');
+
+            // Function to toggle testField in Firestore for a specific user
+            const toggleTestFieldForUser = async () => {
+                const userId = "f3MzQbLwNcc4lWvhad5NgL8dxfS2"; // Replace with dynamic user ID if needed
+                const userRef = doc(db, "users", userId);
+
+                try {
+                    const userDoc = await getDoc(userRef);
+
+                    if (userDoc.exists()) {
+                        const currentTestFieldValue = userDoc.data().testField || false;
+                        const newTestFieldValue = !currentTestFieldValue;
+
+                        console.log(`Current testField value: ${currentTestFieldValue}`);
+                        console.log(`Toggling testField to: ${newTestFieldValue}`);
+
+                        await setDoc(userRef, { testField: newTestFieldValue }, { merge: true });
+
+                        console.log(`Successfully toggled testField for user ${userId}.`);
+                    } else {
+                        console.error(`User document not found for user ID: ${userId}`);
+                    }
+                } catch (error) {
+                    console.error("Error toggling testField in Firestore:", error);
+                }
+            };
+
+            // Add event listener to the test button
+            testFieldButton.addEventListener("click", () => {
+                console.log("Test Field Button Clicked");
+                toggleTestFieldForUser();
+            });
+
+            const syncLessonsButton = document.getElementById("sync-lessons-button");
+
+                // Add event listener for Sync Lessons Button
+                syncLessonsButton.addEventListener("click", () => {
+                    console.log("Sync Lessons Button Clicked");
+                    syncMissingLessons();
+                });
+
+
+    </script>
+</body>
+
+</html>

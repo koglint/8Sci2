@@ -1,0 +1,376 @@
+/* Import Modern Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap');
+
+/* Dyslexic Font Style */
+body.dyslexic-font,
+body.dyslexic-font * {
+    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+}
+
+
+body.dyslexic-font h1,
+body.dyslexic-font h2,
+body.dyslexic-font h3 {
+    font-size: 1.8rem;
+    /* Adjust heading sizes */
+}
+
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('assets/fonts/OpenDyslexic-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('assets/fonts/OpenDyslexic-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('assets/fonts/OpenDyslexic-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('assets/fonts/OpenDyslexic-Bold-Italic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+/* COMMON CSS */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', Arial, sans-serif;
+    overflow-x: hidden;
+    color: #ffffff;
+    background: radial-gradient(circle, #6b046b, #1c0122);
+}
+
+/* Background */
+.background {
+    width: 100%;
+    height: 91%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #ffdd00;
+    text-shadow: 2px 2px 0px #000;
+    padding: 10px;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffdd00;
+    text-shadow: 1px 1px 0px #000;
+    padding: 10px;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffdd00;
+    text-shadow: 1px 1px 0px #000;
+    padding: 10px;
+    margin: 0px;
+}
+
+h4 {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffdd00;
+    text-shadow: 1px 1px 0px #000;
+    padding: 10px;
+    margin: 0px;
+}
+
+
+/*LOADING SPINNER*/
+.loading-spinner {
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-top: 8px solid #0077ff;
+    /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hide the spinner when loading is done */
+.loading-spinner.hidden {
+    display: none;
+}
+
+/* Synapse Points Styling */
+.synapsePoints {
+    /* position: absolute; */
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    font-size: 2em;
+    /* Larger font */
+    color: #ffd700;
+    /* Shimmering gold */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
+    animation: shimmer 1.5s infinite alternate;
+    font-weight: 700;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+    100% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 1), 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+/*Toggle Container Switches*/
+.font-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.font-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.font-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.font-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.font-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked+.slider {
+    background-color: #4CAF50;
+}
+
+input:checked+.slider:before {
+    transform: translateX(25px);
+}
+
+
+/* navbar.html*/
+.buttonIcon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.navButtonsDiv {
+    width: 100%;
+    display: flex;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    height: 9%;
+    gap: 5px;
+}
+
+.navButton {
+    font-size: 1em;
+    background: #ff47a3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+}
+
+.navButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #f7a1cc;
+    background: #f490c2;
+}
+
+/* navbarTransparent.html */
+.navbar-container-transparent {
+    z-index: 1010;
+}
+
+.navButtonsTransparentDiv {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    height: 9%;
+    gap: 5px;
+    z-index: 1010;
+}
+
+.navButtonTransparent {
+    font-size: 1em;
+    background: #ff47a3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+}
+
+.navButtonTransparent:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #f7a1cc;
+    background: #f490c2;
+}
+
+
+
+/*Screen Reader*/
+.screen-reader-iframe {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.screen-reader-control {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.screen-reader-control:hover {
+    background: #45a049;
+}
+
+.screen-reader-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.screen-reader-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.screen-reader-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.screen-reader-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.screen-reader-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+
+
+

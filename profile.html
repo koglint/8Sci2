@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+/*profile.html*/
+
+.profileBackground {
+    width: 100%;
+    height: 91%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.avatar-section {
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 20px; 
+}
+
+#avatar-container {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+#avatar-container img {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.profileModal {
+    display: none; 
+    width: 45%; 
+}
+
+.profileModal.visible {
+    display: block;
+}
+
+.profileModalContent {
+    background: radial-gradient(circle, #6b046b, #1c0122);    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;   
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.profileTab {
+    padding: 10px 20px;
+    margin: 5px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 1;
+    max-width: 120px;
+    text-align: center;
+}
+
+.tab.active {
+    background: #2E7D32;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.grid-item {
+    position: relative;
+    border: 2px solid transparent;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #f4f4f4;
+}
+
+.grid-item.selected {
+    border-color: green;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+.grid-item .tick {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    display: none;
+}
+
+.grid-item.selected .tick {
+    display: block;
+}
+
+.close-modal-custom {
+    background-color: rgb(93, 4, 110);
+    color: white(0, 0, 0);
+    border: none;
+    font-size: 1.1em;
+    border-radius: 10px;
+    width: 40%;
+    height: 30px;
+    cursor: pointer;
+    padding: 5px;
+    align-self: flex-end;
+}
+
+.close-modal:hover {
+    background-color: #D32F2F;
+}
+
+
+
+.stats-section {
+    margin-top: 20px;
+    text-align: center;
+    width: 45%; 
+}
+
+.stats-section p {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.action-button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.action-button:hover {
+    background-color: #d62828;
+}
+
+
+/* Disabled state styling */
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Notification Styles */
+#notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+}
+
+#notification.success {
+    background-color: #4CAF50;
+}
+
+#notification.error {
+    background-color: #F44336;
+}
+
+.collapsible-container {
+    width: 100%;
+}
+
+.collapsible-button {
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    outline: none;
+}
+
+.collapsible-button:hover {
+    background-color: #2E7D32;
+}
+
+
+
+.collapsible-content {
+    display: none;
+    margin-top: 10px;
+}
+
+
+.editNamesLogoutDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: none;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.editNameButton {
+    text-align: center;
+    background: radial-gradient(circle, #6b046b, #3f034c);
+    color: #ffdd00;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    outline: none;
+    width: 30%;
+    text-transform: capitalize;
+    font-weight: 700;
+    text-shadow: 0.5px 0.5px 0px black;
+    border: solid 1px white;
+}
+
+.editNameButton:hover {
+    background-color: #f91688;
+}
+
+.editNameButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: radial-gradient(circle, #4d004d, #2f0238);
+    /* Dimmed background for disabled state */
+    color: #aaa;
+    /* Dimmed text color */
+    border: solid 1px #666;
+    /* Change border for disabled state */
+}
+
+
+    </style>
+    </head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="profileBackground">
+        <div class="profile-container">
+            <div class="avatar-section">
+
+                <h1 id="user-name">Loading...</h1>
+
+
+                <div class="editNamesLogoutDiv">
+                    <button id="toggle-form-section" class="editNameButton" >Edit Names</button>
+                    <button id="logout-button" class="editNameButton" > Log Out </button>
+                </div>
+                <div class="collapsible-container">
+                    <div class="form-section collapsible-content">
+                        <input type="text" id="first-name" placeholder="First Name">
+                        <input type="text" id="last-name" placeholder="Last Name">
+                        <input type="text" id="display-name" placeholder="Display Name">
+                        <button id="save-names-button">Save Names</button>
+                    </div>
+                </div>
+
+
+            </div>
+    
+        </div>
+    </div>
+
+    <div id="notification"></div>
+
+    <script type="module">
+        import { db, auth } from "./firebase-config.js";
+        import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+        import { onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        import { applyFontPreference } from './accessibility.js';
+        import { onSnapshot } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstNameInput = document.getElementById('first-name');
+            const lastNameInput = document.getElementById('last-name');
+            const displayNameInput = document.getElementById('display-name');
+            const saveNamesButton = document.getElementById('save-names-button');
+            const notification = document.getElementById('notification');
+            const toggleButton = document.getElementById("toggle-form-section");
+            const collapsibleContent = document.querySelector(".collapsible-content");
+
+          
+
+
+
+            // Toggle name div
+            toggleButton.addEventListener("click", () => {
+                const isVisible = collapsibleContent.style.display === "block";
+                collapsibleContent.style.display = isVisible ? "none" : "block";
+                toggleButton.textContent = isVisible ? "Edit Names" : "Close Edit Names";
+            });
+
+            // Show notification
+            function showNotification(message, type = 'success') {
+                notification.textContent = message;
+                notification.className = type;
+                notification.style.display = 'block';
+
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+
+            async function loadUserNames() {
+                try {
+                    const user = auth.currentUser;
+                    if (!user) {
+                        console.log("No user is signed in.");
+                        return;
+                    }
+
+                    console.log(`Loading user data for: ${user.uid}`);
+
+                    const userRef = doc(db, "users", user.uid);
+                    const userDoc = await getDoc(userRef);
+
+                    if (userDoc.exists()) {
+                        const { firstName = '', lastName = '', displayName = '', synapsePoints = 0, synapseBucks = 0, tier = 1 } = userDoc.data();
+
+                        // Update UI
+                        const userNameElement = document.getElementById('user-name');
+                        userNameElement.textContent = `${displayName} (${firstName} ${lastName})`;
+
+
+                    } else {
+                        console.log("No user data found in Firestore.");
+                    }
+                } catch (error) {
+                    console.error("Error in loadUserNames:", error);
+                }
+            }
+
+
+
+
+
+            // Save user names to Firestore
+            async function saveUserNames() {
+                try {
+                    const user = auth.currentUser;
+                    if (!user) return;
+                    const userRef = doc(db, "users", user.uid);
+                    await updateDoc(userRef, {
+                        firstName: firstNameInput.value,
+                        lastName: lastNameInput.value,
+                        displayName: displayNameInput.value
+                    });
+                    showNotification("Names saved successfully, will be updated on page reload!", "success");
+                } catch (error) {
+                    console.error("Error saving user names:", error);
+                    showNotification("Failed to save names.", "error");
+                }
+            }
+
+            saveNamesButton.addEventListener('click', saveUserNames);
+            loadUserNames();
+
+            
+
+
+            async function checkEditNamesEnabled() {
+                try {
+                    const adminRef = doc(db, "admin", "settings");
+                    const adminDoc = await getDoc(adminRef);
+
+                    if (adminDoc.exists()) {
+                        const settings = adminDoc.data();
+                        const isEnabled = settings.editNamesEnabled || false;
+
+                        const editNamesButton = document.getElementById("toggle-form-section");
+
+                        if (isEnabled) {
+                            editNamesButton.disabled = false; // Enable button
+                        } else {
+                            editNamesButton.disabled = true; // Disable button
+                            console.log("Edit Names is disabled in admin settings.");
+                        }
+                    } else {
+                        console.warn("No admin settings found.");
+                        document.getElementById("toggle-form-section").disabled = true; // Disable by default
+                    }
+                } catch (error) {
+                    console.error("Error checking admin settings:", error);
+                    document.getElementById("toggle-form-section").disabled = true; // Disable on error
+                }
+            }
+
+
+
+
+
+
+
+
+
+            async function setupEditNamesListener() {
+                const adminRef = doc(db, "admin", "settings");
+
+                onSnapshot(adminRef, (docSnapshot) => {
+                    if (docSnapshot.exists()) {
+                        const settings = docSnapshot.data();
+                        const isEditNamesEnabled = settings.editNamesEnabled || false;
+
+                        const editNamesButton = document.getElementById("toggle-form-section");
+
+                        if (!isEditNamesEnabled) {
+                            editNamesButton.disabled = true; // Disable button
+                            collapsibleContent.style.display = "none"; // Ensure collapsible content is hidden
+                            console.log("Edit Names is disabled in admin settings.");
+                        } else {
+                            editNamesButton.disabled = false; // Enable button
+                            console.log("Edit Names is enabled in admin settings.");
+                        }
+                    } else {
+                        console.warn("Admin settings document not found.");
+                        document.getElementById("toggle-form-section").disabled = true; // Default to disabled
+                    }
+                }, (error) => {
+                    console.error("Error listening to admin settings:", error);
+                });
+            }
+
+
+
+
+
+
+            // Load user data and initialise avatar on auth state change
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    try {
+                        const userRef = doc(db, "users", user.uid);
+                        const userData = await getDoc(userRef);
+
+                        loadUserNames(); // Fetch and display the user's name
+
+                        if (userData.exists()) {
+
+
+
+                            // Check if buttons are enabled
+                            await checkEditNamesEnabled();
+
+                            // Set up the real-time listener for admin settings
+                            setupEditNamesListener();
+
+                        } else {
+                            console.error("User data not found.");
+                        }
+                    } catch (error) {
+                        console.error("Error fetching user data:", error.message);
+                    }
+                } else {
+                    console.log("No user signed in. Redirecting to login...");
+                    window.location.href = "login.html";
+                }
+            });
+
+
+
+
+
+
+
+            const navContainer = document.getElementById("navbar-container");
+                fetch("navbar.html")
+                    .then(response => response.text())
+                    .then(html => {
+                        navContainer.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error("Error loading navigation bar:", error);
+                    });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+                const logoutButton = document.getElementById("logout-button");
+                console.log("logout.js loaded."); // Debug log to ensure the script runs
+
+                if (!logoutButton) {
+                    console.error("Logout button not found in DOM.");
+                    return;
+                }
+
+                logoutButton.addEventListener("click", async () => {
+                    console.log("Logout button clicked."); // Debug log to confirm event trigger
+                    const userConfirmed = window.confirm("Are you sure you want to log out?");
+                    if (userConfirmed) {
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out successfully.");
+                            window.location.href = "login.html"; // Redirect to login
+                        } catch (error) {
+                            console.error("Error during logout:", error.message);
+                        }
+                    } else {
+                        console.log("Logout canceled by user.");
+                    }
+                });
+            });
+
+
+        applyFontPreference(auth, db);
+
+    </script>
+</body>
+</html>

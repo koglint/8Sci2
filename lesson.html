@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        
+/* lesson.html */
+
+.lessonInfo {
+    width: 100%;
+}
+
+
+/* Tasks Section */
+.mustShouldCouldDiv {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.taskDiv {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.LIHeading {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+
+/* Fortnite-Inspired Activity Div Styling */
+.activityDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    width: 30%;
+    padding: 10px 10px 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.activityTextDiv {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.lessonContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+#lesson-content {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-top: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Buttons for Tasks */
+.submitButtonDiv {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Completion Buttons */
+.submitMustButton {
+    padding: 10px;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative; /* For checkmark positioning */
+    border: 2px solid #ff4757; /* Red border for Must Do */
+    width: 30%;
+    background: linear-gradient(135deg, #1a1a1a, #333333); /* Dark gradient background */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.submitMustButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); /* Golden glow */
+}
+
+/* Completion Buttons */
+.submitShouldButton {
+    padding: 10px;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative; 
+    border: 2px solid #ffa502; 
+    width: 30%;
+    background: linear-gradient(135deg, #1a1a1a, #333333); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+
+}
+
+.submitShouldButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+}
+/* Completion Buttons */
+.submitCouldButton {
+    padding: 10px;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative; 
+    border: 2px solid #3742fa; 
+    width: 30%;
+    background: linear-gradient(135deg, #1a1a1a, #333333); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+
+}
+
+.submitCouldButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+}
+
+
+
+button.button-pressed::after {
+    content: '✔';
+    position: absolute;
+    right: 15px;
+    font-size: 2em;
+    color: #fff;
+    
+}
+
+/* Pressed Button State */
+button.button-pressed {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #388e3c;
+}
+
+
+/* External Links */
+.external-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.external-link {
+    background: #2f3542;
+    color: #ffdd00;
+    border: 2px solid #ffdd00;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 30%;
+    border: 2px solid #ff4757; 
+
+}
+.external-link-must {
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #ffdd00;
+    border: 2px solid #ffdd00;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 30%;
+    border: 2px solid #ff4757; 
+    background: linear-gradient(135deg, #1a1a1a, #333333); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.external-link-should {
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    background: linear-gradient(135deg, #1a1a1a, #333333); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    color: #ffdd00;
+    border: 2px solid #ffdd00;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 30%;
+    border: 2px solid #ffa502; 
+
+}
+
+.external-link-could {
+    padding: 10px;
+    font-size: 1.2em;    
+    font-weight: 600;
+    color: #ffdd00;
+    border: 2px solid #ffdd00;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 30%;
+    border: 2px solid #3742fa; 
+    background: linear-gradient(135deg, #1a1a1a, #333333); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+.external-link-must:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+}
+.external-link-should:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+}
+.external-link-could:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+}
+
+/* Popup Notification */
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4757;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup.success {
+    background-color: #2ed573;
+}
+
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.greyedOut {
+    pointer-events: none;
+        background-color: #d3d3d3;
+        color: #a9a9a9;
+        border: 1px solid #a9a9a9;
+        opacity: 0.6;
+        cursor: not-allowed;
+}
+
+@keyframes successAnimation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.completed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 128, 0, 0.5); 
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    pointer-events: none; 
+    border-radius: 15px;
+    overflow: hidden;
+    animation: successAnimation 0.6s ease-out; 
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.activity-pressed {
+    background-color: #4caf50;
+    box-shadow: 0 0 15px #4caf50;
+    color: white;
+    font-weight: bold;
+    animation: pulseButton 0.3s ease-in-out;
+}
+
+
+button.activityDiv {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #1a1a1a, #333333); 
+    transition: transform 0.3s ease;
+    color: #ffffff; 
+    position: relative; 
+    box-sizing: border-box;
+    width: 30%;
+}
+
+/* Hover Effect */
+button.activityDiv:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* Golden glow */
+}
+
+/* Active Effect - Prevent screen-wide effects */
+button.activityDiv:active {
+    transform: scale(0.95);
+    box-shadow: none;
+    background: linear-gradient(135deg, #1a1a1a, #292929); /* Slightly darker */
+}
+
+/* Focus Effect Removal */
+button.activityDiv:focus {
+    outline: none;
+}
+
+/* Retain class-based borders */
+.mustActivityDiv {
+    border: 3px solid #ff4757; /* Red for Must Do */
+}
+
+.shouldActivityDiv {
+    border: 3px solid #ffa502; /* Orange for Should Do */
+}
+
+.couldActivityDiv {
+    border: 3px solid #3742fa; /* Blue for Could Do */
+}
+
+.tilted-text {
+    display: inline-block; /* Allows rotation without affecting layout */
+    transform: rotate(-30deg); /* Tilt the text 30 degrees */
+    font-weight: bold; /* Keep it bold for emphasis */
+    color: #fff; /* White text */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add subtle shadow for readability */
+    font-size: 1.2rem;
+}
+
+#difficulty-slider {
+    width: 300px;
+}
+#doc-viewer {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="background">
+        <div class="lessonInfo">
+            <h1 id="topic-name">Loading Topic...</h1>
+            <h2>Loading Lesson...</h2>
+            <h3 id="learning-intentions">Learning Intention: Loading...</h3>
+            <div class="taskDiv" id="tasks">Tasks: Loading...</div>
+        </div>
+
+
+        <div class="external-links">
+            <button id="link1-btn" class="external-link-must">Loading...</button>
+            <button id="link2-btn" class="external-link-should">Loading...</button>
+            <button id="link3-btn" class="external-link-could">Loading...</button>
+        </div>
+
+        <!-- Popup notification -->
+        <div id="popup" class="popup hidden"></div>
+    </div>
+
+    <script type="module">
+        import { auth, db } from "./firebase-config.js";
+        import { setupActivity } from "./handleLevels.js";
+        import { applyFontPreference } from './accessibility.js';
+
+
+        async function loadLessonData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const topicId = urlParams.get('topic'); // Fetch the topic ID from the URL
+            const lessonNumber = urlParams.get('lesson'); // Fetch the lesson number from the URL
+
+            if (!topicId || !lessonNumber) {
+                console.error('Topic ID or Lesson Number missing in URL.');
+                document.querySelector('h2').textContent = 'Error Loading Lesson';
+                return;
+            }
+
+            try {
+                // Load topics metadata from topics.json
+                const topics = await fetch('./json/topics.json').then(res => res.json());
+                const topicMeta = topics.topics.find(t => t.id === parseInt(topicId));
+                if (!topicMeta) throw new Error(`Topic ${topicId} not found`);
+
+                // Populate the topic name in the new <h2>
+                document.getElementById('topic-name').textContent = topicMeta.title;
+
+
+                // Load the specific topic data file (e.g., topic1Data.json)
+                const topicData = await fetch(topicMeta.file).then(res => res.json());
+                const lesson = topicData.lessons.find(l => l.lesson === parseInt(lessonNumber));
+                if (!lesson) throw new Error(`Lesson ${lessonNumber} not found`);
+
+                // Populate lesson title
+                document.querySelector('h2').textContent = lesson.lessonTitle;
+                
+                // Populate Learning Intentions Section
+                document.getElementById('learning-intentions').innerHTML = lesson.learningIntentions
+                    .map(id => {
+                        const intention = topicData.learningIntentions.find(li => li.id === id);
+                        return intention ? `${id} - ${intention.text}` : `${id} - Unknown Learning Intention`;
+                    })
+                    .join('<br>');
+
+
+                // Populate Tasks Section with Must, Should, and Could Do activities
+                document.getElementById('tasks').innerHTML = `
+                    <button class="activityDiv mustActivityDiv" id="must-do-div">
+                        <div class="activityTextDiv"> 
+                            Must Do
+                            <br/><br/>
+                            ${lesson.mustDo.successCriteria}
+                        </div>
+                        <div class="synapsePoints">${lesson.mustDo.synapsePoints} SP</div>
+                    </button>
+                    <button class="activityDiv shouldActivityDiv" id="should-do-div">
+                        <div class="activityTextDiv"> 
+                            Should Do
+                            <br/><br/>
+                            ${lesson.shouldDo.successCriteria}
+                        </div>
+                        <div class="synapsePoints">${lesson.shouldDo.synapsePoints} SP</div>
+                    </button>
+                    <button class="activityDiv couldActivityDiv" id="could-do-div">
+                        <div class="activityTextDiv"> 
+                            Could Do
+                            <br/><br/>
+                            ${lesson.couldDo.successCriteria}
+                        </div>
+                        <div class="synapsePoints">${lesson.couldDo.synapsePoints} SP</div>
+                    </button>
+                `;
+
+                // Populate External Links Section
+                document.getElementById('link1-btn').textContent = "Must Do Link";
+                document.getElementById('link1-btn').addEventListener('click', () => {
+                    window.open(lesson.mustDo.URL, '_blank');
+                });
+
+                document.getElementById('link2-btn').textContent = "Should Do Link";
+                document.getElementById('link2-btn').addEventListener('click', () => {
+                    window.open(lesson.shouldDo.URL, '_blank');
+                });
+
+                document.getElementById('link3-btn').textContent = "Could Do Link";
+                document.getElementById('link3-btn').addEventListener('click', () => {
+                    window.open(lesson.couldDo.URL, '_blank');
+                });
+
+                // Attach SP functionality to tasks using setupActivity
+                const topicKey = `topic${topicId}`; // Ensure topicKey is correctly formed
+                setupActivity('must-do-div', `${topicId}-lesson${lessonNumber}-must`, lesson.mustDo.synapsePoints, topicKey);
+                setupActivity('should-do-div', `${topicId}-lesson${lessonNumber}-should`, lesson.shouldDo.synapsePoints, topicKey);
+                setupActivity('could-do-div', `${topicId}-lesson${lessonNumber}-could`, lesson.couldDo.synapsePoints, topicKey);
+            } catch (error) {
+                console.error('Error loading lesson data:', error);
+                document.querySelector('h2').textContent = 'Error Loading Lesson';
+            }
+        }
+
+
+        // Ensure user authentication and load lesson data
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                loadLessonData();
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const navContainer = document.getElementById("navbar-container");
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(html => {
+                    navContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error("Error loading navigation bar:", error);
+                });
+        });
+
+
+        applyFontPreference(auth, db);
+
+    </script>
+</body>
+</html>

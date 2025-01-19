@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .shopBackground {
+        width: 100%;
+        height: calc(100% - 9%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        /* border: 2px solid #ffdd00; */
+        border-radius: 3px;
+        }
+
+        /* Category Section */
+        .category-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+        
+        /* Items Container */
+        .category-items {
+        display: flex;
+        flex-wrap: wrap;
+        /* Enable wrapping to new lines */
+        justify-content: center;
+        /* Center items horizontally */
+        gap: 20px;
+        /* Space between items */
+        width: 100%;
+        padding: 20px 0;
+        /* Add padding for spacing */
+        transition: max-height 0.3s ease-in-out;
+        /* Smooth transition when expanding/collapsing */
+        }
+        
+        .category-items.collapsed {
+        max-height: 0;
+        padding: 0px;
+        overflow: hidden;
+        /* Prevent content from being visible when collapsed */
+        }
+        
+        /* Category Header */
+        .category-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 60px;
+        text-align: center;
+        background-color: #ff47a3;
+        color: black;
+        font-size: 2em;
+        font-weight: 900;
+        border: 3px solid black;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        
+        .category-header:hover {
+        background-color: #e63e91;
+        transform: scale(1.05);
+        }
+        
+        /* Right Section */
+
+        
+        .shop-avatar-preview {
+            position: relative; /* Allows for child positioning */
+            width: 100%; /* Full width of the parent container */
+            height: auto; /* Maintain proportional height */
+            overflow: hidden; /* Hide cropped areas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; /* Optional: Set for clarity */
+                aspect-ratio: 1 / 1; /* Set aspect ratio to square or the actual ratio of the avatar */
+            max-height: 70vh; /* Keep it responsive to the viewport height */
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+
+        .shop-avatar-preview img {
+            width: 100%; /* Scale image to fill the width of the container */
+            height: 100%; /* Scale to fill the height of the container */
+            object-fit: cover; /* Ensures the image fills the container, cropping dead space */
+            object-position: center center; /* Centers the avatar in the cropped view */
+            position: absolute; /* Allows layering if needed */
+        }
+
+
+
+        
+               
+        .avatar-controls button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        cursor: pointer;
+        }
+        
+        #buy-item:disabled,
+        #cancel-item:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        }
+        
+        
+        
+        .shop-user-points {
+        /* bottom: 150px; */
+        width: 100%;
+        text-align: center;
+        }
+        
+        .shop-sticky-header p {
+        font-size: 1.1rem;
+        color: #ffd700;
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
+        font-weight: 700;
+        margin: 5px 0;
+        }
+        
+        
+        .shop-avatar-controls {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-items: center;
+            gap: 5px;
+        }
+        
+        .shop-avatar-control-button-buy {
+            width: 50px;
+            background-color: green;
+            border-radius: 3px;
+        }
+        
+        .shop-avatar-control-button-cancel {
+            width: 50px;
+            background-color: red;
+            border-radius: 3px;
+        }
+        
+        
+        
+        
+        
+        .blankDiv {
+        min-height: 100px;
+        width: 100%;
+        align-items: center;
+        }
+        
+
+
+
+        /* Shop Layout */
+        .shop-layout {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .shop-right {
+            position: fixed; /* Keeps the div fixed in place during scrolling */
+            right: 0; /* Aligns it to the right edge of the viewport */
+            top: 50%; /* Align the top edge of the div to the vertical center of the viewport */
+            transform: translateY(-50%); /* Adjust the div's position to perfectly center it */
+            display: flex; /* Enable flexbox for content alignment */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center child elements horizontally */
+            gap: 10px; /* Space between child elements */
+            width: 40%; /* Set a fixed width for the shop-right section */
+            z-index: 2; /* Ensure it stays above other content */
+        }
+
+        
+        .shop-left {
+            width: 60%;
+            display: flex; /* Use flexbox for layout */
+            flex-direction: row; /* Arrange the category-icons and items-grid horizontally */
+            gap: 20px; /* Space between the icons and the grid */
+            margin-left: 150px; /* Add padding to account for the fixed category-icons width */
+            z-index: 3;
+        }
+
+        .items-grid {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            overflow-y: scroll; /* Enable vertical scrolling */
+            scrollbar-width: none; /* Firefox: Hide scrollbar */            
+            max-height: 80vh; /* Restrict the height to avoid overflow */
+            width: 100%;
+            gap: 10px;
+        }
+
+        .items-grid::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Edge: Hide scrollbar */
+        }
+        
+        /* Individual Shop Item */
+        .shop-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 30%;
+        min-width: 110px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-size: 1em;
+        }
+        
+        .shop-item img {
+        width: 90%;
+        /* Double the original size */
+        height: auto;
+        /* Maintain aspect ratio */
+        margin-bottom: 10px;
+        }
+        
+        .shop-item p {
+        margin: 5px 0;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            white-space: normal;;
+        }
+        
+        /* Button Colors */
+        .shop-item .buy-btn {
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease;
+        }
+        
+        .shop-item .buy-btn.equipped {
+        background-color: #ccc;
+        cursor: not-allowed;
+        }
+        
+        .shop-item .buy-btn.preview {
+        background-color: #a94d4d;
+        }
+        
+        /* Locked State */
+        .shop-item .buy-btn.locked {
+        background-color: #888;
+        color: #fff;
+        cursor: not-allowed;
+        }
+        
+        /* Prevent hover effect for locked or disabled buttons */
+        .shop-item .buy-btn:hover:not(.locked):not(:disabled) {
+        filter: brightness(0.9);
+        }
+        
+        
+        .shop-item .buy-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        }
+        
+        .item-message {
+        margin-top: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        }
+        
+        .item-message.available {
+        color: green;
+        }
+        
+        .item-message.restricted {
+        color: red;
+        }
+        
+        .category-icons {
+            position: fixed; /* Keeps the icons fixed in place during scrolling */
+            left: 20px; /* Distance from the left edge */
+            top: 50%; /* Move to the vertical center of the viewport */
+            transform: translateY(-50%); /* Adjust for the height of the div to perfectly center it */
+            display: flex;
+            flex-direction: column; /* Stack the icons vertically */
+            align-items: center; /* Center the icons horizontally within the div */
+            gap: 5px; /* Add spacing between icons */
+            z-index: 2; /* Ensure it appears above other content */
+            width: 80px; /* Fixed width for the column */
+            background-color: transparent; /* Optional background color */
+        }
+
+
+        .category-icons img {
+            width: 70px; /* Size for each icon */
+            height: 70px; /* Same size for height */
+            cursor: pointer; /* Indicate interactivity */
+            transition: transform 0.2s; /* Smooth hover effect */
+            border: 1px solid black; /* Optional: Add a border */
+            background-color: #ff47a3; /* Background colour */
+            padding: 2px; /* Padding inside the icons */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box;
+        }
+
+        .category-icons img:hover {
+            transform: scale(1.1); /* Zoom slightly on hover */
+        }
+
+        
+
+
+
+
+@media (max-width: 768px) {
+    .shop-right {
+        width: 35%; /* Set a fixed width for the shop-right section */
+    }
+
+    
+    .shop-left {
+        width: 55%;
+        margin-left: 80px; /* Add padding to account for the fixed category-icons width */
+    }
+
+    .category-icons {
+    position: fixed; /* Keeps the icons fixed in place during scrolling */
+    left: 10px; /* Distance from the left edge */
+    top: 50%; /* Move to the vertical center of the viewport */
+    transform: translateY(-50%); /* Adjust for the height of the div to perfectly center it */
+    display: flex;
+    flex-direction: column; /* Stack the icons vertically */
+    align-items: center; /* Center the icons horizontally within the div */
+    gap: 5px; /* Add spacing between icons */
+    z-index: 2; /* Ensure it appears above other content */
+    width: 70px; /* Fixed width for the column */
+    background-color: transparent; /* Optional background color */
+}
+
+
+.category-icons img {
+    width: 60px; /* Size for each icon */
+    height: 60px; /* Same size for height */
+
+}
+}
+
+@media (max-width: 480px) {
+    .shopBackground {
+        width: 100%;
+        height: calc(100% - 9%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        /* border: 2px solid #ffdd00; */
+        border-radius: 3px;
+    }
+
+
+    /* Shop Layout */
+    .shop-layout {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .shop-right {
+        position: fixed; /* Keeps the div fixed in place during scrolling */
+        right: 0; /* Aligns it to the right edge of the viewport */
+        top: 50%; /* Align the top edge of the div to the vertical center of the viewport */
+        transform: translateY(-50%); /* Adjust the div's position to perfectly center it */
+        display: flex; /* Enable flexbox for content alignment */
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center child elements horizontally */
+        gap: 10px; /* Space between child elements */
+        width: 35%; /* Set a fixed width for the shop-right section */
+        z-index: 2; /* Ensure it stays above other content */
+    }
+
+    
+    .shop-left {
+        width: 45%;
+        display: flex; /* Use flexbox for layout */
+        flex-direction: row; /* Arrange the category-icons and items-grid horizontally */
+        gap: 20px; /* Space between the icons and the grid */
+        margin-left: 50px; /* Add padding to account for the fixed category-icons width */
+    }
+
+    .items-grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        overflow-y: scroll; /* Enable vertical scrolling */
+        scrollbar-width: none; /* Firefox: Hide scrollbar */            
+        max-height: 80vh; /* Restrict the height to avoid overflow */
+        width: 100%;
+        gap: 10px;
+    }
+
+    /* Individual Shop Item */
+    .shop-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 30%;
+        min-width: 110px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-size: 1em;
+    }
+
+
+    .category-icons {
+        position: fixed; /* Keeps the icons fixed in place during scrolling */
+        left: 10px; /* Distance from the left edge */
+        top: 50%; /* Move to the vertical center of the viewport */
+        transform: translateY(-50%); /* Adjust for the height of the div to perfectly center it */
+        display: flex;
+        flex-direction: column; /* Stack the icons vertically */
+        align-items: center; /* Center the icons horizontally within the div */
+        gap: 5px; /* Add spacing between icons */
+        z-index: 2; /* Ensure it appears above other content */
+        width: 40px; /* Fixed width for the column */
+        background-color: transparent; /* Optional background color */
+    }
+
+
+    .category-icons img {
+        width: 40px; /* Size for each icon */
+        height: 40px; /* Same size for height */
+        cursor: pointer; /* Indicate interactivity */
+        transition: transform 0.2s; /* Smooth hover effect */
+        border: 1px solid black; /* Optional: Add a border */
+        background-color: #ff47a3; /* Background colour */
+        padding: 2px; /* Padding inside the icons */
+        border-radius: 5px; /* Rounded corners */
+        box-sizing: border-box;
+    }
+
+    .category-icons img:hover {
+        transform: scale(1.1); /* Zoom slightly on hover */
+    }
+
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div class="shopBackground">
+        <h1>Welcome to Customisation Central!</h1>
+
+        <div class="shop-layout">
+            <div class="shop-left">
+
+                <div class="category-icons"></div>
+                <div id="shop-items" class="items-grid"></div>
+            </div>
+
+            <div class="shop-right">
+                <div id="shop-avatar-container" class="shop-avatar-preview"></div>
+                    <div id="shopStickyHeaderWrapper" class="shop-user-points">
+                        <div id="shopStickyHeader" class="shop-sticky-header">
+                            <p>SP: <span id="user-sp">...</span></p>
+                            <p>SB: <span id="user-sb">...</span></p>
+                            <p>Tier: <span id="user-tier">...</span></p>
+                        </div>
+                    </div>
+                <div class="shop-avatar-controls">
+                    <button class="shop-avatar-control-button-buy" id="buy-item" disabled>Buy</button>
+                    <button class="shop-avatar-control-button-cancel" id="cancel-item" disabled>Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { db, auth } from "./firebase-config.js";
+        import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            // DOM Elements
+            const shopContainer = document.getElementById("shop-items");
+            const userSP = document.getElementById("user-sp");
+            const userSB = document.getElementById("user-sb");
+            const userTier = document.getElementById("user-tier");
+            const avatarContainer = document.getElementById("shop-avatar-container");
+            const buyButton = document.getElementById("buy-item");
+            const cancelButton = document.getElementById("cancel-item");
+
+            let currentAvatarConfig = {};
+            let userInventory = {};
+            let currentlyPreviewedCategory = null;
+
+            // Load the navigation bar
+            const navContainer = document.getElementById("navbar-container");
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(html => (navContainer.innerHTML = html))
+                .catch(error => console.error("Error loading navigation bar:", error));
+
+
+                async function fetchUserData(userId) {
+                const userRef = doc(db, "users", userId); // Reference the Firestore document
+                const userDoc = await getDoc(userRef);   // Retrieve the document
+                if (userDoc.exists()) {
+                    return userDoc.data(); // Return the data if the document exists
+                } else {
+                    console.error("User data not found!");
+                    return {}; // Return an empty object if no data exists
+                }
+            }
+
+            // Authenticate user
+            auth.onAuthStateChanged(async (user) => {
+                if (!user) {
+                    console.log("No user signed in. Redirecting to login...");
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                try {
+                    // Fetch the latest user data from Firestore
+                    const userData = await fetchUserData(user.uid);
+
+                    // Update the in-memory variables
+                    userInventory = userData.inventory || {};
+                    currentAvatarConfig = userData.avatarConfig || {};
+                    userSP.textContent = userData.synapsePoints || 0;
+                    userSB.textContent = userData.synapseBucks || 0;
+                    userTier.textContent = userData.tier || "1";
+
+                    console.log("User Data Retrieved:", userData);
+
+                    // Render the user's current avatar
+                    updateAvatar(currentAvatarConfig);
+
+                    // Load all available items
+                    const response = await fetch("./json/customisation-options.json");
+                    const allItems = await response.json();
+
+                    // Populate category icons
+                    const categoryIconsContainer = document.querySelector(".category-icons");
+                    for (const category of Object.keys(allItems)) {
+                        const categoryIcon = document.createElement("img");
+                        categoryIcon.src = `assets/icons/icon${category}.svg`;
+                        categoryIcon.alt = category;
+                        categoryIcon.dataset.category = category;
+                        categoryIcon.addEventListener("click", () => loadItems(category, allItems));
+                        categoryIconsContainer.appendChild(categoryIcon);
+                    }
+
+                    // Load items for a category
+                    async function loadItems(category, allItems) {
+                        try {
+                            // Fetch fresh user data from Firestore
+                            const userData = await fetchUserData(auth.currentUser.uid);
+                            userInventory = userData.inventory || {};
+                            currentAvatarConfig = userData.avatarConfig || {};
+                            const userTier = parseInt(userData.tier || "1", 10); // Get user's tier
+
+                            // Clear existing items in the shop
+                            shopContainer.innerHTML = "";
+
+
+
+
+                            // Render items in the category
+                            allItems[category].forEach((item) => {
+                                const isTierRestricted = item.tier > userTier; // Check if tier restriction applies
+                                const owned = userInventory[category]?.includes(`assets/${category}/${item.file}`);
+                                const equipped = currentAvatarConfig[category] === `assets/${category}/${item.file}`;
+
+                                const itemDiv = document.createElement("div");
+                                itemDiv.classList.add("shop-item");
+                                itemDiv.innerHTML = `
+                                    <img src="assets/${category}/${item.file}" alt="${item.label}">
+                                    <p>${item.label}</p>
+                                    <p>Cost: ${item.cost} SB</p>
+                                    <p>Tier: ${item.tier}</p>
+                                    <button class="buy-btn"></button>
+                                `;
+
+                                const button = itemDiv.querySelector(".buy-btn");
+                                setButtonState(button, owned, equipped, isTierRestricted);
+
+                                // Add tier restriction or availability message
+                                const message = document.createElement("p");
+                                message.classList.add("item-message"); // Add the base class
+                                if (isTierRestricted) {
+                                    // Add restricted message
+                                    message.textContent = `Requires Tier ${item.tier}`;
+                                    message.classList.add("restricted");
+                                } else {
+                                    // Add available message
+                                    message.textContent = "Item Available";
+                                    message.classList.add("available");
+                                }
+                                itemDiv.appendChild(message);
+
+                                button.addEventListener("click", () => {
+                                    if (!owned && !isTierRestricted) {
+                                        previewItem(category, item);
+                                    } else if (owned) {
+                                        equipItem(category, item);
+                                    }
+                                });
+
+                                shopContainer.appendChild(itemDiv);
+                            });
+
+
+
+                            // Ensure buttons are updated after rendering
+                            updateButtonStates(category);
+                        } catch (error) {
+                            console.error("Error loading items:", error);
+                        }
+                    }
+
+
+
+                    async function equipItem(category, item) {
+                        const userRef = doc(db, "users", auth.currentUser.uid);
+
+                        try {
+                            await updateDoc(userRef, {
+                                [`avatarConfig.${category}`]: `assets/${category}/${item.file}`,
+                            });
+
+                            currentAvatarConfig[category] = `assets/${category}/${item.file}`;
+                            updateAvatar(currentAvatarConfig);
+                            updateButtonStates(category);
+
+                        } catch (error) {
+                            console.error("Error equipping item:", error);
+                        }
+                    }
+
+                    async function updateButtonStates(category) {
+                        try {
+                            const userData = await fetchUserData(auth.currentUser.uid);
+                            userInventory = userData.inventory || {};
+                            currentAvatarConfig = userData.avatarConfig || {};
+
+                            const buttons = document.querySelectorAll(".shop-item");
+                            buttons.forEach((itemDiv) => {
+                                const itemImageSrc = itemDiv.querySelector("img").src;
+                                const itemFileName = itemImageSrc.split("/").pop();
+
+                                const button = itemDiv.querySelector(".buy-btn");
+                                const owned = userInventory[category]?.includes(`assets/${category}/${itemFileName}`);
+                                const equipped = currentAvatarConfig[category] === `assets/${category}/${itemFileName}`;
+
+                                setButtonState(button, owned, equipped);
+                            });
+                        } catch (error) {
+                            console.error("Error updating button states:", error);
+                        }
+                    }
+
+
+                    function setButtonState(button, owned, equipped, isTierRestricted = false) {
+                        // Remove all state-related classes first
+                        button.classList.remove("locked", "equipped", "preview");
+
+                        if (isTierRestricted) {
+                            button.textContent = "Locked";
+                            button.disabled = true;
+                            button.classList.add("locked");
+                        } else if (equipped) {
+                            button.textContent = "Equipped";
+                            button.disabled = true; // Disable to avoid redundant equips
+                            button.classList.add("equipped");
+                        } else if (owned) {
+                            button.textContent = "Equip";
+                            button.disabled = false;
+                            button.classList.add("equip");
+                        } else {
+                            button.textContent = "Preview";
+                            button.disabled = false;
+                            button.classList.add("preview");
+                        }
+                    }
+
+
+
+
+
+                    function previewItem(category, item) {
+                        currentlyPreviewedCategory = category;
+
+                        const previewConfig = { ...currentAvatarConfig, [category]: `assets/${category}/${item.file}` };
+                        updateAvatar(previewConfig);
+
+                        const owned = userInventory[category]?.includes(`assets/${category}/${item.file}`);
+                        buyButton.disabled = owned;
+                        cancelButton.disabled = false;
+
+                        buyButton.onclick = () => buyItem(category, item);
+                        cancelButton.onclick = () => {
+                            updateAvatar(currentAvatarConfig);
+                            currentlyPreviewedCategory = null;
+                            buyButton.disabled = true;
+                            cancelButton.disabled = true;
+                        };
+                    }
+
+                    async function buyItem(category, item) {
+                        const userRef = doc(db, "users", auth.currentUser.uid);
+                        const currentSB = parseInt(userSB.textContent.trim(), 10);
+
+                        if (currentSB >= item.cost) {
+                            try {
+                                // Update Firestore with the new item and reduced Synapse Bucks
+                                await updateDoc(userRef, {
+                                    synapseBucks: currentSB - item.cost,
+                                    [`inventory.${category}`]: [
+                                        ...(userInventory[category] || []),
+                                        `assets/${category}/${item.file}`
+                                    ]
+                                });
+
+                                // Fetch updated user data from Firestore
+                                const userData = await fetchUserData(auth.currentUser.uid);
+
+                                // Update in-memory state
+                                userSB.textContent = userData.synapseBucks;
+                                userInventory = userData.inventory || {};
+                                currentAvatarConfig = userData.avatarConfig || {};
+
+                                // Reload the category and UI to reflect the purchase
+                                loadItems(category, allItems);
+                                updateAvatar(currentAvatarConfig);
+
+                                // Disable Buy and Cancel buttons after purchase
+                                buyButton.disabled = true;
+                                cancelButton.disabled = true;
+
+                            } catch (error) {
+                                console.error("Error purchasing item:", error);
+                            }
+                        } else {
+                            alert("Not enough Synapse Bucks!");
+                        }
+                    }
+
+
+
+                } catch (error) {
+                    console.error("Error loading shop:", error.message);
+                }
+            });
+
+            function updateAvatar(config) {
+                avatarContainer.innerHTML = "";
+                const mergedConfig = { base: "assets/base/Avatar.png", ...config };
+
+                Object.entries(mergedConfig).forEach(([layer, src]) => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.style.position = "absolute";
+                    // img.style.width = "100%";
+                    // img.style.height = "100%";
+                    img.style.zIndex = getLayerZIndex(layer);
+                    avatarContainer.appendChild(img);
+                });
+            }
+
+            function getLayerZIndex(layer) {
+                const order = ["base", "skin", "pants", "tops", "mouth", "eyes", "hair", "shoes", "masks"];
+                return order.indexOf(layer) + 1;
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

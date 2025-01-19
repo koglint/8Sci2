@@ -1,0 +1,82 @@
+{
+    "bossName": "Numeracy Numbat",
+    "bossAvatar": "./assets/bossBattle/Lemur.png",
+    "description": "A fierce opponent who will test your knowledge of NUMERACY",
+    "backgroundImage": "./assets/BGs/bossBattle3BG.png",
+    "bossHP": 100,
+    "userHP": 100,
+    "SPWin": 200,
+    "SPLose": 15,
+    "hpLoss": {
+        "boss": 100,
+        "user": 100
+    },
+    "topics": [
+        {
+            "id": 1,
+            "name": "Numeracy",
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "What is the first step in designing a scientific investigation?",
+                        "answers": ["Conducting the experiment", "Developing a hypothesis", "Recording results", "Communicating findings"],
+                        "correct": 1
+                    },
+                                        {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    },
+                                        {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    },
+                                        {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    }
+
+                ],
+                "classic": [
+
+                    {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    },
+                                        {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    },
+                                        {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    },                    {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    }
+                ],
+                "challenge": [
+
+                    {
+                        "question": "What should be done if anomalies are found in experimental results?",
+                        "answers": ["Exclude them without justification", "Explain and investigate their causes", "Repeat the experiment multiple times", "Ignore them and continue"],
+                        "correct": 1
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "How should experimental results be recorded?",
+                        "answers": ["On a piece of scrap paper", "In a structured and organized format", "In any format available", "Verbally without writing"],
+                        "correct": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

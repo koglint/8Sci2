@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Buttons -->
+    <div id="navbar-container"></div>
+
+    <div class="background">
+        <h1>Accessibility</h1>
+        <div class="font-toggle-container">
+            <label class="font-toggle">
+                <input type="checkbox" id="font-toggle">
+                <span class="slider"></span>
+            </label>
+            <p>Enable Dyslexic Font</p>
+        </div>
+        <div class="screen-reader-toggle-container">
+            <label class="screen-reader-toggle">
+                <input type="checkbox" id="screen-reader-toggle">
+                <span class="slider"></span>
+            </label>
+            <p>Enable Screen Reader</p>
+        </div>
+        <iframe id="screenReader" src="/screenReader.html"
+            style="display: none; position: fixed; bottom: 10px; right: 10px; width: 300px; height: 150px; border: none; z-index: 1000;">
+        </iframe>
+    </div>
+</body>
+<script type="module">
+    import { auth, db } from "./firebase-config.js";
+    import {
+        loadPreferences,
+        updateFont,
+        saveFontPreference,
+        toggleScreenReader,
+        saveScreenReaderPreference,
+    } from "./accessibility.js";
+
+    const fontToggle = document.getElementById("font-toggle");
+    const screenReaderToggle = document.getElementById("screen-reader-toggle");
+
+    // Load user's preferences
+    loadPreferences(auth, db, fontToggle, screenReaderToggle);
+
+    // Save font preference
+    fontToggle.addEventListener("change", () => {
+        const useDyslexic = fontToggle.checked;
+        updateFont(useDyslexic);
+        saveFontPreference(auth, db, useDyslexic);
+    });
+
+    // Save screen reader preference
+    screenReaderToggle.addEventListener("change", () => {
+        const isVisible = screenReaderToggle.checked;
+        toggleScreenReader(isVisible);
+        saveScreenReaderPreference(auth, db, isVisible);
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const navContainer = document.getElementById("navbar-container");
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(html => {
+            navContainer.innerHTML = html;
+        })
+        .catch(error => {
+            console.error("Error loading navigation bar:", error);
+        });
+});
+
+</script>
+
+</html>

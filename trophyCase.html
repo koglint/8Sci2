@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trophy Case</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+/*  trophyCase.html */
+/* Background */
+.trophy-background {
+    position: fixed;
+    top: 0px;
+    opacity: 0.8;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    /* border: 2px solid #ffdd00; */
+    border-radius: 3px;
+    background-size: cover;
+    /* Scale the image to cover the entire screen */
+    background-repeat: no-repeat;
+    /* Prevent tiling */
+    background-position: center;
+    /* Center the image */
+    z-index: 1000;
+}
+
+.trophy-case {
+    padding: 20px;
+}
+
+.trophy-container-wrapper {
+    /* height: 52.5vh; */
+    width: 70vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    cursor: pointer;
+}
+
+.trophies {
+    display: flex;
+    /* overflow-x: scroll; */
+    width: 100%;
+    height: 100%;
+    /* min-height: 70vh; */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.trophy {
+    text-align: center;
+    width: 120px;
+    position: relative;
+}
+
+.trophy img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.trophy.unlocked {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.trophy.locked {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.trophy.unlocked img {
+    filter: none;
+}
+
+.trophy-progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.trophy-progress {
+    height: 100%;
+    background-color: green;
+}
+
+
+.trophy-button-row-wrapper {
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 1012;
+    height: 9%;
+    top: 9%;
+}
+
+.trophy-button-row {
+    width: 50vw;
+    position:fixed;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 0px;
+}
+
+.trophy-topic-button {
+    background-color: #6b046b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.trophy-topic-button:hover {
+    background-color: #8e049e;
+}
+
+.trophy-topic-button.selected {
+    background-color: #4caf50;
+    /* Example color for the selected button */
+    color: white;
+    font-weight: bold;
+}
+.trophy-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.trophy-name {
+    background-color: gold;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: radial-gradient(circle, #6b046b, #1c0122);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    max-width: 500px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar-container-transparent" id="navbar-container"></div>
+    <div class="trophy-button-row-wrapper"> 
+        <div class="trophy-button-row" id="topic-buttons"></div> 
+    </div>
+
+    <div class="trophy-background">
+        
+        <!-- Trophy display container -->
+        <div id="trophy-container" class="trophy-container-wrapper"></div>
+    </div>
+
+    <!-- Modal for trophy details -->
+    <div id="trophy-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="modal-close" class="modal-close">&times;</span>
+            <h2 id="modal-trophy-name"></h2>
+            <p id="modal-trophy-criteria"></p>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+    import { auth, db } from "./firebase-config.js";
+    import { doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { applyFontPreference } from './accessibility.js';
+    import { trophyDefinitions } from './trophyDefinitions/trophiesGeneral.js';
+
+
+    // Apply accessibility preferences
+    applyFontPreference(auth, db);
+
+    
+
+
+    // Render the trophy case
+    function renderTrophyCase(trophies, userData, topicId) {
+        const trophyContainer = document.getElementById("trophy-container");
+        trophyContainer.innerHTML = ""; // Clear container for re-rendering
+
+        if (!topicId) {
+            console.error("Topic ID is undefined in renderTrophyCase.");
+            return;
+        }
+
+        trophies.forEach((trophy) => {
+            const progress = trophy.getProgress(userData);
+            const isUnlocked = userData.trophies?.[trophy.id] === true;
+
+            const trophyHTML = `
+            <div class="trophy-wrapper" data-id="${trophy.id}">
+                <div class="trophy ${isUnlocked ? "unlocked" : "locked"}">
+                    <img src="assets/trophies/topic${topicId}/${isUnlocked ? trophy.image : 'locked.svg'}" alt="${trophy.name}">
+                </div>
+                <div class="trophy-name">${trophy.name}</div>
+            </div>
+            `;
+            trophyContainer.innerHTML += trophyHTML;
+
+
+        });
+
+        document.querySelectorAll(".trophy-wrapper").forEach((trophyElement) => {
+            trophyElement.addEventListener("click", () => {
+                const trophyId = trophyElement.getAttribute("data-id");
+                const trophy = trophies.find(t => t.id === trophyId);
+                showTrophyModal(trophy);
+            });
+        });
+
+    }
+
+
+
+    // Show trophy modal
+    function showTrophyModal(trophy) {
+        const modal = document.getElementById("trophy-modal");
+        document.getElementById("modal-trophy-name").innerText = trophy.name;
+        document.getElementById("modal-trophy-criteria").innerText = trophy.criteria;
+        modal.classList.remove("hidden");
+    }
+
+    // Hide trophy modal
+    function hideTrophyModal() {
+        const modal = document.getElementById("trophy-modal");
+        modal.classList.add("hidden");
+    }
+
+    // Add event listener to close modal when clicking outside the modal content
+    document.getElementById("trophy-modal").addEventListener("click", (event) => {
+        const modalContent = document.querySelector(".modal-content");
+        if (!modalContent.contains(event.target)) {
+            hideTrophyModal();
+        }
+    });
+
+    // Add event listener to close modal when clicking the close button
+    document.getElementById("modal-close").addEventListener("click", hideTrophyModal);
+
+
+    // Initialize missing trophies for a user
+    async function initialiseTrophies(uid, trophyDefinitions) {
+        const topics = Object.keys(trophyDefinitions.trophies);
+        const userRef = doc(db, "users", uid);
+        const userSnap = await getDoc(userRef);
+
+        const userData = userSnap.exists() ? userSnap.data() : {};
+        const updatedTrophies = userData.trophies || {};
+
+        topics.forEach((topic) => {
+            trophyDefinitions.trophies[topic].forEach((trophy) => {
+                if (!(trophy.id in updatedTrophies)) {
+                    updatedTrophies[trophy.id] = false; // Default to locked
+                }
+            });
+        });
+
+        await updateDoc(userRef, { trophies: updatedTrophies });
+        console.log("Trophies initialized for user.");
+    }
+
+
+
+    // Function to parse trophy functions from JSON
+        function parseTrophyFunctions(trophy) {
+            try {
+                // Dynamically parse the getProgress function if it's a string
+                if (typeof trophy.getProgress === "string") {
+                    trophy.getProgress = new Function("userData", "topicKey", `return (${trophy.getProgress}).apply(this, arguments);`);
+                }
+
+                // Dynamically parse the isAchieved function if it's a string
+                if (typeof trophy.isAchieved === "string") {
+                    trophy.isAchieved = new Function("userData", "topicKey", `return (${trophy.isAchieved}).apply(this, arguments);`);
+                }
+            } catch (error) {
+                console.error(`Error parsing trophy functions for ${trophy.id}:`, error);
+            }
+        }
+
+        // Ensure trophy functions are parsed when loading trophies
+        async function loadTrophyCase(uid, topicId) {
+            const topicKey = `topic${topicId}`; // Ensure topicKey matches the structure in trophyDefinitions
+            const topicTrophies = trophyDefinitions.trophies[topicKey];
+
+            if (!topicTrophies) {
+                console.error(`No trophies found for topic: ${topicId}`);
+                return;
+            }
+
+            const userRef = doc(db, "users", uid);
+            const userSnap = await getDoc(userRef);
+
+            if (!userSnap.exists()) {
+                console.warn(`User document not found. Initializing...`);
+                await initialiseUserData(uid);
+            }
+
+            const userData = (await getDoc(userRef)).data();
+
+            await initialiseTrophies(uid, trophyDefinitions);
+
+            const updatedTrophies = { ...userData.trophies };
+            let hasUpdates = false;
+
+            topicTrophies.forEach((trophy) => {
+                // Parse the functions for the trophy
+                parseTrophyFunctions(trophy);
+
+                // Evaluate isAchieved and getProgress for this trophy
+                const isAchieved = trophy.isAchieved(userData, topicKey);
+
+                if (isAchieved && !updatedTrophies[trophy.id]) {
+                    updatedTrophies[trophy.id] = true;
+                    hasUpdates = true;
+                } else if (!isAchieved && updatedTrophies[trophy.id]) {
+                    updatedTrophies[trophy.id] = false;
+                    hasUpdates = true;
+                }
+            });
+
+            if (hasUpdates) {
+                await updateDoc(userRef, { trophies: updatedTrophies });
+                console.log("Trophies updated in Firestore.");
+            }
+
+            renderTrophyCase(topicTrophies, { ...userData, trophies: updatedTrophies }, topicId);
+        }
+
+
+
+
+
+
+    async function loadTopicButtons() {
+        const response = await fetch('./json/topics.json');
+        const data = await response.json();
+
+        const buttonContainer = document.getElementById("topic-buttons");
+        buttonContainer.innerHTML = ""; // Clear any existing buttons
+
+        data.topics.forEach(topic => {
+            const button = document.createElement("button");
+            button.innerText = topic.id; // Assuming topic.id is the numeric topicId
+            button.classList.add("trophy-topic-button"); // Add a class for styling
+            button.addEventListener("click", async () => {
+                document.querySelectorAll(".trophy-topic-button").forEach(btn => btn.classList.remove("selected"));
+                button.classList.add("selected");
+
+                const topicId = topic.id; // Numeric topicId
+                console.log(`Selected topicId: ${topicId}`); // Debugging log
+
+                const backgroundImage = trophyDefinitions.backgroundImages[`topic${topicId}`];
+                if (!backgroundImage) {
+                    console.warn(`No background image found for topic${topicId}`);
+                    return;
+                }
+                document.querySelector('.trophy-background').style.backgroundImage = `url('${backgroundImage}')`;
+
+                const user = auth.currentUser;
+                if (user) {
+                    await loadTrophyCase(user.uid, topicId); // Pass numeric topicId
+                } else {
+                    console.warn("User not authenticated. Cannot load trophies.");
+                }
+            });
+
+            buttonContainer.appendChild(button);
+        });
+    }
+
+
+
+
+
+
+
+    // Load navbar and check authentication state
+    document.addEventListener("DOMContentLoaded", () => {
+        const navContainer = document.getElementById("navbar-container");
+        fetch("navbarTransparent.html")
+            .then(response => response.text())
+            .then(html => {
+                navContainer.innerHTML = html;
+            })
+            .catch(error => {
+                console.error("Error loading navigation bar:", error);
+            });
+
+        // Load topic buttons
+        loadTopicButtons();
+
+        // Set default background and trophies for the first topic
+        const firstTopicId = Object.keys(trophyDefinitions.trophies)[0].replace('topic', ''); // Extract the numeric ID
+        const defaultBackgroundImage = trophyDefinitions.backgroundImages[`topic${firstTopicId}`];
+        document.querySelector('.trophy-background').style.backgroundImage = `url('${defaultBackgroundImage}')`;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log(`Authenticated user: ${user.uid}`);
+                try {
+                    if (firstTopicId) {
+                        await loadTrophyCase(user.uid, firstTopicId); // Pass numeric topicId
+                    } else {
+                        console.error("No topics available in trophyDefinitions.");
+                    }
+                } catch (error) {
+                    console.error("Error loading trophy case:", error);
+                }
+            } else {
+                console.warn("No user authenticated. Redirecting to login...");
+                window.location.href = "login.html";
+            }
+        });
+    });
+
+
+</script>
+
+</html>

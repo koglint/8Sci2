@@ -1,0 +1,89 @@
+{
+    "topic": "Topic 2 - Ecology (Death in the Daintree)",
+    "numberOfLessons": 3,
+    "learningIntentions": [
+      { "id": "LI1", "text": "Placeholder for Learning Intention 1" },
+      { "id": "LI2", "text": "Placeholder for Learning Intention 2" },
+      { "id": "LI3", "text": "Placeholder for Learning Intention 3" },
+      { "id": "LI4", "text": "Placeholder for Learning Intention 4" },
+      { "id": "LI5", "text": "Placeholder for Learning Intention 5" },
+      { "id": "LI6", "text": "Placeholder for Learning Intention 6" },
+      { "id": "LI7", "text": "Placeholder for Learning Intention 7" },
+      { "id": "LI8", "text": "Placeholder for Learning Intention 8" },
+      { "id": "LI9", "text": "Placeholder for Learning Intention 9" },
+      { "id": "LI10", "text": "Placeholder for Learning Intention 10" },
+      { "id": "LI11", "text": "Placeholder for Learning Intention 11" },
+      { "id": "LI12", "text": "Placeholder for Learning Intention 12" },
+      { "id": "LI13", "text": "Placeholder for Learning Intention 13" },
+      { "id": "LI14", "text": "Placeholder for Learning Intention 14" }
+    ],
+    "lessons": [
+      {
+        "lesson": 1,
+        "lessonTitle": ["Lesson 1 - Placeholder Title"],
+        "learningIntentions": ["LI1"],
+        "successCriteria": "This is the success criteria for Lesson 1",
+        "mustDo": {
+          "successCriteria": "This is the must do activity for Lesson 1",
+          "synapsePoints": 100,
+          "URL": "http://127.0.0.1:5500/lessons/Topic1/lesson1MustDo.html"
+        },
+        "shouldDo": {
+          "successCriteria": "This is the should do activity for Lesson 1",
+          "synapsePoints": 70,
+          "URL": "https://classroom.google.com/c/NjU4Mzc2Mzc0NzI3/a/NzQwNDk3NTU1Mjcw/details"
+        },
+        "couldDo": {
+          "successCriteria": "This is the could do activity for Lesson 1",
+          "synapsePoints": 50,
+          "URL": "http://placeholderURL.com"
+        }
+      },
+      {
+        "lesson": 2,
+        "learningIntentions": ["LI2"],
+        "lessonTitle": ["Lesson 2 - Placeholder Title"],
+
+        "successCriteria": "This is the success criteria for Lesson 2",
+        "mustDo": {
+          "successCriteria": "This is the must do activity for Lesson 2",
+          "synapsePoints": 1,
+          "URL": "http://placeholderURL.com"
+        },
+        "shouldDo": {
+          "successCriteria": "This is the should do activity for Lesson 2",
+          "synapsePoints": 7,
+          "URL": "http://placeholderURL.com"
+        },
+        "couldDo": {
+          "successCriteria": "This is the could do activity for Lesson 2",
+          "synapsePoints": 5,
+          "URL": "http://placeholderURL.com"
+        }
+      },
+      {
+        "lesson": 3,
+        "lessonTitle": ["Lesson 3 - Placeholder Title"],
+
+        "learningIntentions": ["LI3", "LI4"],
+        "successCriteria": "This is the success criteria for Lesson 3",
+        "mustDo": {
+          "successCriteria": "This is the must do activity for Lesson 3",
+          "synapsePoints": 1,
+          "URL": "http://placeholderURL.com"
+        },
+        "shouldDo": {
+          "successCriteria": "This is the should do activity for Lesson 3",
+          "synapsePoints": 7,
+          "URL": "http://placeholderURL.com"
+        },
+        "couldDo": {
+          "successCriteria": "This is the could do activity for Lesson 3",
+          "synapsePoints": 5,
+          "URL": "http://placeholderURL.com"
+        }
+      }
+      
+    ]
+  }
+  

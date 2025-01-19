@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year 8</title>
+</head>
+
+<body>
+    <script type="module">
+        import { auth, db } from "./firebase-config.js";
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+        // Variable to track admin status
+        let isAdmin = false;
+
+        // Redirect based on user authentication status
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                try {
+                    // Check if the user is an admin
+                    const adminDocRef = doc(db, "admins", user.uid);
+                    const adminDoc = await getDoc(adminDocRef);
+
+                    if (adminDoc.exists()) {
+                        console.log("User is an admin.");
+                        isAdmin = true; // Set admin flag
+                    } else {
+                        console.log("User is not an admin.");
+                        isAdmin = false;
+                    }
+
+                    // Redirect all users to home.html (admins and regular users)
+                    window.location.href = "home.html";
+                } catch (error) {
+                    console.error("Error checking admin status:", error);
+                    // Handle errors during Firestore read (e.g., redirect to an error page)
+                    window.location.href = "error.html";
+                }
+            } else {
+                console.log("No user logged in.");
+                // Redirect to the login page if not authenticated
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

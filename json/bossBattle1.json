@@ -1,0 +1,865 @@
+{
+    "bossName": "Croc the Crusher",
+    "bossAvatar": "assets/bossBattle/CrocTheCrusher.png",
+    "description": "A fierce opponent who will test your knowledge of common knowledge from the Science course",
+    "backgroundImage": "assets/BGs/bossBattle1BG.png",
+    "bossHP": 100,
+    "userHP": 100,
+    "SPWin": 150,
+    "SPLose": 15,
+    "hpLoss": {
+        "boss": 100,
+        "user": 100
+    },
+    "topics": [
+        {
+            "id": 1,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "What is the first step in designing a scientific investigation?",
+                        "answers": ["Conducting the experiment", "Developing a hypothesis", "Recording results", "Communicating findings"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which variable is deliberately changed in an experiment?",
+                        "answers": ["Dependent variable", "Control variable", "Independent variable", "Extraneous variable"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Why is it important to abide by safety procedures during an experiment?",
+                        "answers": ["To ensure accurate results", "To protect yourself and others", "To avoid wasting materials", "To make experiments easier"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "When constructing a graph, what is typically plotted on the x-axis?",
+                        "answers": ["Dependent variable", "Independent variable", "Control variable", "Both variables"],
+                        "correct": 1
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "What should be included in a valid experimental method?",
+                        "answers": ["A detailed aim", "Clear instructions for replicability", "A list of safety procedures", "All of the above"],
+                        "correct": 3
+                    },
+                    {
+                        "question": "Which of the following ensures results are reliable?",
+                        "answers": ["Repeating the experiment", "Using precise equipment", "Only recording results once", "Using unreliable sources"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How can the reliability of collected results be evaluated?",
+                        "answers": ["By reviewing the number of trials conducted", "By identifying errors in data collection", "By comparing results with predictions", "All of the above"],
+                        "correct": 3
+                    },
+                    {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "Which is a valid solution to improve the accuracy of results?",
+                        "answers": ["Using a more precise instrument", "Avoiding repetitions of the experiment", "Ignoring anomalies in the data", "Not following safety procedures"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What section of a scientific report summarizes the main findings?",
+                        "answers": ["Method", "Aim", "Conclusion", "Hypothesis"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Which of the following is a dependent variable?",
+                        "answers": ["The temperature of water in an experiment measuring evaporation rate", "The type of container used", "The amount of sunlight", "The temperature of the room"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What should be done if anomalies are found in experimental results?",
+                        "answers": ["Exclude them without justification", "Explain and investigate their causes", "Repeat the experiment multiple times", "Ignore them and continue"],
+                        "correct": 1
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "How should experimental results be recorded?",
+                        "answers": ["On a piece of scrap paper", "In a structured and organized format", "In any format available", "Verbally without writing"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is part of an experiment's aim?",
+                        "answers": ["The equipment used", "The expected results", "The purpose of the investigation", "The graph construction method"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Why is it important to include references in a scientific report?",
+                        "answers": ["To avoid plagiarism", "To strengthen the credibility of the report", "To allow others to verify the sources used", "All of the above"],
+                        "correct": 3
+                    }
+                ]
+            }
+        },
+
+        {
+            "id": 2,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "What is an example of an abiotic factor in an ecosystem?",
+                        "answers": ["Plants", "Sunlight", "Animals", "Microorganisms"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How is an ecosystem best defined?",
+                        "answers": ["A group of plants and animals living together", "Interactions between abiotic and biotic factors", "A specific type of habitat", "Only the abiotic factors in an environment"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is an example of a decomposer?",
+                        "answers": ["Kangaroo", "Mushroom", "Grass", "Eagle"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What role do producers play in an ecosystem?",
+                        "answers": ["They consume other organisms", "They break down organic material", "They convert sunlight into energy", "They prey on herbivores"],
+                        "correct": 2
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "Which of the following is an example of a behavioural adaptation?",
+                        "answers": ["A bird building a nest", "The thick fur of a polar bear", "The long neck of a giraffe", "The waxy coating on cactus leaves"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What type of adaptation is the ability of a camel to store water in its body?",
+                        "answers": ["Structural", "Physiological", "Behavioural", "Environmental"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is the correct order in a food chain?",
+                        "answers": ["Producer → Decomposer → Consumer", "Decomposer → Consumer → Producer", "Producer → Consumer → Decomposer", "Consumer → Producer → Decomposer"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Why is it important to conserve Australian ecosystems?",
+                        "answers": ["To protect biodiversity and ecological balance", "To introduce more invasive species", "To reduce food production", "To eliminate predators"],
+                        "correct": 0
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "How does the eucalyptus tree's ability to survive bushfires benefit its reproduction?",
+                        "answers": ["By spreading seeds during fires", "By preventing predators", "By using less water", "By attracting more animals"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How do predators and prey interact in a food web?",
+                        "answers": ["Predators eat producers", "Prey eat decomposers", "Predators control prey populations", "Prey produce energy for predators"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "What is one harmful effect of microorganisms on the environment?",
+                        "answers": ["Decomposing organic matter", "Causing diseases in crops", "Fixing nitrogen in the soil", "Breaking down pollutants"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an example of a structural adaptation in Australian animals?",
+                        "answers": ["The pouch of a kangaroo", "The nocturnal activity of a bilby", "The burrowing behaviour of a wombat", "The migration of birds"],
+                        "correct": 0
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "How can human activities affect food chains in marine ecosystems?",
+                        "answers": ["Overfishing can reduce predator populations", "Pollution can destroy habitats", "Introduction of invasive species can alter interactions", "All of the above"],
+                        "correct": 3
+                    },
+                    {
+                        "question": "What is an example of a technological development that reduces the impact of bushfires on ecosystems?",
+                        "answers": ["Satellite monitoring of fire-prone areas", "Planting non-native species", "Using pesticides", "Cutting down trees to prevent fires"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How has scientific knowledge improved agriculture practices?",
+                        "answers": ["Development of drought-resistant crops", "Use of chemical fertilizers only", "Clearing all natural vegetation", "Ignoring soil health"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What is an example of a structural adaptation in Australian animals?",
+                        "answers": ["The pouch of a kangaroo", "The nocturnal activity of a bilby", "The burrowing behaviour of a wombat", "The migration of birds"],
+                        "correct": 0
+                    }
+                ]
+            }
+
+
+        },
+        {
+            "id": 3,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "Which layer of the Earth is composed of solid iron and nickel?",
+                        "answers": ["Crust", "Mantle", "Outer Core", "Inner Core"],
+                        "correct": 3
+                    },
+                    {
+                        "question": "What type of rock forms when magma cools and solidifies?",
+                        "answers": ["Sedimentary", "Igneous", "Metamorphic", "Fossiliferous"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which type of rock forms when magma cools and solidifies?",
+                        "answers": ["Sedimentary", "Igneous", "Metamorphic", "Fossiliferous"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is a common property used to classify minerals?",
+                        "answers": ["Shape of grains", "Colour and streak", "Type of fossil content", "Size of sediment layers"],
+                        "correct": 1
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "Which condition is necessary for fossils to form?",
+                        "answers": ["High levels of oxygen exposure", "Rapid burial and low oxygen levels", "Excessive chemical weathering", "High-pressure metamorphic conditions"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What does the law of superposition state?",
+                        "answers": ["The oldest sedimentary layers are at the base", "All rocks form in horizontal layers", "Igneous rocks are always younger than sedimentary rocks", "Metamorphic rocks form at the top of a sequence"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "Which occupation uses geological knowledge to locate and extract minerals?",
+                        "answers": ["Astronomer", "Geologist", "Marine Biologist", "Meteorologist"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an example of a mineral found in igneous rocks?",
+                        "answers": ["Quartz", "Coal", "Sandstone", "Limestone"],
+                        "correct": 0
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "What process is responsible for forming caves in limestone through chemical weathering?",
+                        "answers": ["Erosion by wind", "Dissolution by acidic water", "Deposition of minerals", "Physical weathering by ice"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is a characteristic of sedimentary rocks?",
+                        "answers": ["They form from cooling magma", "They are composed of layers of sediments", "They are formed under high pressure and heat", "They are metallic in nature"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How are metamorphic rocks formed?",
+                        "answers": ["By the cooling of lava", "Through weathering and erosion", "By heat and pressure transforming existing rocks", "From the deposition of sediments"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "What geological feature is formed by the deposition of sediments at a river mouth?",
+                        "answers": ["Delta", "Volcano", "Fault", "Fossil bed"],
+                        "correct": 0
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "What type of rock is likely to contain fossils?",
+                        "answers": ["Igneous", "Sedimentary", "Metamorphic", "None of the above"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How does wind contribute to the formation of sand dunes?",
+                        "answers": ["By chemically weathering rocks", "By depositing sediments in certain areas", "By causing magma to cool", "By burying organic material"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What tool is commonly used by geologists to classify rocks and minerals?",
+                        "answers": ["Stethoscope", "Hand lens", "Compass", "Seismometer"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What type of rock can be transformed into metamorphic rock under heat and pressure?",
+                        "answers": ["Sedimentary", "Igneous", "Both Sedimentary and Igneous", "Neither Sedimentary nor Igneous"],
+                        "correct": 2
+                    }
+                ]
+            }
+
+
+        },
+        {
+            "id": 4,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "What is the unit of energy?",
+                        "answers": ["Newton", "Joule", "Watt", "Pascal"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is an example of conduction?",
+                        "answers": ["Heat moving through a metal rod", "Warm air rising above a fire", "Sunlight warming the Earth", "A microwave heating food"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What happens during energy transformation?",
+                        "answers": ["Energy moves from one place to another", "One type of energy converts into another type", "Energy remains constant in one form", "Energy is lost entirely"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "In a simple electrical circuit, what component is necessary for energy transfer?",
+                        "answers": ["Battery", "Thermometer", "Bunsen burner", "Pendulum"],
+                        "correct": 0
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "Which of the following is an example of kinetic energy?",
+                        "answers": ["A rock on a hill", "A stretched rubber band", "A moving car", "A charged battery"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "What is convection?",
+                        "answers": ["Transfer of heat through direct contact", "Movement of energy in waves", "Transfer of heat through fluids by particle movement", "Absorption of energy by particles"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Which of the following is an example of radiation?",
+                        "answers": ["Heat traveling through a solid metal bar", "Heat from the Sun warming your skin", "Boiling water circulating in a pot", "Warm air rising from a heater"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What makes an energy system efficient?",
+                        "answers": ["Most of the energy is converted into the desired form", "Energy is not lost to the environment", "Energy transfer occurs instantly", "No energy is required to operate the system"],
+                        "correct": 0
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "What is radiation?",
+                        "answers": ["Transfer of energy through electromagnetic waves", "Transfer of heat by particle collisions", "Transfer of energy through fluid movement", "Absorption of heat by solid objects"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "Which of the following is an example of energy transformation?",
+                        "answers": ["Electrical energy powering a light bulb", "Heat energy moving through a metal rod", "Wind moving particles in the air", "A rock sitting at the top of a hill"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What happens in an inefficient energy system?",
+                        "answers": ["Energy is completely lost", "Energy transforms entirely into useful energy", "Some energy is wasted as heat or other forms", "Energy cannot transform at all"],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Which is a technological development that has improved energy efficiency?",
+                        "answers": ["Incandescent light bulbs", "Solar panels", "Wood-burning stoves", "Fossil fuel engines"],
+                        "correct": 1
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "What is the environmental benefit of using renewable energy sources?",
+                        "answers": ["They produce more heat energy", "They reduce greenhouse gas emissions", "They require less sunlight", "They increase air pollution"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How does scientific knowledge help solve current energy issues?",
+                        "answers": ["It reduces energy demand", "It develops renewable energy solutions", "It eliminates energy transformations", "It prevents energy transfers"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an example of the societal impact of improved energy systems?",
+                        "answers": ["Increased reliance on fossil fuels", "Reduced energy costs and environmental damage", "Decreased use of solar power", "Higher production of greenhouse gases"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an example of renewable energy being used to power cities?",
+                        "answers": ["Solar panels providing electricity", "Coal power plants providing energy", "Gasoline being burned for fuel", "Natural gas pipelines delivering power"],
+                        "correct": 0
+                    }
+                ]
+            }
+
+
+        },
+        {
+            "id": 5,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "What is the smallest unit of matter?",
+                        "answers": ["Molecule", "Atom", "Compound", "Electron"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an element?",
+                        "answers": [
+                            "A combination of two or more atoms",
+                            "A pure substance made of only one type of atom",
+                            "A mixture of compounds",
+                            "A chemical that cannot exist naturally"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is a compound?",
+                        "answers": ["Oxygen (O₂)", "Water (H₂O)", "Iron (Fe)", "Helium (He)"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is a property of metals?",
+                        "answers": [
+                            "Brittle and non-conductive",
+                            "Malleable and conductive",
+                            "Transparent and rigid",
+                            "Non-magnetic and non-reactive"
+                        ],
+                        "correct": 1
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "Why are internationally recognised symbols used for elements?",
+                        "answers": [
+                            "To make chemical equations easier to read",
+                            "To ensure consistency and avoid language barriers",
+                            "To reduce the number of letters in the periodic table",
+                            "To distinguish elements from compounds"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How can you distinguish between elements, compounds, and mixtures?",
+                        "answers": [
+                            "Elements are pure substances, compounds are combinations of elements, and mixtures contain two or more substances mixed together",
+                            "Elements are the smallest unit of matter, compounds contain atoms, and mixtures are only gases",
+                            "Elements are not found in nature, compounds exist in nature, and mixtures are synthetic",
+                            "Elements are mixtures of atoms, compounds are pure substances, and mixtures are combined chemically"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "Which is an example of a non-metal element?",
+                        "answers": ["Copper", "Sulfur", "Iron", "Aluminium"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following is evidence of a chemical change?",
+                        "answers": [
+                            "Melting ice",
+                            "A change in colour or temperature",
+                            "Breaking a glass",
+                            "Dissolving sugar in water"
+                        ],
+                        "correct": 1
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "Which of the following is an example of a physical change?",
+                        "answers": [
+                            "Rusting of iron",
+                            "Burning wood",
+                            "Boiling water",
+                            "Cooking an egg"
+                        ],
+                        "correct": 2
+                    },
+                    {
+                        "question": "Which is an example of chemical change in everyday life?",
+                        "answers": [
+                            "Boiling water",
+                            "Photosynthesis",
+                            "Melting wax",
+                            "Condensation of water vapour"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Why should society support scientific research?",
+                        "answers": [
+                            "To develop new pharmaceuticals and polymers",
+                            "To reduce the need for scientific discoveries",
+                            "To eliminate the use of elements in daily life",
+                            "To limit collaboration across scientific disciplines"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How has collaboration across disciplines led to scientific advancement?",
+                        "answers": [
+                            "By making new substances from Earth's spheres",
+                            "By reducing the need for experimentation",
+                            "By increasing the number of untestable hypotheses",
+                            "By isolating ideas into separate fields of study"
+                        ],
+                        "correct": 0
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "What is the key difference between physical and chemical changes?",
+                        "answers": [
+                            "Physical changes involve particle rearrangement, while chemical changes do not",
+                            "Physical changes are reversible, while chemical changes often are not",
+                            "Chemical changes occur faster than physical changes",
+                            "Chemical changes only involve gases, while physical changes involve solids"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is a lattice?",
+                        "answers": [
+                            "A group of atoms joined by strong bonds in a regular structure",
+                            "A molecule made of two or more elements",
+                            "A single atom of an element",
+                            "A gas that does not form compounds"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How has technology improved our understanding of elements?",
+                        "answers": [
+                            "By allowing the discovery of the atom's structure",
+                            "By identifying molecules using microscopes",
+                            "By reducing the size of chemical reactions",
+                            "By enabling elements to bond more easily"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What is an example of a compound used in everyday life?",
+                        "answers": [
+                            "Sodium chloride (table salt)",
+                            "Hydrogen gas",
+                            "Aluminium metal",
+                            "Carbon atoms"
+                        ],
+                        "correct": 0
+                    }
+                ]
+            }
+
+
+        },
+        {
+            "id": 6,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "What is the basic structural unit of life?",
+                        "answers": ["Organ", "Cell", "Tissue", "Organ system"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which of the following distinguishes unicellular organisms from multicellular organisms?",
+                        "answers": [
+                            "Unicellular organisms have multiple types of cells",
+                            "Unicellular organisms consist of only one cell",
+                            "Multicellular organisms are not made of cells",
+                            "Unicellular organisms contain organ systems"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What levels of organisation make up multicellular organisms?",
+                        "answers": [
+                            "Tissues, organs, organ systems, organisms",
+                            "Atoms, molecules, cells, tissues",
+                            "Organ systems, molecules, atoms",
+                            "Cells, tissues, molecules, organisms"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How do systems in multicellular organisms work together?",
+                        "answers": [
+                            "By isolating their functions",
+                            "By providing energy to other organisms",
+                            "By meeting the requirements of cells",
+                            "By forming unicellular organisms"
+                        ],
+                        "correct": 2
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "What is the primary function of the digestive system?",
+                        "answers": [
+                            "To circulate oxygen throughout the body",
+                            "To process and absorb nutrients from food",
+                            "To remove waste products from the body",
+                            "To control the movement of muscles"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is the main role of the circulatory system?",
+                        "answers": [
+                            "To break down nutrients",
+                            "To transport oxygen, nutrients, and waste products",
+                            "To facilitate muscle movement",
+                            "To process sensory information"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which system provides structure and movement in the human body?",
+                        "answers": [
+                            "Circulatory system",
+                            "Skeletal/muscular system",
+                            "Digestive system",
+                            "Respiratory system"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is the primary function of the respiratory system?",
+                        "answers": [
+                            "To break down nutrients",
+                            "To provide oxygen and remove carbon dioxide",
+                            "To regulate blood pressure",
+                            "To transport nutrients to cells"
+                        ],
+                        "correct": 1
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "What is the role of the reproductive system in humans?",
+                        "answers": [
+                            "To remove toxins from the body",
+                            "To create and maintain offspring",
+                            "To circulate oxygen in the bloodstream",
+                            "To break down food molecules"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How has scientific knowledge contributed to solving a human health issue?",
+                        "answers": [
+                            "By ignoring past evidence",
+                            "Through research leading to vaccines and treatments",
+                            "By avoiding the use of biotechnology",
+                            "By focusing only on physical changes"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How has evidence from scientific discoveries helped solve real-world problems?",
+                        "answers": [
+                            "By leading to better hygiene practices and food preservation methods",
+                            "By limiting technology use in disease treatment",
+                            "By increasing pollution levels",
+                            "By reducing the need for scientific collaboration"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "Which is an example of technology solving contemporary health issues?",
+                        "answers": [
+                            "Artificial limbs and organ transplants",
+                            "Discovering fossil fuels",
+                            "Developing non-renewable energy sources",
+                            "Avoiding scientific research"
+                        ],
+                        "correct": 0
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "How do different groups in society weigh decisions on health solutions like organ transplants?",
+                        "answers": [
+                            "By always agreeing on the same criteria",
+                            "By using different criteria and values to make decisions",
+                            "By rejecting all contemporary health solutions",
+                            "By avoiding ethical discussions entirely"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which system is responsible for maintaining oxygen and carbon dioxide balance in humans?",
+                        "answers": [
+                            "Skeletal system",
+                            "Respiratory system",
+                            "Digestive system",
+                            "Excretory system"
+                        ],
+                        "correct": 1
+                    }
+                ]
+            }
+
+
+        },
+        {
+            "id": 7,
+            "questions": {
+                "foundation": [
+                    {
+                        "question": "Which of the following is an example of a renewable resource?",
+                        "answers": ["Coal", "Sunlight", "Natural gas", "Metal ores"],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an example of a natural resource extracted from the hydrosphere?",
+                        "answers": ["Water", "Coal", "Copper", "Solar energy"],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What is the importance of the water cycle?",
+                        "answers": [
+                            "It provides a constant supply of water",
+                            "It creates fossil fuels",
+                            "It replenishes non-renewable resources",
+                            "It prevents the need for resource conservation"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "What physical process is part of the water cycle?",
+                        "answers": [
+                            "Precipitation",
+                            "Combustion",
+                            "Metal smelting",
+                            "Oil drilling"
+                        ],
+                        "correct": 0
+                    }
+                ],
+                "classic": [
+                    {
+                        "question": "What is a feature of non-renewable resources like fossil fuels?",
+                        "answers": [
+                            "They can be replenished quickly",
+                            "They are finite and take millions of years to form",
+                            "They are derived from the water cycle",
+                            "They are always environmentally friendly"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Which sphere is the source of most fossil fuels?",
+                        "answers": [
+                            "Atmosphere",
+                            "Biosphere",
+                            "Lithosphere",
+                            "Hydrosphere"
+                        ],
+                        "correct": 2
+                    },
+                    {
+                        "question": "How do different people weigh decisions about using a non-renewable resource?",
+                        "answers": [
+                            "Everyone agrees on its use",
+                            "Only governments decide",
+                            "Different criteria and viewpoints are considered",
+                            "Resources are used without discussion"
+                        ],
+                        "correct": 2
+                    },
+                    {
+                        "question": "What physical process returns water from the atmosphere to the Earth's surface?",
+                        "answers": [
+                            "Condensation",
+                            "Evaporation",
+                            "Precipitation",
+                            "Transpiration"
+                        ],
+                        "correct": 2
+                    }
+                ],
+                "challenge": [
+                    {
+                        "question": "What is one strategy to conserve non-renewable resources?",
+                        "answers": [
+                            "Burning more fossil fuels",
+                            "Recycling and alternative resource use",
+                            "Avoiding technological advancements",
+                            "Increasing water usage"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "How has scientific knowledge of the water cycle influenced water management?",
+                        "answers": [
+                            "By improving household, industrial, and agricultural practices",
+                            "By avoiding the conservation of water",
+                            "By banning the use of water resources",
+                            "By reducing the understanding of water cycles"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "How is Aboriginal and Torres Strait Islander knowledge used in resource management?",
+                        "answers": [
+                            "It is ignored in all resource decisions",
+                            "It informs sustainable practices for terrestrial and aquatic resource management",
+                            "It prevents technological advancements",
+                            "It focuses only on urban areas"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "Why is water considered a vital resource?",
+                        "answers": [
+                            "It cycles continuously through the environment",
+                            "It cannot be conserved",
+                            "It forms fossil fuels",
+                            "It is not necessary for life"
+                        ],
+                        "correct": 0
+                    }
+                ],
+                "extreme": [
+                    {
+                        "question": "What choice must be made when using technology to extract resources?",
+                        "answers": [
+                            "Ignore environmental impacts",
+                            "Balance scientific advancements and resource sustainability",
+                            "Always extract as much as possible",
+                            "Avoid the use of natural resources"
+                        ],
+                        "correct": 1
+                    },
+                    {
+                        "question": "What is an example of a made resource derived from Earth's spheres?",
+                        "answers": [
+                            "Metal alloys",
+                            "Natural gas",
+                            "Freshwater",
+                            "Sunlight"
+                        ],
+                        "correct": 0
+                    },
+                    {
+                        "question": "Which process is NOT part of the water cycle?",
+                        "answers": [
+                            "Condensation",
+                            "Evaporation",
+                            "Combustion",
+                            "Precipitation"
+                        ],
+                        "correct": 2
+                    },
+                    {
+                        "question": "What is an example of a technological development that reduces the impact of bushfires on ecosystems?",
+                        "answers": [
+                            "Satellite monitoring of fire-prone areas",
+                            "Planting non-native species",
+                            "Using pesticides",
+                            "Cutting down trees to prevent fires"
+                        ],
+                        "correct": 0
+                    }
+                ]
+            }
+
+
+        }
+    ]
+}

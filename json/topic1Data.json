@@ -1,0 +1,283 @@
+{
+    "topic": "Topic 1 - Student Research Project",
+    "numberOfLessons": 12,
+    "learningIntentions": [
+        { "id": "LI1", "text": "Develops questions or hypotheses to be investigated scientifically" },
+        { "id": "LI2", "text": "Identifies the independent, dependent and control variables." },
+        { "id": "LI3", "text": "Designs a valid experimental method." },
+        { "id": "LI4", "text": "Conducts the experiment while abiding by safety procedures." },
+        { "id": "LI5", "text": "Collects and records results accurately and reliably." },
+        { "id": "LI6", "text": "Interprets results by constructing a table and/or graph." },
+        { "id": "LI7", "text": "Evaluates the reliability and accuracy of the collected results." },
+        { "id": "LI8", "text": "Identifies solutions to improve the accuracy and reliability of results." },
+        { "id": "LI9", "text": "Analyses the validity of second-hand sources used." },
+        { "id": "LI10", "text": "Communicates their findings in a complete scientific report (including Aim, Hypothesis, Method, Results, Conclusion and Reference List)." }
+    ],
+    "lessons": [
+        {
+            "lesson": 1,
+            "lessonTitle": ["Lesson 1 - Hypotheses"],
+            "learningIntentions": ["LI1"],
+            "titleReward": ["Master of the Hypothesis"],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ4MTExOTY3/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTM2NTk5/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ2MTMwNjM3/details"
+            }
+        },
+        {
+            "lesson": 2,
+            "lessonTitle": ["Lesson 2 - Placeholder Title"],
+            "learningIntentions": ["LI2"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3NzQyMTY0/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTk4MzY0/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTE5MDAz/details"
+            }
+        },
+        {
+            "lesson": 3,
+            "lessonTitle": ["Lesson 3 - Placeholder Title"],
+            "learningIntentions": ["LI3"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MzYwNTQ1/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTMwNDM3/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTYwOTYz/details"
+            }
+        },
+        {
+            "lesson": 4,
+            "lessonTitle": ["Lesson 4 - Placeholder Title"],
+            "learningIntentions": ["LI4"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3NjU2OTc5/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ4MzMzMDQy/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTk4MzUw/details"
+            }
+        },
+        {
+            "lesson": 5,
+            "lessonTitle": ["Lesson 5 - Placeholder Title"],
+            "learningIntentions": ["LI5"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ4Mjg2MjU4/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3ODcyMDM0/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MjMwMDAw/details"
+            }
+        },
+        {
+            "lesson": 6,
+            "lessonTitle": ["Lesson 6 - Placeholder Title"],
+            "learningIntentions": ["LI6"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3ODgxNDcx/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3ODcyMDI0/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTYzMzIx/details"
+            }
+        },
+        {
+            "lesson": 7,
+            "lessonTitle": ["Lesson 7 - Placeholder Title"],
+            "learningIntentions": ["LI7"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "XXX"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "XXX"
+            }
+        },
+        {
+            "lesson": 8,
+            "lessonTitle": ["Lesson 8 - Placeholder Title"],
+            "learningIntentions": ["LI8"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MjA3NzUx/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTMwOTg4/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTQyMTgy/details"
+            }
+        },
+        {
+            "lesson": 9,
+            "lessonTitle": ["Lesson 9 - Placeholder Title"],
+            "learningIntentions": ["LI9"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTUyNDE4/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTk4MzIx/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzM0MzI2NzQ4NTc5/details"
+            }
+        },
+        {
+            "lesson": 10,
+            "lessonTitle": ["Lesson 10 - Placeholder Title"],
+            "learningIntentions": ["LI10"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MzQ3MTA4/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTIyOTA3/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3ODE0MjE0/details"
+            }
+        },
+        {
+            "lesson": 11,
+            "lessonTitle": ["Lesson 11 - Placeholder Title"],
+            "learningIntentions": ["LI10"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTUyNDA2/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQwMzcyMTE4/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3ODg4MjE3/details"
+            }
+        },
+        {
+            "lesson": 12,
+            "lessonTitle": ["Lesson 12 - Placeholder Title"],
+            "learningIntentions": ["LI10"],
+            "titleReward": ["Title Awarded for Lesson..."],
+            "successCriteria": "Finish the activity at the link.",
+            "mustDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 500,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTI0OTQ5/details"
+            },
+            "shouldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 300,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTI4Nzgz/details"
+            },
+            "couldDo": {
+                "successCriteria": "Finish the activity at the link.",
+                "synapsePoints": 100,
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3NzQyMTQ2/details"
+            }
+        }
+        
+    ]
+}

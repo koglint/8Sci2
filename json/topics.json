@@ -1,0 +1,45 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "title": "Topic 1 - Student Research Project",
+      "file": "./json/topic1Data.json",
+      "backgroundImage": "./assets/BGs/topic1BG.png"
+    },
+    {
+      "id": 2,
+      "title": "Topic 2 - Ecology",
+      "file": "./json/topic2Data.json",
+      "backgroundImage": "./assets/BGs/topic2BG.png"
+    },
+    {
+      "id": 3,
+      "title": "Topic 3 - Earth",
+      "file": "./json/topic3Data.json",
+      "backgroundImage": "./assets/BGs/topic3BG.png"
+    },
+    {
+      "id": 4,
+      "title": "Topic 4 - Motion",
+      "file": "./json/topic4Data.json",
+      "backgroundImage": "./assets/BGs/topic4BG.png"
+    },
+    {
+      "id": 5,
+      "title": "Topic 5 - Chemical Reactions",
+      "file": "./json/topic5Data.json",
+      "backgroundImage": "./assets/BGs/topic5BG.png"
+    },
+    {
+      "id": 6,
+      "title": "Topic 6 - Inside the Human Body",
+      "file": "./json/topic6Data.json",
+      "backgroundImage": "./assets/BGs/topic6BG.png"
+    },
+    {
+      "id": 7,
+      "title": "Topic 7 - Resources on Earth",
+      "file": "./json/topic7Data.json",
+      "backgroundImage": "./assets/BGs/topic7BG.png"
+    }
+  ]}

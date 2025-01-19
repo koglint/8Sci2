@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Arena</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+/* battleArena.html*/
+/* Battle Arena Wrapper */
+#battle-arena-wrapper {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    /* Static width */
+    height: 100vh;
+    /* Static height */
+    display: flex;
+    justify-content: center;
+    /* Horizontally centre the child */
+    align-items: center;
+    /* Vertically centre the child */
+    background-image: url('./assets/BGs/battleArenaSpace.jpg');
+    /* Path to the background image */
+    background-size: cover;
+    /* Scale the image to cover the viewport */
+    background-position: center;
+    /* Centre the image */
+    background-repeat: no-repeat;
+    /* Prevent tiling */
+}
+
+/* Battle Arena Grid */
+#battle-arena {
+    top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 30vh);
+    grid-template-rows: repeat(3, 30vh);
+    position: relative;
+    z-index: 1;
+}
+
+/* Battle Arena Sections */
+.battle-arena-section {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* CUSTOM ACTIVE SECTIONS Sections above the paths, from top left 2 3 4, 5 6 7, 8 9 10 */
+#battle-arena .battle-arena-section:nth-child(2),
+#battle-arena .battle-arena-section:nth-child(7),
+#battle-arena .battle-arena-section:nth-child(9)
+    {
+    z-index: 3;
+    cursor: pointer;
+}
+
+/* CUSTOM Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
+#battle-arena > div:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: url('./assets/bossBattle/CrocTheCrusher.png') no-repeat center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: 2;
+}
+
+/* CUSTOM Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
+#battle-arena > div:nth-child(7)::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: url('./assets/bossBattle/Lemur.png') no-repeat center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: 2;
+}
+/* Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
+#battle-arena > div:nth-child(9)::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: url('./assets/bossBattle/OwlTheOwlticulate.png') no-repeat center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Avatar Styling */
+#battle-avatar-container {
+    position: absolute; /* Allows precise positioning within the parent container */
+    width: 15%; /* Control the avatar's width as a percentage of the parent */
+    aspect-ratio: 16 / 9; /* Maintain a square aspect ratio */
+    top: 50%; /* Center vertically within the parent */
+    left: 50%; /* Center horizontally within the parent */
+    transform: translate(-50%, -50%); /* Adjust for precise centering */
+    z-index: 10; /* Ensure it's above other elements */
+    pointer-events: none; /* Prevent interfering with clicks if necessary */
+}
+
+
+/* Tooltip Styling */
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 0px;
+    background: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 2.5em;
+    pointer-events: none;
+    text-shadow:
+        -1px -1px 0 black,
+        /* Top-left shadow */
+        1px -1px 0 black,
+        /* Top-right shadow */
+        -1px 1px 0 black,
+        /* Bottom-left shadow */
+        1px 1px 0 black;
+    /* Bottom-right shadow */
+}
+.battle-arena-section {
+    position: relative;
+    /* Existing styles */
+}
+
+.battle-arena-section .section-overlay {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
+    /* Ensures clicks pass through the overlay */
+    opacity: 1;
+    /* Adjust transparency */
+    z-index: 12;
+    /* Stacks overlay above the section's background */
+}
+
+#boss-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Ensure it appears above all other elements */
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+#boss-modal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: radial-gradient(circle, #6b046b, #1c0122);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: solid 2px white;
+}
+
+.modal-content img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#boss-description {
+    color: #ffdd00;
+}
+
+
+/* General Button Styling */
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #4caf50; /* Default button color */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Fight Button */
+#fight-button {
+    background-color: #e53935; /* Red for fight */
+    border-color: #b71c1c;
+}
+
+#fight-button::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width of the icon */
+    height: 20px; /* Adjust height of the icon */
+    background: url('./assets/icons/hand-fist-solid.svg') no-repeat center center;
+    background-size: contain; /* Scale the SVG to fit the width and height */
+    position: absolute;
+    left: 10px; /* Adjust position relative to button */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+/* Flight Button */
+#flight-button {
+    background-color: #1e88e5; /* Blue for flight */
+    border-color: #0d47a1;
+}
+
+#flight-button::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width of the icon */
+    height: 20px; /* Adjust height of the icon */
+    background: url('./assets/icons/run-person-fast-rush-svgrepo-com.svg') no-repeat center center;
+    background-size: contain; /* Scale the SVG to fit the width and height */
+    position: absolute;
+    left: 10px; /* Adjust position relative to button */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Adjust padding to make space for the icon */
+#fight-button,
+#flight-button {
+    padding-left: 40px; /* Adjust for icon space */
+}
+
+
+
+
+
+    </style>
+    <script type="module" defer>
+        import { db, auth } from './firebase-config.js';
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+                            
+        
+        
+        //This controls the inactive sections.  Define sections to overlay with under construction. From top left goes 0 1 2, 3 4 5, 6 7 8.
+        const overlaySections = [1, 2, 3, 6, 8]; 
+
+
+
+
+        async function fetchAndRenderMiniAvatar(userId) {
+            const userDoc = doc(db, 'users', userId);
+            const userSnapshot = await getDoc(userDoc);
+            if (userSnapshot.exists()) {
+                const avatarConfig = userSnapshot.data().avatarConfig;
+                renderMiniAvatar(avatarConfig);
+            }
+        }
+
+        function renderMiniAvatar(config) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+
+                // Allow CSS to control size, remove explicit width/height
+                const layerOrder = ['skin', 'eyes', 'mouth', 'hair', 'masks', 'tops', 'pants', 'shoes'];
+                const promises = layerOrder.map((layer) => config[layer] ? loadImage(config[layer]) : Promise.resolve());
+
+                Promise.all(promises).then((images) => {
+                    // Adjust canvas size to match the avatar container's dimensions
+                    const avatarContainer = document.getElementById('battle-avatar-container');
+                    const containerWidth = avatarContainer.offsetWidth;
+                    const containerHeight = avatarContainer.offsetHeight;
+
+                    canvas.width = containerWidth; // Match container width
+                    canvas.height = containerHeight; // Match container height
+
+                    // Render avatar layers
+                    images.filter(Boolean).forEach((img) => ctx.drawImage(img, 0, 0, canvas.width, canvas.height));
+
+                    avatarContainer.innerHTML = ''; // Clear any existing content
+                    avatarContainer.appendChild(canvas); // Append the canvas
+                });
+            }
+
+
+        function loadImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+                img.src = src;
+            });
+        }
+
+        function isAvatarOverlappingSection(avatar, section) {
+                const avatarRect = avatar.getBoundingClientRect();
+                const sectionRect = section.getBoundingClientRect();
+
+                // Define a buffer around the section
+                const buffer = -10; // Adjust this value to increase/decrease overlap area
+
+                // Expand the sectionRect by the buffer
+                const expandedSectionRect = {
+                    left: sectionRect.left - buffer,
+                    right: sectionRect.right + buffer,
+                    top: sectionRect.top - buffer,
+                    bottom: sectionRect.bottom + buffer,
+                };
+
+                // Check for overlap
+                return !(
+                    avatarRect.right < expandedSectionRect.left ||
+                    avatarRect.left > expandedSectionRect.right ||
+                    avatarRect.bottom < expandedSectionRect.top ||
+                    avatarRect.top > expandedSectionRect.bottom
+                );
+            }
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+                const avatarContainer = document.getElementById('battle-avatar-container');
+                const mapContainer = document.getElementById('battle-arena');
+                const navContainer = document.getElementById("navbar-container");
+                fetch("navbarTransparent.html")
+                    .then(response => response.text())
+                    .then(html => {
+                        navContainer.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error("Error loading navigation bar:", error);
+                    });
+
+                if (!avatarContainer) {
+                    console.error('Avatar container not found.');
+                    return;
+                }
+
+                if (!mapContainer) {
+                    console.error('Map container not found.');
+                    return;
+                }
+
+                try {
+                    // Fetch boss data
+                    const bossResponse = await fetch('./json/bossData.json');
+                    const bossData = await bossResponse.json();
+                    const activeSections = bossData.sections;
+
+                    // Fetch and render battle arena sections
+                    const arenaResponse = await fetch('./json/gameData.json');
+                    const arenaData = await arenaResponse.json();
+                    const battleArenaSections = arenaData.battleArena || [];
+
+
+                    battleArenaSections.forEach((section, index) => {
+                        const isActive = activeSections[index]?.active;
+                        const targetUrl = activeSections[index]?.url;
+
+                        // Create the section div
+                        const sectionDiv = document.createElement('div');
+                        sectionDiv.className = 'battle-arena-section';
+                        sectionDiv.style.backgroundImage = `url('${section}')`;
+
+                        // Add overlay if the section is in `overlaySections`
+                        if (overlaySections.includes(index)) {
+                            const overlayImg = document.createElement('img');
+                            overlayImg.src = './assets/battleArena/underConstruction.png'; // Replace with your overlay PNG file path
+                            overlayImg.className = 'section-overlay';
+                            sectionDiv.appendChild(overlayImg);
+                        }
+
+                        if (isActive) {
+                            sectionDiv.addEventListener('click', async () => {
+                                if (index === 4) {
+                                    window.location.href = 'shop.html';
+                                } else {
+                                    try {
+                                        // Find the corresponding boss ID from bossData
+                                        const sectionData = activeSections.find((section) => section.id === index + 1);
+                                        if (!sectionData || !sectionData.url) {
+                                            console.error('Boss data not found for section:', index + 1);
+                                            alert('Boss data not available for this section.');
+                                            return;
+                                        }
+
+                                        // Extract the boss ID from the URL (e.g., bossBattle2.html -> 2)
+                                        const bossIdMatch = sectionData.url.match(/bossBattle(\d+)\.html/);
+                                        if (!bossIdMatch) {
+                                            console.error('Invalid boss battle URL:', sectionData.url);
+                                            alert('Invalid boss battle URL.');
+                                            return;
+                                        }
+
+                                        const bossId = bossIdMatch[1]; // Extract the boss ID
+                                        const bossUrl = `./json/bossBattle${bossId}.json`;
+
+                                        // Fetch boss data
+                                        const bossData = await fetch(bossUrl).then((res) => res.json());
+
+                                        // Populate modal with boss data
+                                        const modal = document.getElementById('boss-modal');
+                                        document.getElementById('boss-name').textContent = bossData.bossName;
+                                        document.getElementById('boss-image').src = bossData.bossAvatar;
+                                        document.getElementById('boss-description').textContent = bossData.description;
+
+                                        // Save the battle URL for the Fight button
+                                        sessionStorage.setItem('selectedBossBattle', sectionData.url);
+
+                                        // Show the modal
+                                        modal.classList.add('visible');
+                                    } catch (error) {
+                                        console.error('Error loading boss data:', error);
+                                        alert('Failed to load boss information. Please try again.');
+                                    }
+                                }
+                            });
+                        }
+
+
+
+                        // Attach the section to the map
+                        sectionDiv.dataset.active = isActive; // Mark active/inactive
+                        mapContainer.appendChild(sectionDiv);
+                    });
+
+                    // Initialize avatar movement
+                    initAvatarMovement(activeSections);
+                    auth.onAuthStateChanged((user) => {
+                        if (user) {
+                            fetchAndRenderMiniAvatar(user.uid);
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error setting up the battle arena:', error);
+                }
+            });
+
+
+            document.addEventListener('DOMContentLoaded', () => {
+                    // Fight button navigates to the boss battle page
+                    document.getElementById('fight-button').addEventListener('click', () => {
+                        const bossBattleUrl = sessionStorage.getItem('selectedBossBattle');
+                        if (bossBattleUrl) {
+                            window.location.href = bossBattleUrl; // Navigate to the battle page
+                        }
+                    });
+
+                    // Flight button hides the modal
+                    document.getElementById('flight-button').addEventListener('click', () => {
+                        const modal = document.getElementById('boss-modal');
+                        modal.classList.remove('visible');
+                    });
+                });
+
+
+
+        function initAvatarMovement(activeSections) {
+                const avatar = document.getElementById('battle-avatar-container');
+                const map = document.getElementById('battle-arena');
+                const tooltip = document.getElementById('tooltip');
+
+                if (!avatar || !map || !tooltip) {
+                    console.error('Avatar, map, or tooltip not found.');
+                    return;
+                }
+
+                const avatarSpeed = 15;
+                let avatarPosition = { x: map.clientWidth / 2, y: map.clientHeight / 2 };
+
+                document.addEventListener('keydown', (e) => {
+                    let isOverlapping = false;
+
+                    switch (e.key) {
+                        case 'ArrowUp':
+                            avatarPosition.y = Math.max(0, avatarPosition.y - avatarSpeed);
+                            break;
+                        case 'ArrowDown':
+                            avatarPosition.y = Math.min(map.clientHeight - avatar.offsetHeight, avatarPosition.y + avatarSpeed);
+                            break;
+                        case 'ArrowLeft':
+                            avatarPosition.x = Math.max(0, avatarPosition.x - avatarSpeed);
+                            break;
+                        case 'ArrowRight':
+                            avatarPosition.x = Math.min(map.clientWidth - avatar.offsetWidth, avatarPosition.x + avatarSpeed);
+                            break;
+                        case 'Enter': // Handle navigation for active sections only
+                            const sections = document.querySelectorAll('.battle-arena-section');
+                            sections.forEach((section, index) => {
+                                if (section.dataset.active === 'true' && isAvatarOverlappingSection(avatar, section)) {
+                                    const targetUrl = activeSections[index]?.url;
+                                    if (targetUrl) {
+                                        window.location.href = targetUrl;
+                                    }
+                                }
+                            });
+                            break;
+                    }
+
+                    // Update avatar position
+                    avatar.style.left = `${avatarPosition.x}px`;
+                    avatar.style.top = `${avatarPosition.y}px`;
+
+                    // Check for overlap and show tooltip for active sections only
+                    const sections = document.querySelectorAll('.battle-arena-section');
+                    sections.forEach((section, index) => {
+                        if (section.dataset.active === 'true' && isAvatarOverlappingSection(avatar, section)) {
+                            isOverlapping = true;
+                            tooltip.style.display = 'block';
+                            tooltip.innerText = activeSections[index]?.url === 'profile.html'
+                                ? 'Press ENTER to go to Profile Page'
+                                : `Press ENTER to Battle Boss`;
+                        }
+                    });
+
+                    // Hide tooltip if no overlap
+                    if (!isOverlapping) {
+                        tooltip.style.display = 'none';
+                    }
+                });
+            }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="navbar-container-transparent" id="navbar-container"></div>
+    <!-- Battle Arena Wrapper -->
+    <div id="battle-arena-wrapper">
+        <div id="battle-arena">
+            <div id="battle-avatar-container">
+                <!-- Avatar will be rendered here -->
+            </div>
+        </div>
+        <div id="tooltip"
+            class="tooltip">
+            Destination
+        </div>
+
+    </div>
+    <div id="boss-modal" class="hidden">
+        <div class="modal-content">
+            <h2 id="boss-name"></h2>
+            <img id="boss-image" alt="Boss Avatar">
+            <p id="boss-description"></p>
+            <div class="modal-buttons">
+                <button id="fight-button" class="action-button" >Fight</button>
+                <button id="flight-button" class="action-button" >Flight</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

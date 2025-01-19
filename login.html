@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      
+/* login.html*/
+
+.login-container-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./assets/BGs/ClassKoglinTransparentBG.png');
+    background-size: 30%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: radial-gradient(circle, #6b046b, #9205b1);    padding: 20px;
+    border-radius: 8px;
+    border: solid 1px rgb(76, 0, 82);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #373636;
+    cursor: pointer;
+}
+
+.tab button.active {
+    background: #007bff;
+    color: white;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+  
+    </style>
+</head>
+<body>
+    <div class="login-container-wrapper">
+        <div class="login-container">
+            <h1>Welcome</h1>
+        
+            <!-- Tabs for Login and Register -->
+            <div class="tab">
+                <button id="login-tab" class="active">Login</button>
+                <button id="register-tab">Register</button>
+            </div>
+        
+            <!-- Login Form -->
+            <div id="login-form" class="form active">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button id="login-button">Login</button>
+            </div>
+        
+            <!-- Register Form -->
+            <div id="register-form" class="form">
+                <h2>Register</h2>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                <input type="text" id="class-code" placeholder="Class Code" required>
+                <button id="register-button">Register</button>
+            </div>
+        
+            <p id="error-message" class="error"></p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { auth, db } from "./firebase-config.js";
+        import { createUserWithEmailAndPassword, signInWithEmailAndPassword, deleteUser } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+        // Function to populate `completedTasks` for a new user
+            async function populateCompletedTasksForNewUser(userId) {
+                try {
+                    // Fetch topics JSON
+                    const topicsResponse = await fetch("./json/topics.json");
+                    const topicsData = await topicsResponse.json();
+
+                    const updates = {};
+
+                    for (const topic of topicsData.topics) {
+                        const topicResponse = await fetch(topic.file);
+                        const topicData = await topicResponse.json();
+
+                        const topicKey = `topic${topic.id}`;
+                        updates[topicKey] = {};
+
+                        for (let lesson = 1; lesson <= topicData.numberOfLessons; lesson++) {
+                            updates[topicKey][`${topic.id}-lesson${lesson}-must`] = { completed: false, timestamp: null };
+                            updates[topicKey][`${topic.id}-lesson${lesson}-should`] = { completed: false, timestamp: null };
+                            updates[topicKey][`${topic.id}-lesson${lesson}-could`] = { completed: false, timestamp: null };
+                        }
+                    }
+
+                    // Update the Firestore document for the user
+                    console.log(`Updating completedTasks for user ${userId}...`);
+                    const userRef = doc(db, "users", userId);
+                    await updateDoc(userRef, { completedTasks: updates });
+                    console.log("CompletedTasks populated successfully!");
+                } catch (error) {
+                    console.error("Error populating completedTasks:", error);
+                }
+            }
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Tab Switching
+            const loginTab = document.getElementById("login-tab");
+            const registerTab = document.getElementById("register-tab");
+            const loginForm = document.getElementById("login-form");
+            const registerForm = document.getElementById("register-form");
+
+            loginTab.addEventListener("click", () => {
+                loginTab.classList.add("active");
+                registerTab.classList.remove("active");
+                loginForm.classList.add("active");
+                registerForm.classList.remove("active");
+            });
+
+            registerTab.addEventListener("click", () => {
+                registerTab.classList.add("active");
+                loginTab.classList.remove("active");
+                registerForm.classList.add("active");
+                loginForm.classList.remove("active");
+            });
+
+            // Login Logic
+            document.getElementById("login-button").addEventListener("click", async () => {
+                const email = document.getElementById("login-email").value;
+                const password = document.getElementById("login-password").value;
+
+                try {
+                    console.log("Attempting to log in...");
+                    await signInWithEmailAndPassword(auth, email, password);
+                    console.log("Login successful!");
+                    window.location.href = "home.html"; // Redirect on success
+                } catch (error) {
+                    console.error("Error during login:", error);
+                    document.getElementById("error-message").innerText = error.message;
+                }
+            });
+
+            // Registration Logic
+            document.getElementById("register-button").addEventListener("click", async () => {
+                const email = document.getElementById("register-email").value;
+                const password = document.getElementById("register-password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+                const classCode = document.getElementById("class-code").value;
+
+                if (password !== confirmPassword) {
+                    document.getElementById("error-message").innerText = "Passwords do not match!";
+                    return;
+                }
+
+                let userCredential = null;
+
+                try {
+                    // Step 1: Create user in Firebase Authentication
+                    console.log("Creating user...");
+                    userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const uid = userCredential.user.uid;
+
+                    console.log("User created successfully. Validating class code...");
+
+                    // Step 2: Check class code validity
+                    const classDoc = await getDoc(doc(db, "class-codes", classCode));
+
+                    if (!classDoc.exists()) {
+                        console.error("Invalid class code provided. Rolling back user creation...");
+                        document.getElementById("error-message").innerText = "Invalid class code!";
+
+                        // Rollback: Delete the user if class code is invalid
+                        await deleteUser(userCredential.user);
+                        console.log("User deleted successfully.");
+                        return;
+                    }
+
+                    const className = classDoc.data().className;
+
+                    // Step 3: Write user data to Firestore
+                    console.log("Class code valid. Storing user data in Firestore...");
+                    await setDoc(doc(db, "users", uid), {
+                        email: email,
+                        class: className,
+                        synapsePoints: 0,
+                        avatarConfig: {}, // Placeholder for future avatar customization
+                        completedTasks: {}
+                    });
+
+                    // Step 4: Populate `completedTasks` for the new user
+                    console.log("Populating completedTasks for new user...");
+                    await populateCompletedTasksForNewUser(uid);
+
+
+
+                    console.log("User registered and data saved to Firestore successfully!");
+                    window.location.href = "home.html"; // Redirect on success
+                } catch (error) {
+                    console.error("Error during registration:", error);
+
+                    // Clean up: Delete user if it was created but an error occurred later
+                    if (userCredential && userCredential.user) {
+                        console.log("Cleaning up incomplete user registration...");
+                        await deleteUser(userCredential.user);
+                    }
+
+                    document.getElementById("error-message").innerText = error.message;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

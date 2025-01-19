@@ -1,0 +1,528 @@
+{
+    "skin": [
+        {
+            "file": "skinRainbowColorBlue.png",
+            "label": "Skinrainbowcolorblue",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinRainbowColorGreen.png",
+            "label": "Skinrainbowcolorgreen",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinRainbowColorIndigo.png",
+            "label": "Skinrainbowcolorindigo",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinRainbowColorOrange.png",
+            "label": "Skinrainbowcolororange",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinRainbowColorRed.png",
+            "label": "Skinrainbowcolorred",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinRainbowColorViolet.png",
+            "label": "Skinrainbowcolorviolet",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinRainbowColorYellow.png",
+            "label": "Skinrainbowcoloryellow",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone1.png",
+            "label": "Skintone1",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone2.png",
+            "label": "Skintone2",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone3.png",
+            "label": "Skintone3",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone4.png",
+            "label": "Skintone4",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone5.png",
+            "label": "Skintone5",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone6.png",
+            "label": "Skintone6",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "skinTone7.png",
+            "label": "Skintone7",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "pants": [
+        {
+            "file": "BluePants.png",
+            "label": "Bluepants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "BrownPants.png",
+            "label": "Brownpants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "DarkGreyPants.png",
+            "label": "Darkgreypants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "GreenPants.png",
+            "label": "Greenpants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "IndigoPants.png",
+            "label": "Indigopants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "OrangePants.png",
+            "label": "Orangepants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "RedPants.png",
+            "label": "Redpants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "VioletPants.png",
+            "label": "Violetpants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "YellowPants.png",
+            "label": "Yellowpants",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "tops": [
+        {
+            "file": "BlueTop.png",
+            "label": "Bluetop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "BlueWithRedStripesTop.png",
+            "label": "Bluewithredstripestop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "darkCharcoalWithSmileyFaceTop.png",
+            "label": "Darkcharcoalwithsmileyfacetop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "darkGreyWithCertifiedSmartyTextTop.png",
+            "label": "Darkgreywithcertifiedsmartytexttop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "darkRedWithReindeerTop.png",
+            "label": "Darkredwithreindeertop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "GreenTop.png",
+            "label": "Greentop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "IndigoTop.png",
+            "label": "Indigotop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "OrangeTop.png",
+            "label": "Orangetop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "orangeWithRedArmsTop.png",
+            "label": "Orangewithredarmstop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "purpleWithPinkDotsTop.png",
+            "label": "Purplewithpinkdotstop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "RedTop.png",
+            "label": "Redtop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "TurquoiseTop.png",
+            "label": "Turquoisetop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "VioletTop.png",
+            "label": "Violettop",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "YellowTop.png",
+            "label": "Yellowtop",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "eyes": [
+        {
+            "file": "BlueEyes.png",
+            "label": "Blueeyes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesBlack.png",
+            "label": "Eyesblack",
+            "tier": 7,
+            "cost": 50
+        },
+        {
+            "file": "eyesBlackwhite.png",
+            "label": "Eyesblackwhite",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesBrown.png",
+            "label": "Eyesbrown",
+            "tier": 7,
+            "cost": 50
+        },
+        {
+            "file": "eyesBrownblue.png",
+            "label": "Eyesbrownblue",
+            "tier": 7,
+            "cost": 50
+        },
+        {
+            "file": "eyesDarkblue.png",
+            "label": "Eyesdarkblue",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesGreen.png",
+            "label": "Eyesgreen",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesGreenblue.png",
+            "label": "Eyesgreenblue",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesGreenbrown.png",
+            "label": "Eyesgreenbrown",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesGreenpink.png",
+            "label": "Eyesgreenpink",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesLightblue.png",
+            "label": "Eyeslightblue",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesLimegreen.png",
+            "label": "Eyeslimegreen",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesOrange.png",
+            "label": "Eyesorange",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesPink.png",
+            "label": "Eyespink",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesPurple.png",
+            "label": "Eyespurple",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesPurpleorange.png",
+            "label": "Eyespurpleorange",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesRed.png",
+            "label": "Eyesred",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesTeal.png",
+            "label": "Eyesteal",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesWhite.png",
+            "label": "Eyeswhite",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "eyesYellow.png",
+            "label": "Eyesyellow",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "GreenEyes.png",
+            "label": "Greeneyes",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "mouth": [
+        {
+            "file": "mouthBlack.png",
+            "label": "Mouthblack",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthBlue.png",
+            "label": "Mouthblue",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthBrown.png",
+            "label": "Mouthbrown",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthGreen.png",
+            "label": "Mouthgreen",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthOrange.png",
+            "label": "Mouthorange",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthPink.png",
+            "label": "Mouthpink",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthRed.png",
+            "label": "Mouthred",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthViolet.png",
+            "label": "Mouthviolet",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthWhite.png",
+            "label": "Mouthwhite",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "mouthYellow.png",
+            "label": "Mouthyellow",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "hair": [
+        {
+            "file": "LongBlackHair.png",
+            "label": "Longblackhair",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "LongYellowHair.png",
+            "label": "Longyellowhair",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "noHair.png",
+            "label": "Nohair",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "ShortBrownHair.png",
+            "label": "Shortbrownhair",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "ShortYellowHair.png",
+            "label": "Shortyellowhair",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "shoes": [
+        {
+            "file": "BlueShoes.png",
+            "label": "Blueshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "GreenShoes.png",
+            "label": "Greenshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "GreyShoes.png",
+            "label": "Greyshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "IndigoShoes.png",
+            "label": "Indigoshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "OrangeShoes.png",
+            "label": "Orangeshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "PinkShoes.png",
+            "label": "Pinkshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "RedShoes.png",
+            "label": "Redshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "VioletShoes.png",
+            "label": "Violetshoes",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "YellowShoes.png",
+            "label": "Yellowshoes",
+            "tier": 1,
+            "cost": 50
+        }
+    ],
+    "masks": [
+        {
+            "file": "noMask.png",
+            "label": "Nomask",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "yellowMaskWithSmileyFace.png",
+            "label": "Yellowmaskwithsmileyface",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "yellowMaskWithSmileyFaceSlim.png",
+            "label": "Yellowmaskwithsmileyfaceslim",
+            "tier": 1,
+            "cost": 50
+        }
+    ]
+}
