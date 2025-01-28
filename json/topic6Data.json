@@ -1,26 +1,26 @@
 {
     "topic": "Topic 6 - Inside the Human Body",
-    "numberOfLessons": 14,
+    "numberOfLessons": 15,
     "learningIntentions": [
-      { "id": "LI1", "text": "Placeholder for Learning Intention 1" },
-      { "id": "LI2", "text": "Placeholder for Learning Intention 2" },
-      { "id": "LI3", "text": "Placeholder for Learning Intention 3" },
-      { "id": "LI4", "text": "Placeholder for Learning Intention 4" },
-      { "id": "LI5", "text": "Placeholder for Learning Intention 5" },
-      { "id": "LI6", "text": "Placeholder for Learning Intention 6" },
-      { "id": "LI7", "text": "Placeholder for Learning Intention 7" },
-      { "id": "LI8", "text": "Placeholder for Learning Intention 8" },
-      { "id": "LI9", "text": "Placeholder for Learning Intention 9" },
-      { "id": "LI10", "text": "Placeholder for Learning Intention 10" },
-      { "id": "LI11", "text": "Placeholder for Learning Intention 11" },
-      { "id": "LI12", "text": "Placeholder for Learning Intention 12" },
-      { "id": "LI13", "text": "Placeholder for Learning Intention 13" },
-      { "id": "LI14", "text": "Placeholder for Learning Intention 14" }
+      { "id": "LI1", "text": "Recall the basic structure and organelles of a cell distinguish between unicellular and multicellular organisms. " },
+      { "id": "LI2", "text": "Identify that different types of cells make up the tissues, organs, and organ systems of multicellular organisms. " },
+      { "id": "LI3", "text": "Outline the levels of organisation that make up organisms. " },
+      { "id": "LI4", "text": "Explain that the systems in multicellular organisms work together to provide cell requirements. " },
+      { "id": "LI5", "text": "Describe the role of the digestive system in maintaining a human as a functioning multicellular organism. " },
+      { "id": "LI6", "text": "Describe the role of the circulatory system in maintaining a human as a functioning multicellular organism. " },
+      { "id": "LI7", "text": "Describe the role of the excretory system in maintaining a human as a functioning multicellular organism. " },
+      { "id": "LI8", "text": "Describe the role of the skeletal/muscular systems in maintaining a human as a functioning multicellular organism. " },
+      { "id": "LI9", "text": "Describe the role of the respiratory system in maintaining a human as a functioning multicellular organism. " },
+      { "id": "LI10", "text": "Outline the role of the reproductive system in humans. " },
+      { "id": "LI11", "text": "Research an example of how changes in scientific knowledge have contributed to finding a solution to a human health issue. " },
+      { "id": "LI12", "text": "Discuss how evidence from a scientific discovery has changed understanding and contributed to solving a real-world problem, e.g., animal or plant disease, hygiene, food preservation, sewage treatment, biotechnology. " },
+      { "id": "LI13", "text": "Describe how developments in technology have contributed to finding solutions to a contemporary issue, e.g. organ transplantation, artificial joints/limbs, treatment for diabetes, asthma, kidney, or heart disease.  " },
+      { "id": "LI14", "text": "Discuss examples to show that groups of people in society may use or weight criteria differently in making decisions about the application of a solution to a contemporary issue, e.g., organ transplantation, control, and prevention of diseases. " }
     ],
     "lessons": [
       {
         "lesson": 1,
-        "lessonTitle": ["Lesson 1 - Placeholder Title"],
+        "lessonTitle": ["Lesson 1 - Placeholder"],
         "learningIntentions": ["LI1"],
         "successCriteria": "This is the success criteria for Lesson 1",
         "mustDo": {
@@ -42,7 +42,7 @@
       {
         "lesson": 2,
         "learningIntentions": ["LI2"],
-        "lessonTitle": ["Lesson 2 - Placeholder Title"],
+        "lessonTitle": ["Lesson 2 - Placeholder"],
 
         "successCriteria": "This is the success criteria for Lesson 2",
         "mustDo": {
@@ -63,7 +63,7 @@
       },
       {
         "lesson": 3,
-        "lessonTitle": ["Lesson 3 - Placeholder Title"],
+        "lessonTitle": ["Lesson 3 - Placeholder"],
 
         "learningIntentions": ["LI3", "LI4"],
         "successCriteria": "This is the success criteria for Lesson 3",
@@ -85,7 +85,7 @@
       },
       {
         "lesson": 4,
-        "lessonTitle": ["Lesson 4 - Placeholder Title"],
+        "lessonTitle": ["Lesson 4 - Placeholder"],
 
         "learningIntentions": ["LI4"],
         "successCriteria": "This is the success criteria for Lesson 4",
@@ -107,7 +107,7 @@
       },
       {
         "lesson": 5,
-        "lessonTitle": ["Lesson 5 - Placeholder Title"],
+        "lessonTitle": ["Lesson 5 - Placeholder"],
 
         "learningIntentions": ["LI5", "LI6"],
         "successCriteria": "This is the success criteria for Lesson 5",
@@ -129,7 +129,7 @@
       },
       {
         "lesson": 6,
-        "lessonTitle": ["Lesson 6 - Placeholder Title"],
+        "lessonTitle": ["Lesson 6 - Placeholder"],
 
         "learningIntentions": ["LI6", "LI7"],
         "successCriteria": "This is the success criteria for Lesson 6",
@@ -151,7 +151,7 @@
       },
       {
         "lesson": 7,
-        "lessonTitle": ["Lesson 7 - Placeholder Title"],
+        "lessonTitle": ["Lesson 7 - Placeholder"],
 
         "learningIntentions": ["LI7", "LI8"],
         "successCriteria": "This is the success criteria for Lesson 7",
@@ -173,7 +173,7 @@
       },
       {
         "lesson": 8,
-        "lessonTitle": ["Lesson 8 - Placeholder Title"],
+        "lessonTitle": ["Lesson 8 - Placeholder"],
 
         "learningIntentions": ["LI8", "LI9"],
         "successCriteria": "This is the success criteria for Lesson 8",
@@ -195,7 +195,7 @@
       },
       {
         "lesson": 9,
-        "lessonTitle": ["Lesson 9 - Placeholder Title"],
+        "lessonTitle": ["Lesson 9 - Placeholder"],
 
         "learningIntentions": ["LI9", "LI10"],
         "successCriteria": "This is the success criteria for Lesson 9",
@@ -217,7 +217,7 @@
       },
       {
         "lesson": 10,
-        "lessonTitle": ["Lesson 10 - Placeholder Title"],
+        "lessonTitle": ["Lesson 10 - Placeholder"],
 
         "learningIntentions": ["LI10", "LI11"],
         "successCriteria": "This is the success criteria for Lesson 10",
@@ -239,7 +239,7 @@
       },
       {
         "lesson": 11,
-        "lessonTitle": ["Lesson 11 - Placeholder Title"],
+        "lessonTitle": ["Lesson 11 - Placeholder"],
 
         "learningIntentions": ["LI11", "LI12"],
         "successCriteria": "This is the success criteria for Lesson 11",
@@ -261,7 +261,7 @@
       },
       {
         "lesson": 12,
-        "lessonTitle": ["Lesson 12 - Placeholder Title"],
+        "lessonTitle": ["Lesson 12 - Placeholder"],
 
         "learningIntentions": ["LI12", "LI13"],
         "successCriteria": "This is the success criteria for Lesson 12",
@@ -283,7 +283,7 @@
       },
       {
         "lesson": 13,
-        "lessonTitle": ["Lesson 13 - Placeholder Title"],
+        "lessonTitle": ["Lesson 13 - Placeholder"],
 
         "learningIntentions": ["LI13", "LI14"],
         "successCriteria": "This is the success criteria for Lesson 13",
@@ -305,7 +305,7 @@
       },
       {
         "lesson": 14,
-        "lessonTitle": ["Lesson 14 - Placeholder Title"],
+        "lessonTitle": ["Lesson 14 - Placeholder"],
 
         "learningIntentions": ["LI14", "LI15"],
         "successCriteria": "This is the success criteria for Lesson 14",
@@ -321,6 +321,28 @@
         },
         "couldDo": {
           "successCriteria": "This is the could do activity for Lesson 14",
+          "synapsePoints": 5,
+          "URL": "http://placeholderURL.com"
+        }
+      },
+            {
+        "lesson": 15,
+        "lessonTitle": ["Lesson 15 - Placeholder"],
+
+        "learningIntentions": ["LI15"],
+        "successCriteria": "This is the success criteria for Lesson 15",
+        "mustDo": {
+          "successCriteria": "This is the must do activity for Lesson 15",
+          "synapsePoints": 1,
+          "URL": "http://placeholderURL.com"
+        },
+        "shouldDo": {
+          "successCriteria": "This is the should do activity for Lesson 15",
+          "synapsePoints": 7,
+          "URL": "http://placeholderURL.com"
+        },
+        "couldDo": {
+          "successCriteria": "This is the could do activity for Lesson 15",
           "synapsePoints": 5,
           "URL": "http://placeholderURL.com"
         }

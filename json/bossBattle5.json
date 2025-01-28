@@ -1,8 +1,8 @@
 {
-    "bossName": "Larry 'Linear' Lemur",
-    "bossAvatar": "./assets/bossBattle/Lemur.png",
-    "description": "A fierce opponent who will test your knowledge of NUMERACY",
-    "backgroundImage": "./assets/BGs/bossBattle3BG.png",
+    "bossName": "Boss Bunny",
+    "bossAvatar": "./assets/bossBattle/BossBunny.png",
+    "description": "A fierce opponent who will test your knowledge of general science questions",
+    "backgroundImage": "./assets/BGs/bossBattle5BG.png",
     "bossHP": 100,
     "userHP": 100,
     "SPWin": 200,
@@ -14,7 +14,7 @@
     "topics": [
         {
             "id": 1,
-            "name": "Numeracy",
+            "name": "General Science",
             "questions": {
                 "foundation": [
                     {

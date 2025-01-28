@@ -1,26 +1,22 @@
 {
     "topic": "Topic 7 - Resources on Earth",
-    "numberOfLessons": 14,
+    "numberOfLessons": 13,
     "learningIntentions": [
-      { "id": "LI1", "text": "Placeholder for Learning Intention 1" },
-      { "id": "LI2", "text": "Placeholder for Learning Intention 2" },
-      { "id": "LI3", "text": "Placeholder for Learning Intention 3" },
-      { "id": "LI4", "text": "Placeholder for Learning Intention 4" },
-      { "id": "LI5", "text": "Placeholder for Learning Intention 5" },
-      { "id": "LI6", "text": "Placeholder for Learning Intention 6" },
-      { "id": "LI7", "text": "Placeholder for Learning Intention 7" },
-      { "id": "LI8", "text": "Placeholder for Learning Intention 8" },
-      { "id": "LI9", "text": "Placeholder for Learning Intention 9" },
-      { "id": "LI10", "text": "Placeholder for Learning Intention 10" },
-      { "id": "LI11", "text": "Placeholder for Learning Intention 11" },
-      { "id": "LI12", "text": "Placeholder for Learning Intention 12" },
-      { "id": "LI13", "text": "Placeholder for Learning Intention 13" },
-      { "id": "LI14", "text": "Placeholder for Learning Intention 14" }
+      { "id": "LI1", "text": "Classify a range of the Earth's resources as renewable or non-renewable." },
+      { "id": "LI2", "text": "Outline features of some non-renewable resources, including metal ores and fossil fuels" },
+      { "id": "LI3", "text": "Describe uses of a variety of natural and made resources extracted from the biosphere, atmosphere, lithosphere and hydrosphere" },
+      { "id": "LI4", "text": "Investigate some strategies used by people to conserve and manage non-renewable resources, e.g., recycling and the alternative use of natural and made resources  " },
+      { "id": "LI5", "text": "Discuss different viewpoints people may use to weight criteria in making decisions about the use of a major non-renewable resource found in Australia    " },
+      { "id": "LI6", "text": "Outline the choices that need to be made when considering whether to use scientific and technological advances to obtain a resource from Earth's spheres" },
+      { "id": "LI7", "text": "Identify that water is an important resource that cycles through the environment" },
+      { "id": "LI8", "text": "Explain the water cycle in terms of the physical processes involved" },
+      { "id": "LI9", "text": "Demonstrate how scientific knowledge of the water cycle has influenced the development of household, industrial and agricultural water management practices    " },
+      { "id": "LI10", "text": "Research how Aboriginal and Torres Strait Islander Peoples' knowledge is being used in decisions to care for country and place, e.g., terrestrial and aquatic resource management     " }
     ],
     "lessons": [
       {
         "lesson": 1,
-        "lessonTitle": ["Lesson 1 - Placeholder Title"],
+        "lessonTitle": ["Lesson 1 - Placeholder"],
         "learningIntentions": ["LI1"],
         "successCriteria": "This is the success criteria for Lesson 1",
         "mustDo": {
@@ -42,7 +38,7 @@
       {
         "lesson": 2,
         "learningIntentions": ["LI2"],
-        "lessonTitle": ["Lesson 2 - Placeholder Title"],
+        "lessonTitle": ["Lesson 2 - Placeholder"],
 
         "successCriteria": "This is the success criteria for Lesson 2",
         "mustDo": {
@@ -63,7 +59,7 @@
       },
       {
         "lesson": 3,
-        "lessonTitle": ["Lesson 3 - Placeholder Title"],
+        "lessonTitle": ["Lesson 3 - Placeholder"],
 
         "learningIntentions": ["LI3", "LI4"],
         "successCriteria": "This is the success criteria for Lesson 3",
@@ -85,7 +81,7 @@
       },
       {
         "lesson": 4,
-        "lessonTitle": ["Lesson 4 - Placeholder Title"],
+        "lessonTitle": ["Lesson 4 - Placeholder"],
 
         "learningIntentions": ["LI4"],
         "successCriteria": "This is the success criteria for Lesson 4",
@@ -107,7 +103,7 @@
       },
       {
         "lesson": 5,
-        "lessonTitle": ["Lesson 5 - Placeholder Title"],
+        "lessonTitle": ["Lesson 5 - Placeholder"],
 
         "learningIntentions": ["LI5", "LI6"],
         "successCriteria": "This is the success criteria for Lesson 5",
@@ -129,7 +125,7 @@
       },
       {
         "lesson": 6,
-        "lessonTitle": ["Lesson 6 - Placeholder Title"],
+        "lessonTitle": ["Lesson 6 - Placeholder"],
 
         "learningIntentions": ["LI6", "LI7"],
         "successCriteria": "This is the success criteria for Lesson 6",
@@ -151,7 +147,7 @@
       },
       {
         "lesson": 7,
-        "lessonTitle": ["Lesson 7 - Placeholder Title"],
+        "lessonTitle": ["Lesson 7 - Placeholder"],
 
         "learningIntentions": ["LI7", "LI8"],
         "successCriteria": "This is the success criteria for Lesson 7",
@@ -173,7 +169,7 @@
       },
       {
         "lesson": 8,
-        "lessonTitle": ["Lesson 8 - Placeholder Title"],
+        "lessonTitle": ["Lesson 8 - Placeholder"],
 
         "learningIntentions": ["LI8", "LI9"],
         "successCriteria": "This is the success criteria for Lesson 8",
@@ -195,7 +191,7 @@
       },
       {
         "lesson": 9,
-        "lessonTitle": ["Lesson 9 - Placeholder Title"],
+        "lessonTitle": ["Lesson 9 - Placeholder"],
 
         "learningIntentions": ["LI9", "LI10"],
         "successCriteria": "This is the success criteria for Lesson 9",
@@ -217,7 +213,7 @@
       },
       {
         "lesson": 10,
-        "lessonTitle": ["Lesson 10 - Placeholder Title"],
+        "lessonTitle": ["Lesson 10 - Placeholder"],
 
         "learningIntentions": ["LI10", "LI11"],
         "successCriteria": "This is the success criteria for Lesson 10",
@@ -239,7 +235,7 @@
       },
       {
         "lesson": 11,
-        "lessonTitle": ["Lesson 11 - Placeholder Title"],
+        "lessonTitle": ["Lesson 11 - Placeholder"],
 
         "learningIntentions": ["LI11", "LI12"],
         "successCriteria": "This is the success criteria for Lesson 11",
@@ -261,7 +257,7 @@
       },
       {
         "lesson": 12,
-        "lessonTitle": ["Lesson 12 - Placeholder Title"],
+        "lessonTitle": ["Lesson 12 - Placeholder"],
 
         "learningIntentions": ["LI12", "LI13"],
         "successCriteria": "This is the success criteria for Lesson 12",
@@ -283,7 +279,7 @@
       },
       {
         "lesson": 13,
-        "lessonTitle": ["Lesson 13 - Placeholder Title"],
+        "lessonTitle": ["Lesson 13 - Placeholder"],
 
         "learningIntentions": ["LI13", "LI14"],
         "successCriteria": "This is the success criteria for Lesson 13",
@@ -299,28 +295,6 @@
         },
         "couldDo": {
           "successCriteria": "This is the could do activity for Lesson 13",
-          "synapsePoints": 5,
-          "URL": "http://placeholderURL.com"
-        }
-      },
-      {
-        "lesson": 14,
-        "lessonTitle": ["Lesson 14 - Placeholder Title"],
-
-        "learningIntentions": ["LI14", "LI15"],
-        "successCriteria": "This is the success criteria for Lesson 14",
-        "mustDo": {
-          "successCriteria": "This is the must do activity for Lesson 14",
-          "synapsePoints": 1,
-          "URL": "http://placeholderURL.com"
-        },
-        "shouldDo": {
-          "successCriteria": "This is the should do activity for Lesson 14",
-          "synapsePoints": 7,
-          "URL": "http://placeholderURL.com"
-        },
-        "couldDo": {
-          "successCriteria": "This is the could do activity for Lesson 14",
           "synapsePoints": 5,
           "URL": "http://placeholderURL.com"
         }

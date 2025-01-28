@@ -1,26 +1,23 @@
 {
     "topic": "Topic 5 - Chemical Reactions",
-    "numberOfLessons": 14,
+    "numberOfLessons": 13,
     "learningIntentions": [
-      { "id": "LI1", "text": "Placeholder for Learning Intention 1" },
-      { "id": "LI2", "text": "Placeholder for Learning Intention 2" },
-      { "id": "LI3", "text": "Placeholder for Learning Intention 3" },
-      { "id": "LI4", "text": "Placeholder for Learning Intention 4" },
-      { "id": "LI5", "text": "Placeholder for Learning Intention 5" },
-      { "id": "LI6", "text": "Placeholder for Learning Intention 6" },
-      { "id": "LI7", "text": "Placeholder for Learning Intention 7" },
-      { "id": "LI8", "text": "Placeholder for Learning Intention 8" },
-      { "id": "LI9", "text": "Placeholder for Learning Intention 9" },
-      { "id": "LI10", "text": "Placeholder for Learning Intention 10" },
-      { "id": "LI11", "text": "Placeholder for Learning Intention 11" },
-      { "id": "LI12", "text": "Placeholder for Learning Intention 12" },
-      { "id": "LI13", "text": "Placeholder for Learning Intention 13" },
-      { "id": "LI14", "text": "Placeholder for Learning Intention 14" }
+      { "id": "LI1", "text": "Define the atom as the smallest unit of matter, define the term element and explain why we have internationally recognised symbols." },
+      { "id": "LI2", "text": "Identify how technology has changed our understanding of the structure and properties of elements  " },
+      { "id": "LI3", "text": "Identify some examples of common compounds and distinguish between elements, compounds and mixtures" },
+      { "id": "LI4", "text": "Describe the properties and uses of some common elements, including metals and non-metals" },
+      { "id": "LI5", "text": "Investigate how people in different cultures in the past have applied their knowledge of the properties of elements and compounds to their use in everyday life, e.g. utensils, weapons and tools" },
+      { "id": "LI6", "text": "Identify some observations as evidence of a chemical change" },
+      { "id": "LI7", "text": "Compare physical and chemical changes in terms of the arrangement of particles and reversibility of the process" },
+      { "id": "LI8", "text": "Investigate some examples of chemical change that occur in everyday life, e.g. photosynthesis, respiration and chemical weathering" },
+      { "id": "LI9", "text": "Propose reasons why society should support scientific research, e.g. in the development of new pharmaceuticals and polymers" },
+      { "id": "LI10", "text": "Describe, using examples, how science knowledge can develop through collaboration and connecting ideas across the disciplines of science, e.g. making or obtaining new substances from Earth's spheres   " },
+      { "id": "LI11", "text": "Extension: Describe molecules of elements, molecules of compounds and lattices" }
     ],
     "lessons": [
       {
         "lesson": 1,
-        "lessonTitle": ["Lesson 1 - Placeholder Title"],
+        "lessonTitle": ["Lesson 1 - Placeholder"],
         "learningIntentions": ["LI1"],
         "successCriteria": "This is the success criteria for Lesson 1",
         "mustDo": {
@@ -42,7 +39,7 @@
       {
         "lesson": 2,
         "learningIntentions": ["LI2"],
-        "lessonTitle": ["Lesson 2 - Placeholder Title"],
+        "lessonTitle": ["Lesson 2 - Placeholder"],
 
         "successCriteria": "This is the success criteria for Lesson 2",
         "mustDo": {
@@ -63,7 +60,7 @@
       },
       {
         "lesson": 3,
-        "lessonTitle": ["Lesson 3 - Placeholder Title"],
+        "lessonTitle": ["Lesson 3 - Placeholder"],
 
         "learningIntentions": ["LI3", "LI4"],
         "successCriteria": "This is the success criteria for Lesson 3",
@@ -85,7 +82,7 @@
       },
       {
         "lesson": 4,
-        "lessonTitle": ["Lesson 4 - Placeholder Title"],
+        "lessonTitle": ["Lesson 4 - Placeholder"],
 
         "learningIntentions": ["LI4"],
         "successCriteria": "This is the success criteria for Lesson 4",
@@ -107,7 +104,7 @@
       },
       {
         "lesson": 5,
-        "lessonTitle": ["Lesson 5 - Placeholder Title"],
+        "lessonTitle": ["Lesson 5 - Placeholder"],
 
         "learningIntentions": ["LI5", "LI6"],
         "successCriteria": "This is the success criteria for Lesson 5",
@@ -129,7 +126,7 @@
       },
       {
         "lesson": 6,
-        "lessonTitle": ["Lesson 6 - Placeholder Title"],
+        "lessonTitle": ["Lesson 6 - Placeholder"],
 
         "learningIntentions": ["LI6", "LI7"],
         "successCriteria": "This is the success criteria for Lesson 6",
@@ -151,7 +148,7 @@
       },
       {
         "lesson": 7,
-        "lessonTitle": ["Lesson 7 - Placeholder Title"],
+        "lessonTitle": ["Lesson 7 - Placeholder"],
 
         "learningIntentions": ["LI7", "LI8"],
         "successCriteria": "This is the success criteria for Lesson 7",
@@ -173,7 +170,7 @@
       },
       {
         "lesson": 8,
-        "lessonTitle": ["Lesson 8 - Placeholder Title"],
+        "lessonTitle": ["Lesson 8 - Placeholder"],
 
         "learningIntentions": ["LI8", "LI9"],
         "successCriteria": "This is the success criteria for Lesson 8",
@@ -195,7 +192,7 @@
       },
       {
         "lesson": 9,
-        "lessonTitle": ["Lesson 9 - Placeholder Title"],
+        "lessonTitle": ["Lesson 9 - Placeholder"],
 
         "learningIntentions": ["LI9", "LI10"],
         "successCriteria": "This is the success criteria for Lesson 9",
@@ -217,7 +214,7 @@
       },
       {
         "lesson": 10,
-        "lessonTitle": ["Lesson 10 - Placeholder Title"],
+        "lessonTitle": ["Lesson 10 - Placeholder"],
 
         "learningIntentions": ["LI10", "LI11"],
         "successCriteria": "This is the success criteria for Lesson 10",
@@ -239,7 +236,7 @@
       },
       {
         "lesson": 11,
-        "lessonTitle": ["Lesson 11 - Placeholder Title"],
+        "lessonTitle": ["Lesson 11 - Placeholder"],
 
         "learningIntentions": ["LI11", "LI12"],
         "successCriteria": "This is the success criteria for Lesson 11",
@@ -261,7 +258,7 @@
       },
       {
         "lesson": 12,
-        "lessonTitle": ["Lesson 12 - Placeholder Title"],
+        "lessonTitle": ["Lesson 12 - Placeholder"],
 
         "learningIntentions": ["LI12", "LI13"],
         "successCriteria": "This is the success criteria for Lesson 12",
@@ -283,7 +280,7 @@
       },
       {
         "lesson": 13,
-        "lessonTitle": ["Lesson 13 - Placeholder Title"],
+        "lessonTitle": ["Lesson 13 - Placeholder"],
 
         "learningIntentions": ["LI13", "LI14"],
         "successCriteria": "This is the success criteria for Lesson 13",
@@ -299,28 +296,6 @@
         },
         "couldDo": {
           "successCriteria": "This is the could do activity for Lesson 13",
-          "synapsePoints": 5,
-          "URL": "http://placeholderURL.com"
-        }
-      },
-      {
-        "lesson": 14,
-        "lessonTitle": ["Lesson 14 - Placeholder Title"],
-
-        "learningIntentions": ["LI14", "LI15"],
-        "successCriteria": "This is the success criteria for Lesson 14",
-        "mustDo": {
-          "successCriteria": "This is the must do activity for Lesson 14",
-          "synapsePoints": 1,
-          "URL": "http://placeholderURL.com"
-        },
-        "shouldDo": {
-          "successCriteria": "This is the should do activity for Lesson 14",
-          "synapsePoints": 7,
-          "URL": "http://placeholderURL.com"
-        },
-        "couldDo": {
-          "successCriteria": "This is the could do activity for Lesson 14",
           "synapsePoints": 5,
           "URL": "http://placeholderURL.com"
         }

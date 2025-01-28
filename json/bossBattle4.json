@@ -1,0 +1,57 @@
+{
+    "bossName": "The Grey Grader",
+    "bossAvatar": "./assets/bossBattle/GreyGrader.png",
+    "description": "A fierce opponent who will test your knowledge of VERBS",
+    "backgroundImage": "./assets/BGs/bossBattle4BG.png",
+    "bossHP": 100,
+    "userHP": 100,
+    "SPWin": 200,
+    "SPLose": 15,
+    "hpLoss": {
+        "boss": 100,
+        "user": 100
+    },
+    "topics": [
+        {
+            "id": 1,
+            "name": "Verbs",
+            "questions": {
+                "define": [
+                    {
+                        "question": "Define photosynthesis.",
+                        "sampleAnswer": "Photosynthesis is the process where plants use sunlight to make energy.",
+                        "answers": ["0: Missing or incorrect answer.", "1: Correct definition given."],
+                        "correct": 1
+                    }
+
+                ],
+                "describe": [
+
+                    {
+                        "question": "What is one way to assess the validity of second-hand sources?",
+                        "sampleAnswer": "placeholder",
+                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
+                        "correct": 3
+                    }
+                ],
+                "explain": [
+
+                    {
+                        "question": "What should be done if anomalies are found in experimental results?",
+                        "sampleAnswer": "placeholder",
+                        "answers": ["Exclude them without justification", "Explain and investigate their causes", "Repeat the experiment multiple times", "Ignore them and continue"],
+                        "correct": 1
+                    }
+                ],
+                "evaluate": [
+                    {
+                        "question": "How should experimental results be recorded?",
+                        "sampleAnswer": "placeholder",
+                        "answers": ["On a piece of scrap paper", "In a structured and organized format", "In any format available", "Verbally without writing"],
+                        "correct": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

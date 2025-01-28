@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss Battle - Numeracy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /*bossBattle1.html*/
+        /* Wrapper for the entire screen */
+        #boss-battle-4-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: url('./assets/BGs/bossBattle4BG.png') no-repeat center center;
+            background-size: cover;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+
+        /* Ensure initial off-screen state */
+        #user-container {
+            position: absolute;
+            top: 269px;
+            left: -300px;
+            /* Start off-screen */
+            text-align: center;
+
+            transition: transform 1s ease-out, opacity 1s ease-out;
+            /* Smooth entry */
+        }
+
+        #boss-container {
+            position: absolute;
+            top: 249px;
+            right: -350px;
+            /* Start off-screen */
+            text-align: center;
+            transition: transform 1s ease-out, opacity 1s ease-out;
+            /* Smooth entry */
+        }
+
+        /* Slide avatars into view */
+        .user-slide-in {
+            transform: translateX(400px);
+            /* Move from off-screen to on-screen */
+
+        }
+
+        .boss-slide-in {
+            transform: translateX(-500px);
+            /* Move from off-screen to on-screen */
+
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-500px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+                /* Fade in */
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(500px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+                /* Fade in */
+            }
+        }
+
+        /* Positioning Boss Elements */
+
+
+        #boss-avatar {
+            width: 300px;
+            height: 300px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto;
+        }
+
+        #boss-health-bar {
+            position: absolute;
+            top: 10px;
+            right: 50px;
+            width: 40%;
+            height: 20px;
+            background: #333;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #boss-health {
+            height: 100%;
+            background: #00ff00;
+            transition: width 0.3s ease;
+        }
+
+        /* Positioning User Elements */
+
+
+        #user-avatar-canvas {
+
+            width: auto;
+            height: 250px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #user-health-bar {
+            position: absolute;
+            top: 10px;
+            left: 50px;
+            width: 40%;
+            height: 20px;
+            background: #333;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #user-health {
+            height: 100%;
+            background: #00ff00;
+            transition: width 0.3s ease;
+        }
+
+        /* Dialogue and Question Box */
+        #dialogue-box {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffdd00;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .dialogue-text {
+            margin-bottom: 2px;
+        }
+
+        #dialogue-box p {
+            margin-bottom: 20px;
+        }
+
+        #question-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answer-btn {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .answer-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Return Button */
+        #return-button {
+            position: absolute;
+            text-align: center;
+            bottom: 2%;
+            right: 2%;
+            background: #f44336;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 30px;
+        }
+
+        #return-button:hover {
+            background: #d32f2f;
+        }
+
+        .topic-btn {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #6b046b;
+            outline: solid 1px white;
+            color: #ffdd00;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        .topic-btn.selected {
+            background-color: #45a049;
+            border: 2px solid #6b046b;
+        }
+
+        #loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ccc;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 1000;
+            /* Ensure it appears above all content */
+            background: transparent;
+        }
+
+        /* Hide the spinner when loading is done */
+        #loading-spinner.hidden {
+            display: none;
+        }
+
+        @keyframes spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+
+
+        .slash {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 350px;
+            background: url('./assets/bossBattle/redSlash.png') no-repeat center center;
+            background-size: contain;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 20;
+            /* Ensure it's above other elements */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .slash.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            z-index: 20;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shaking {
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes attack {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(600px);
+                /* Adjust distance as needed */
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes attack-reverse {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-600px);
+                /* Adjust distance as needed */
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .attacking {
+            animation: attack 0.2s ease-out;
+            /* Forward attack */
+        }
+
+        .attacking-reverse {
+            animation: attack-reverse 0.2s ease-out;
+            /* Backward attack */
+        }
+
+        /* Drop-out animation */
+        .drop-out {
+            animation: dropOut 0.5s ease forwards;
+        }
+
+        @keyframes dropOut {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(200%);
+                opacity: 0;
+            }
+        }
+
+        /* Tombstone styles */
+        .tombstone-boss,
+        .tombstone-user {
+            position: absolute;
+            width: 150px;
+            height: auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tombstone-boss {
+            background-image: url('./assets/bossBattle/tombstone.png');
+            bottom: 430px;
+            right: -170px;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+        }
+
+        .tombstone-user {
+            background-image: url('./assets/bossBattle/tombstone.png');
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            bottom: 330px;
+            left: 300px;
+        }
+
+        /* Fade-in effect for tombstone */
+        .tombstone-boss.visible,
+        .tombstone-user.visible {
+            opacity: 1;
+        }
+
+        #battle-summary {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        #battle-summary button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #battle-summary.hidden {
+            display: none;
+        }
+
+        #battle-summary button:hover {
+            background: #0056b3;
+        }
+
+        .answer-btn:disabled {
+            background-color: #ccc;
+            /* Gray out the button */
+            cursor: not-allowed;
+            opacity: 0.6;
+            /* Slightly faded appearance */
+        }
+
+        /* Style for difficulty buttons */
+        .difficulty-btn {
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ccc;
+            background-color: #6b046b;
+            cursor: pointer;
+            font-size: 0.8em;
+            border-radius: 5px;
+            color: #ffdd00;
+        }
+
+        .difficulty-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .difficulty-btn.selected {
+            background-color: #4CAF50;
+            /* Green background for selected button */
+            color: white;
+            border-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-spinner"></div>
+
+    <div id="boss-battle-4-wrapper">
+        <!-- Boss Avatar and Health -->
+        <div id="boss-wrapper">
+            <div id="boss-container">
+                <div id="boss-avatar"></div>
+                <div class="slash hidden"></div>
+            </div>
+        </div>
+        <div id="boss-health-bar">
+            <div id="boss-health" style="width: 100%;"></div>
+        </div>
+
+        <!-- User Avatar and Health -->
+        <div id="user-wrapper">
+            <div id="user-container">
+                <canvas id="user-avatar-canvas"></canvas>
+                <div class="slash hidden"></div>
+            </div>
+        </div>
+        <div id="user-health-bar">
+            <div id="user-health" style="width: 100%;"></div>
+        </div>
+
+        <!-- Dialogue Box -->
+        <div id="dialogue-box">
+            <!-- Topic selection buttons will be dynamically rendered here -->
+            <div id="topic-selection">
+                <p class="dialogue-text" id="dialogue-text"> Get Ready... </p>
+            </div>
+
+            <div id="difficulty-selection">
+                <p> Select Your Verb(s):</p>
+                <button class="difficulty-btn" data-difficulty="define">Define</button>
+                <button class="difficulty-btn" data-difficulty="describe">Describe</button>
+                <button class="difficulty-btn" data-difficulty="explain">Explain</button>
+                <button class="difficulty-btn" data-difficulty="evaluate">Evaluate</button>
+            </div>
+
+            <button id="start-battle" class="greyedOut">Start Battle</button>
+            <!-- Add this div for rendering questions -->
+            <div id="question-content" class="hidden"></div>
+        </div>
+
+        <!-- Battle Summary -->
+        <div id="battle-summary" class="hidden">
+            <h2>Battle Summary</h2>
+            <p id="summary-text"></p>
+            <button id="replay-button">Replay Battle</button>
+            <button id="return-battle-arena-button">Return to Battle Arena</button>
+            <button id="return-home-button">Return to Home</button>
+        </div>
+
+
+        <button id="return-button">Run</button>
+    </div>
+
+
+
+    <script type="module">
+        import { auth, db } from './firebase-config.js'; // Import auth and db from your Firebase configuration
+        import { doc, getDoc, updateDoc, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+
+
+        let selectedQuestions = []; // Stores the shuffled questions
+        let currentQuestionIndex = 0; // Tracks the current question
+        let correctAnswersCount = 0; // Tracks the number of correct answers
+        let totalQuestionsAsked = 0; // Track the number of questions asked
+        let battleData = {
+            topicsChosen: [],
+            difficulty: null,
+            questionsAttempted: 0,
+            questionsCorrect: 0,
+            completed: false,
+            outcome: null,
+            SPAwarded: 0,
+            timestamp: null,
+            bossName: null,
+        };
+
+        window.addEventListener('beforeunload', () => {
+            if (!battleData.completed) {
+                battleData.completed = false;
+                battleData.scorePercentage = Math.round((battleData.questionsCorrect / Math.max(1, battleData.questionsAttempted)) * 100);
+                saveBattleDataToFirestore(battleData);
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // References to the necessary DOM elements
+            const userContainer = document.getElementById('user-container');
+            const bossContainer = document.getElementById('boss-container');
+            const loadingSpinner = document.getElementById('loading-spinner'); // Spinner element
+            const bossBattleWrapper = document.getElementById('boss-battle-4-wrapper'); // Main wrapper element
+
+
+            try {
+
+
+
+
+
+
+
+                // Fetch the boss battle data
+                let bossData;
+
+                try {
+                    const bossBattleResponse = await fetch('./json/bossBattle4.json');
+                    if (!bossBattleResponse.ok) {
+                        throw new Error(`Failed to fetch boss battle data: ${bossBattleResponse.statusText}`);
+                    }
+                    bossData = await bossBattleResponse.json();
+
+
+                    // Set the background image dynamically
+                    if (bossData.backgroundImage) {
+                        bossBattleWrapper.style.backgroundImage = `url('${bossData.backgroundImage}')`;
+                        bossBattleWrapper.style.backgroundSize = 'cover';
+                        bossBattleWrapper.style.backgroundPosition = 'center';
+                    }
+                } catch (error) {
+                    console.error('Error fetching boss battle data:', error);
+                    alert('Failed to load boss battle data. Please try again later.');
+                    return; // Stop further execution if data is missing
+                }
+
+
+                try {
+
+                } catch (error) {
+                    console.error('Error fetching topics data:', error);
+                    alert('Failed to load topics data. Please try again later.');
+                    return; // Stop execution if this fails
+                }
+
+                // Ensure bossData are loaded correctly
+                if (!bossData) {
+                    alert('Error loading boss battle or topics data.');
+                    return;
+                }
+
+
+
+
+
+
+
+
+
+
+
+                // Render topic buttons
+                renderTopicButtons(bossData);
+
+                // Render the user's avatar
+                await renderUserAvatar();
+
+                // Populate boss details
+                const bossAvatar = document.getElementById('boss-avatar');
+                const bossHealth = document.getElementById('boss-health');
+                const userHealth = document.getElementById('user-health');
+                const dialogueText = document.getElementById('dialogue-text');
+
+                bossAvatar.style.backgroundImage = `url('./${bossData.bossAvatar}')`;
+                dialogueText.innerHTML = `You face ${bossData.bossName}!<br><br>Choose your topics:`;
+
+                // Initialize variables
+                let currentQuestionIndex = 0;
+                let bossHP = bossData.bossHP;
+                let userHP = bossData.userHP;
+
+                // Hide the spinner after everything is ready
+                loadingSpinner.classList.add('hidden'); // Spinner disappears
+
+                // Trigger animations for avatars
+                setTimeout(() => {
+                    userContainer.classList.add('user-slide-in'); // Apply user animation
+
+                    bossContainer.classList.add('boss-slide-in'); // Apply boss animation
+                }, 500); // Slight delay for smoother effect
+
+
+                // Define functions for rendering topics and starting the battle
+                function renderTopicButtons(bossData) {
+                    const topicSelectionDiv = document.getElementById('topic-selection');
+                    const selectedTopics = new Set();
+                    let selectedDifficulty = null;
+
+                    // Ensure topics exist in the boss data
+                    if (!bossData.topics || bossData.topics.length === 0) {
+                        topicSelectionDiv.innerHTML = `<p>No topics available for this boss battle.</p>`;
+                        return;
+                    }
+
+                    // Render topic buttons dynamically
+                    bossData.topics.forEach((topic) => {
+                        const topicButton = document.createElement('button');
+                        topicButton.textContent = topic.name; // Use the 'name' field from bossBattle4.json
+                        topicButton.dataset.topicId = topic.id;
+                        topicButton.classList.add('topic-btn');
+                        topicSelectionDiv.appendChild(topicButton);
+
+                        // Toggle topic selection
+                        topicButton.addEventListener('click', () => {
+                            if (selectedTopics.has(topic.id)) {
+                                selectedTopics.delete(topic.id);
+                                topicButton.classList.remove('selected');
+                            } else {
+                                selectedTopics.add(topic.id);
+                                topicButton.classList.add('selected');
+                            }
+
+                            // Enable/disable the "Start Battle" button
+                            document.getElementById('start-battle').classList.toggle(
+                                'greyedOut',
+                                selectedTopics.size === 0 || !selectedDifficulty
+                            );
+                        });
+                    });
+
+                    // Add difficulty selection logic
+                    document.querySelectorAll('.difficulty-btn').forEach((button) => {
+                        button.addEventListener('click', () => {
+                            selectedDifficulty = button.dataset.difficulty;
+                            document.querySelectorAll('.difficulty-btn').forEach((btn) => btn.classList.remove('selected'));
+                            button.classList.add('selected');
+
+                            // Enable/disable the "Start Battle" button
+                            document.getElementById('start-battle').classList.toggle(
+                                'greyedOut',
+                                selectedTopics.size === 0 || !selectedDifficulty
+                            );
+                        });
+                    });
+
+                    // Handle "Start Battle" click
+                    document.getElementById('start-battle').addEventListener('click', () => {
+                        const filteredQuestions = bossData.topics
+                            .filter((topic) => selectedTopics.has(topic.id))
+                            .flatMap((topic) => topic.questions[selectedDifficulty] || []);
+
+                        // Capture initial battle data
+                        battleData.topicsChosen = Array.from(selectedTopics);
+                        battleData.difficulty = selectedDifficulty;
+                        battleData.timestamp = new Date().toISOString();
+                        battleData.bossName = bossData.bossName;
+
+                        startBattle(filteredQuestions);
+                    });
+                }
+
+
+
+
+
+
+                function startBattle(questions) {
+                    // Ensure there are questions for the selected topics
+                    if (!questions || questions.length === 0) {
+                        alert('No questions available for the selected topics and difficulty.');
+                        return;
+                    }
+
+                    // Hide the topic and difficulty selection buttons
+                    document.getElementById('topic-selection').classList.add('hidden');
+                    document.getElementById('difficulty-selection').classList.add('hidden');
+                    document.getElementById('start-battle').classList.add('hidden');
+
+                    // Show the dialogue box and question content
+                    document.getElementById('dialogue-box').classList.remove('hidden');
+                    document.getElementById('question-content').classList.remove('hidden');
+
+                    // Shuffle the questions to randomize their order
+                    const shuffledQuestions = shuffleArray([...questions]); // Clone the array to avoid modifying the original
+
+                    // Initialize global variables
+                    selectedQuestions = shuffledQuestions; // Store the shuffled questions globally
+                    currentQuestionIndex = 0; // Reset index
+                    correctAnswersCount = 0; // Reset correct answers counter
+
+                    loadQuestion(selectedQuestions);
+                }
+
+
+
+                // Function to shuffle an array
+                function shuffleArray(array) {
+                    for (let i = array.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [array[i], array[j]] = [array[j], array[i]];
+                    }
+                    return array;
+                }
+
+
+                function loadQuestion(questions) {
+                    const questionContent = document.getElementById('question-content');
+
+                    if (!questionContent) {
+                        console.error('Error: question-content element not found.');
+                        return;
+                    }
+
+                    // Check if the currentQuestionIndex exceeds the number of questions
+                    if (currentQuestionIndex >= questions.length) {
+                        currentQuestionIndex = 0; // Loop back to the first question
+                    }
+
+                    const questionData = questions[currentQuestionIndex];
+
+                    // Increment the counter for each question loaded
+                    totalQuestionsAsked++;
+
+                    // Display the question and answers
+                    questionContent.innerHTML = `
+                        <p>Question: ${questionData.question}</p>
+                        <p>Answer: ${questionData.sampleAnswer}</p>
+                        <p>How many marks do you think this answer is worth? <p/>
+                        ${questionData.answers
+                            .map((answer, i) => `<button class="answer-btn" data-index="${i}">${answer}</button>`)
+                            .join('')}
+                    `;
+
+                    // Add event listeners to the answer buttons
+                    document.querySelectorAll('.answer-btn').forEach((button) => {
+                        button.addEventListener('click', (e) => handleAnswer(e, questions, questionData.correct));
+                    });
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                function triggerDamageEffect(wrapperId, attackerId) {
+                    const wrapper = document.getElementById(wrapperId);
+                    const attacker = document.getElementById(attackerId);
+                    const slash = wrapper.querySelector('.slash');
+
+                    if (!wrapper || !slash || !attacker) {
+                        console.error(`Error: Cannot find wrapper, slash, or attacker element for ${wrapperId}`);
+                        return;
+                    }
+
+
+                    // Activate slash effect
+                    slash.classList.remove('hidden'); // Ensure 'hidden' is removed
+                    slash.classList.add('active');   // Activate the slash effect
+
+                    // Add shake effect to defender
+                    wrapper.classList.add('shaking');
+
+                    // Add attack effect to attacker
+                    const attackClass = attackerId === 'user-wrapper' ? 'attacking' : 'attacking-reverse';
+                    attacker.classList.add(attackClass);
+
+                    // Remove effects after the animation duration
+                    setTimeout(() => {
+                        slash.classList.remove('active');
+                        slash.classList.add('hidden');
+                        wrapper.classList.remove('shaking');
+                        attacker.classList.remove(attackClass); // Remove the attack animation
+                    }, 500); // Match the CSS animation duration
+                }
+
+
+
+
+
+
+
+                function handleAnswer(event, questions, correctIndex) {
+                    // Disable all answer buttons
+                    document.querySelectorAll('.answer-btn').forEach((button) => {
+                        button.disabled = true; // Disable button
+                    });
+
+                    const selectedIndex = parseInt(event.target.dataset.index, 10);
+
+                    battleData.questionsAttempted++;
+                    if (selectedIndex === correctIndex) {
+                        battleData.questionsCorrect++;
+                    }
+
+
+                    if (selectedIndex === correctIndex) {
+                        correctAnswersCount++; // Increment correct answer count
+                        bossHP -= bossData.hpLoss.boss; // Use value from JSON
+                        updateHealthBar(bossHealth, bossHP);
+                        document.getElementById('dialogue-box').querySelector('p').innerHTML = '<p>Correct! The boss takes damage.</p>';
+                        triggerDamageEffect('boss-wrapper', 'user-wrapper');
+                    } else {
+                        userHP -= bossData.hpLoss.user; // Use value from JSON
+                        updateHealthBar(userHealth, userHP);
+                        document.getElementById('dialogue-box').querySelector('p').innerHTML = '<p>Wrong! You take damage.</p>';
+                        triggerDamageEffect('user-wrapper', 'boss-wrapper');
+
+                    }
+
+                    if (bossHP <= 0 || userHP <= 0) {
+                        endBattle();
+
+                    } else {
+                        currentQuestionIndex++;
+                        setTimeout(() => loadQuestion(questions), 2000); // Load next question after delay
+
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+                function updateHealthBar(healthBar, currentHP) {
+                    const maxHP = healthBar === bossHealth ? bossData.bossHP : bossData.userHP;
+                    const percentage = Math.max(0, (currentHP / maxHP) * 100) + '%';
+                    healthBar.style.width = percentage;
+                }
+
+
+
+
+
+
+
+
+                function endBattle() {
+                    const dialogueText = document.getElementById('dialogue-box');
+                    const questionContent = document.getElementById('question-content');
+                    const bossContainer = document.getElementById('boss-container');
+                    const userContainer = document.getElementById('user-container');
+                    const battleSummary = document.getElementById('battle-summary');
+                    const summaryText = document.getElementById('summary-text');
+                    const replayButton = document.getElementById('replay-button');
+                    const returnBattleArenaButton = document.getElementById('return-battle-arena-button');
+                    const returnHomeButton = document.getElementById('return-home-button');
+
+                    if (questionContent) {
+                        questionContent.innerHTML = ''; // Clear question content
+                    }
+
+                    let awardedSP = 0;
+
+                    if (bossHP <= 0 && userHP <= 0) {
+                        dialogueText.innerHTML = '<p>The battle ended in a draw! Minimal SP gained.</p>';
+                        awardedSP = bossData.SPLose; // Award lose SP in case of a draw
+                    } else if (bossHP <= 0) {
+                        dialogueText.innerHTML = '<p>You defeated the boss! Gained SP for victory.</p>';
+                        awardedSP = bossData.SPWin; // Award win SP
+                        replaceAvatarWithTombstone(bossContainer, true);
+                    } else if (userHP <= 0) {
+                        dialogueText.innerHTML = '<p>You lost the battle. Gained minimal SP for the experience.</p>';
+                        awardedSP = bossData.SPLose; // Award lose SP
+                        replaceAvatarWithTombstone(userContainer, false);
+                    }
+
+                    battleData.completed = true;
+                    battleData.outcome = bossHP <= 0 && userHP <= 0 ? 'draw' : bossHP <= 0 ? 'victory' : 'defeat';
+                    battleData.SPAwarded = awardedSP;
+                    battleData.scorePercentage = Math.round((battleData.questionsCorrect / battleData.questionsAttempted) * 100);
+
+                    saveBattleDataToFirestore(battleData);
+
+
+                    const totalQuestions = totalQuestionsAsked;
+                    const correctAnswers = correctAnswersCount; // Keep track of correct answers
+                    const percentageCorrect = Math.round((correctAnswers / totalQuestions) * 100); // Calculate accuracy
+
+                    // Show battle summary
+                    setTimeout(() => {
+                        summaryText.innerHTML = `
+                                <p>Total Questions: ${totalQuestions}</p>
+                                <p>Correct Answers: ${correctAnswers}</p>
+                                <p>Accuracy: ${percentageCorrect}%</p>
+                                <p>SP Awarded: ${awardedSP}</p>
+                            `;
+
+                        dialogueText.classList.add('hidden');
+                        bossContainer.classList.add('hidden');
+                        userContainer.classList.add('hidden');
+                        battleSummary.classList.remove('hidden');
+
+                        replayButton.onclick = () => window.location.reload();
+                        returnBattleArenaButton.onclick = () => window.location.href = './battleArena.html';
+                        returnHomeButton.onclick = () => window.location.href = './home.html';
+
+                        // Update the player's SP in Firestore
+                        updatePlayerSP(awardedSP);
+                    }, 2000); // Allow animations to complete
+                }
+
+                async function updatePlayerSP(awardedSP) {
+                    auth.onAuthStateChanged(async (user) => {
+                        if (user) {
+
+                            try {
+                                const userDoc = doc(db, 'users', user.uid);
+                                const userSnapshot = await getDoc(userDoc);
+
+                                if (userSnapshot.exists()) {
+                                    const currentSP = userSnapshot.data().synapsePoints || 0; // Default to 0 if SP field doesn't exist
+                                    const newSP = currentSP + awardedSP;
+
+                                    await updateDoc(userDoc, { synapsePoints: newSP }); // Update SP in Firestore
+                                } else {
+                                    console.error('User document not found in Firestore.');
+                                }
+                            } catch (error) {
+                                console.error('Error updating SP in Firestore:', error);
+                            }
+                        } else {
+                            console.error('User not logged in.');
+                        }
+                    });
+                }
+
+
+
+
+
+
+                function replaceAvatarWithTombstone(container, isBoss) {
+                    // Add drop-out class to the avatar
+                    container.classList.add('drop-out');
+
+                    // Wait for the drop-out animation to finish
+                    setTimeout(() => {
+                        // Hide the avatar
+                        container.style.visibility = 'hidden';
+
+                        // Create and add the tombstone element
+                        const tombstone = document.createElement('div');
+                        tombstone.classList.add(isBoss ? 'tombstone-boss' : 'tombstone-user');
+
+                        // Append the tombstone to the same parent as the container
+                        container.parentElement.appendChild(tombstone);
+
+                        // Show the tombstone with a fade-in effect
+                        setTimeout(() => {
+                            tombstone.classList.add('visible');
+                        }, 100); // Small delay to trigger the fade-in effect
+                    }, 500); // Match the drop-out animation duration
+                }
+
+
+
+
+
+
+
+
+
+            } catch (error) {
+                console.error('Error during initialization:', error);
+                alert('An error occurred. Please reload the page.');
+            }
+        });
+
+
+        async function renderUserAvatar() {
+            const userAvatarCanvas = document.getElementById('user-avatar-canvas');
+            const ctx = userAvatarCanvas.getContext('2d');
+            userAvatarCanvas.height = 500;
+            userAvatarCanvas.width = Math.round(userAvatarCanvas.height * (16 / 9)); // Adjust the size as necessary
+
+
+            return new Promise((resolve) => {
+                auth.onAuthStateChanged(async (user) => {
+                    if (!user) {
+                        console.error('User not logged in.');
+                        return resolve();
+                    }
+
+                    try {
+                        const userId = user.uid;
+                        const userDoc = doc(db, 'users', userId);
+                        const userSnapshot = await getDoc(userDoc);
+
+                        if (!userSnapshot.exists()) {
+                            console.error('User avatar data not found.');
+                            return resolve();
+                        }
+
+                        const avatarConfig = userSnapshot.data().avatarConfig;
+
+                        const layerOrder = ['skin', 'eyes', 'mouth', 'hair', 'masks', 'tops', 'pants', 'shoes'];
+
+                        const basePath = './assets/';
+                        const promises = layerOrder.map((layer) =>
+                            avatarConfig[layer] ? loadImage(`${basePath}/${avatarConfig[layer].replace(/^assets\//, '')}`) : Promise.resolve()
+                        );
+
+                        const images = await Promise.all(promises);
+
+                        images.filter(Boolean).forEach((img) => {
+                            ctx.drawImage(img, 0, 0, userAvatarCanvas.width, userAvatarCanvas.height);
+                        });
+
+                        resolve();
+                    } catch (error) {
+                        console.error('Error fetching avatar data:', error);
+                        resolve();
+                    }
+                });
+            });
+        }
+
+
+
+
+        async function saveBattleDataToFirestore(battleData) {
+            const user = auth.currentUser;
+            if (!user) {
+                console.error('User not logged in. Cannot save battle data.');
+                return;
+            }
+
+            try {
+
+                const userDocRef = doc(db, 'users', user.uid);
+                const userSnapshot = await getDoc(userDocRef);
+
+                // Create a cleaned timestamp without milliseconds and 'Z'
+                const cleanedTimestamp = battleData.timestamp.split('.')[0]; // Remove milliseconds and 'Z'
+
+                // If user document doesn't exist, create it
+                if (!userSnapshot.exists()) {
+                    await setDoc(userDocRef, {
+                        battles: {
+                            [cleanedTimestamp]: battleData,
+                        },
+                        createdAt: new Date().toISOString(),
+                    }, { merge: true });
+                } else {
+                    // If user document exists, update the battles field
+                    await updateDoc(userDocRef, {
+                        [`battles.${cleanedTimestamp}`]: battleData,
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error saving battle data:', error);
+            }
+        }
+
+
+
+
+
+
+
+
+        function loadImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+                img.src = src;
+            });
+        }
+
+        document.getElementById('return-button').addEventListener('click', () => {
+            window.location.href = './battleArena.html';
+        });
+
+
+    </script>
+</body>
+
+</html>

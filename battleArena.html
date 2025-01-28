@@ -54,7 +54,10 @@
 
 /* CUSTOM ACTIVE SECTIONS Sections above the paths, from top left 2 3 4, 5 6 7, 8 9 10 */
 #battle-arena .battle-arena-section:nth-child(2),
+#battle-arena .battle-arena-section:nth-child(4),
+
 #battle-arena .battle-arena-section:nth-child(7),
+#battle-arena .battle-arena-section:nth-child(8),
 #battle-arena .battle-arena-section:nth-child(9)
     {
     z-index: 3;
@@ -76,6 +79,20 @@
 }
 
 /* CUSTOM Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
+#battle-arena > div:nth-child(4)::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: url('./assets/bossBattle/GreyGrader.png') no-repeat center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: 2;
+}
+
+/* CUSTOM Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
 #battle-arena > div:nth-child(7)::after {
     content: "";
     position: absolute;
@@ -88,6 +105,21 @@
     opacity: 1;
     z-index: 2;
 }
+
+/* CUSTOM Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
+#battle-arena > div:nth-child(8)::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: url('./assets/bossBattle/BossBunny.png') no-repeat center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: 2;
+}
+
 /* Overlay for Boss Images. Upper right corner is child 2, bottom right is child 10 */
 #battle-arena > div:nth-child(9)::after {
     content: "";
@@ -283,8 +315,8 @@
                             
         
         
-        //This controls the inactive sections.  Define sections to overlay with under construction. From top left goes 0 1 2, 3 4 5, 6 7 8.
-        const overlaySections = [1, 2, 3, 6, 8]; 
+        //CUSTOM This controls the inactive sections.  Define sections to overlay with under construction. From top left goes 0 1 2, 3 4 5, 6 7 8.
+        const overlaySections = [1, 3, 8]; 
 
 
 
