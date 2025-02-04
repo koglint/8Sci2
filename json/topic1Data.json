@@ -18,7 +18,7 @@
             "lesson": 1,
             "lessonTitle": ["Lesson 1 - Questions and Hypotheses"],
             "learningIntentions": ["LI1"],
-            "titleReward": ["Master of the Hypothesis"],
+            "titleReward": ["Quality Questioner and Hero Hypothesiser"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -40,7 +40,7 @@
             "lesson": 2,
             "lessonTitle": ["Lesson 2 - Online Research"],
             "learningIntentions": ["LI2"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Knows Their Way Around the Internet"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -62,7 +62,7 @@
             "lesson": 3,
             "lessonTitle": ["Lesson 3 - Scientific Variables"],
             "learningIntentions": ["LI3"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Voracious Variable Virtuoso"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -84,7 +84,7 @@
             "lesson": 4,
             "lessonTitle": ["Lesson 4 - Let's Make a Cup of Tea"],
             "learningIntentions": ["LI4"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Can Make a Cup Of Tea, Govnr"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -106,7 +106,7 @@
             "lesson": 5,
             "lessonTitle": ["Lesson 5 - Writing a Good Method"],
             "learningIntentions": ["LI5"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Vezy Gud At Riting Stuf Gud"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -128,7 +128,7 @@
             "lesson": 6,
             "lessonTitle": ["Lesson 6 - Working Safely"],
             "learningIntentions": ["LI6"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["No Injuries Over Here"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -150,7 +150,7 @@
             "lesson": 7,
             "lessonTitle": ["Lesson 7 - Collecting Results"],
             "learningIntentions": ["LI7"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Knows How To Collect a Result or Two..."],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -172,7 +172,7 @@
             "lesson": 8,
             "lessonTitle": ["Lesson 8 - Analysing Results"],
             "learningIntentions": ["LI8"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Atypically Analytical Analyser of the Data, Alright?"],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -194,7 +194,7 @@
             "lesson": 9,
             "lessonTitle": ["Lesson 9 - Discussing Results"],
             "learningIntentions": ["LI9"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["Needs a Discussion? Just Ask Me."],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
@@ -216,7 +216,7 @@
             "lesson": 10,
             "lessonTitle": ["Lesson 10 - Writing a Scientific Report"],
             "learningIntentions": ["LI10"],
-            "titleReward": ["Title Awarded for Lesson..."],
+            "titleReward": ["I'm Actually A Proper Scientist Now..."],
             "successCriteria": "Finish the activity at the link.",
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",

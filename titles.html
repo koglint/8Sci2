@@ -220,8 +220,8 @@
 
                         // Set lesson title or generate generic title
                         const lessonTitle = lesson.titleReward
-                            ? lesson.titleReward[0]
-                            : `Master of the Untitled Title of Lesson ${lesson.lesson}`;
+                            ? `${lesson.titleReward[0]} (${lesson.lessonTitle})`
+                            : `Coming Soon for Lesson ${lesson.lesson}`;
 
                         // Determine completion status from Firestore
                         const topicKey = `topic${topicId}`;
