@@ -7,7 +7,7 @@ let tierLevels = [];
 // Fetch Tier Levels from gameData.json
 export async function loadTierLevels() {
     try {
-        const response = await fetch("/json/gameData.json");
+        const response = await fetch("./json/gameData.json");
         const data = await response.json();
         tierLevels = data.tierLevels;
         console.log("Tier Levels Loaded:", tierLevels);
