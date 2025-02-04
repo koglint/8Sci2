@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         
+
+
+
 /* battleArena.html*/
 /* Battle Arena Wrapper */
 #battle-arena-wrapper {
@@ -42,6 +45,26 @@
     position: relative;
     z-index: 1;
 }
+
+        @media (max-width: 480px) {
+            #battle-arena-wrapper {
+                overflow-y: auto;
+                height: auto;
+                position: relative;
+            }
+
+            #battle-arena {
+                top: 30px;
+                display: grid;
+                grid-template-columns: repeat(1, 30vh);
+                grid-template-rows: repeat(9, 30vh);
+                position: relative;
+                z-index: 1;
+                overflow-y: auto;
+            }
+        }
+
+
 
 /* Battle Arena Sections */
 .battle-arena-section {
