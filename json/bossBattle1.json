@@ -5,8 +5,8 @@
     "backgroundImage": "assets/BGs/bossBattle1BG.png",
     "bossHP": 100,
     "userHP": 100,
-    "SPWin": 150,
-    "SPLose": 15,
+    "SPWin": 120,
+    "SPLose": 20,
     "hpLoss": {
         "boss": 100,
         "user": 100

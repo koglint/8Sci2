@@ -1,11 +1,15 @@
 {
     "tierLevels": [
-        { "tier": 1, "minSP": 0 },
-        { "tier": 2, "minSP": 100 },
-        { "tier": 3, "minSP": 250 },
-        { "tier": 4, "minSP": 500 },
-        { "tier": 5, "minSP": 750 },
-        { "tier": 6, "minSP": 1000 }
+        { "tier": 1, "minSP": 0, "tierName": "Beginner" },
+        { "tier": 2, "minSP": 1500, "tierName": "Apprentice" },
+        { "tier": 3, "minSP": 4000, "tierName": "Adept" },
+        { "tier": 4, "minSP": 8000, "tierName": "Challenger" },
+        { "tier": 5, "minSP": 13000, "tierName": "Elite" },
+        { "tier": 6, "minSP": 20000, "tierName": "Master" },
+        { "tier": 7, "minSP": 30000, "tierName": "Grandmaster" },
+        { "tier": 8, "minSP": 45000, "tierName": "Legend" },
+        { "tier": 9, "minSP": 70000, "tierName": "Mythic" },
+        { "tier": 10, "minSP": 100000, "tierName": "God Mode" }
     ],
 
     "battleArena": [

@@ -155,17 +155,17 @@
             "mustDo": {
                 "successCriteria": "Finish the activity at the link.",
                 "synapsePoints": 500,
-                "URL": "details"
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTI1NDAw/details"
             },
             "shouldDo": {
                 "successCriteria": "Finish the activity at the link.",
                 "synapsePoints": 300,
-                "URL": "XXX"
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3OTY1NDA4/details"
             },
             "couldDo": {
                 "successCriteria": "Finish the activity at the link.",
                 "synapsePoints": 100,
-                "URL": "XXX"
+                "URL": "https://classroom.google.com/c/NzQ0MDI3MjIxODIx/a/NzQ1ODQ3MTYzMzA3/details"
             }
         },
         {
