@@ -87,6 +87,12 @@
     ],
     "pants": [
         {
+            "file": "BlackPants.png",
+            "label": "Blackpants",
+            "tier": 2,
+            "cost": 100
+        },
+        {
             "file": "BluePants.png",
             "label": "Bluepants",
             "tier": 1,

@@ -2,12 +2,12 @@
     "sections": [
         { "id": 1, "active": true, "url": "./bossBattle1.html" },
         { "id": 2, "active": false, "url": "./bossBattle8.html" },
-        { "id": 3, "active": true, "url": "./bossBattle4.html" },
+        { "id": 3, "active": false, "url": "./bossBattle4.html" },
         { "id": 4, "active": false, "url": "./bossBattle6.html" },
-        { "id": 5, "active": false, "url": "shop.html" },
-        { "id": 6, "active": true, "url": "./bossBattle3.html" },
-        { "id": 7, "active": true, "url": "./bossBattle5.html" },
-        { "id": 8, "active": true, "url": "./bossBattle2.html" },
+        { "id": 5, "active": true, "url": "shop.html" },
+        { "id": 6, "active": false, "url": "./bossBattle3.html" },
+        { "id": 7, "active": false, "url": "./bossBattle5.html" },
+        { "id": 8, "active": false, "url": "./bossBattle2.html" },
         { "id": 9, "active": false, "url": "./bossBattle9.html" }
     ]
 }

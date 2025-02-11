@@ -15,89 +15,740 @@
         {
             "id": 1,
             "questions": {
-                "foundation": [
-                    {
-                        "question": "What is the first step in designing a scientific investigation?",
-                        "answers": ["Conducting the experiment", "Developing a hypothesis", "Recording results", "Communicating findings"],
-                        "correct": 1
-                    },
-                    {
-                        "question": "Which variable is deliberately changed in an experiment?",
-                        "answers": ["Dependent variable", "Control variable", "Independent variable", "Extraneous variable"],
+                "foundation": 
+                    [
+                        {
+                            "question": "What is an observation in science?",
+                            "answers": [
+                                "Guessing the outcome based on previous research",
+                                "Making a prediction",
+                                "Recording a hypothesis",
+                                "Carefully noticing something with your senses or a device"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "What does the term 'variable' mean in an experiment?",
+                            "answers": [
+                                "Something that can change",
+                                "A measurement tool",
+                                "The final result",
+                                "A scientific law"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is a prediction in a scientific investigation?",
+                            "answers": [
+                                "A guess based on evidence",
+                                "A random idea",
+                                "A proven fact",
+                                "A repeated measurement"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is a control in an experiment?",
+                            "answers": [
+                                "The tool used to measure changes",
+                                "The group that does not receive the test treatment",
+                                "The person conducting the experiment",
+                                "The variable that changes"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "Which of the following best explains the importance of a conclusion in an experiment?",
+                            "answers": [
+                                "It introduces new variables",
+                                "It replaces the need for data collection",
+                                "It summarizes the findings and relates them back to the hypothesis",
+                                "It provides a detailed description of the experimental setup"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "What is the primary benefit of using a scientific method in investigations?",
+                            "answers": [
+                                "It provides a systematic approach to exploring questions",
+                                "It allows for biased results",
+                                "It limits creativity in research",
+                                "It focuses only on qualitative data"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which of the following best describes the process of drawing a conclusion in an experiment?",
+                            "answers": [
+                                "Collecting data during the experiment",
+                                "Designing the experiment",
+                                "Formulating the hypothesis",
+                                "Interpreting data to determine whether it supports the hypothesis"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "Why is it important to use accurate measurement instruments in an experiment?",
+                            "answers": [
+                                "To increase the cost of the experiment",
+                                "To ensure that the data collected is precise (close to the true value)",
+                                "To complicate the experiment",
+                                "To reduce the number of variables"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What does including numbers along the axes help the viewer understand?",
+                            "answers": [
+                                "The overall theme of the graph",
+                                "The qualitative features of the data",
+                                "The correct spacing of data values",
+                                "The artistic design of the graph"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "What is the primary purpose of labeling the axes on a graph?",
+                            "answers": [
+                                "To indicate what variable each axis represents including units",
+                                "To decorate the graph",
+                                "To confuse the viewer",
+                                "To increase the graph's size"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which benefit does plotting data points accurately provide?",
+                            "answers": [
+                                "It adds a creative element to the graph",
+                                "It allows the viewer to guess the values",
+                                "It makes the graph harder to interpret",
+                                "It improves the precision and reliability of the graph"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "Why is it important to include units of measurement on graph axes?",
+                            "answers": [
+                                "To ensure readers know the actual value of the data",
+                                "To add more numbers to the graph",
+                                "To confuse readers",
+                                "To reduce the graph's simplicity"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What advantage do gridlines offer in graphing data?",
+                            "answers": [
+                                "They reduce the amount of data needed",
+                                "They increase the graph's colors",
+                                "They are used only for decoration",
+                                "They help in aligning data points and reading values accurately"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "How does proper formatting of a graph assist in data analysis?",
+                            "answers": [
+                                "It increases clarity and helps show patterns in the data",
+                                "It makes the data more confusing",
+                                "It hides anomalies in the data",
+                                "It decreases the accuracy of the data"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is the role of a descriptive title in a graph?",
+                            "answers": [
+                                "To provide detailed statistical analysis",
+                                "To inform the viewer about the content or purpose of the graph",
+                                "To serve as a substitute for labeling the axes",
+                                "To complicate the presentation"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Why is a clear research question important in the scientific method?",
+                            "answers": [
+                                "It eliminates the need for a hypothesis",
+                                "It narrows the focus of the investigation",
+                                "It guarantees that the experiment will succeed",
+                                "It reduces the time needed for data collection"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Why should units be included in the column headers of a table rather than with each data value?",
+                            "answers": [
+                                "It makes the table easier to read",
+                                "It saves space in the table",
+                                "It prevents confusion about the units",
+                                "All of the above"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "If a table records the length of a piece of string at different times, which unit would be most appropriate?",
+                            "answers": [
+                                "Grams",
+                                "Seconds",
+                                "Meters",
+                                "Litres"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "When recording temperature readings in a table, which format is correct?",
+                            "answers": [
+                                "Temperature in Celsius",
+                                "Temperature (C)",
+                                "Temp.",
+                                "Degrees Celsius"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Why should decimal places be kept consistent in a table?",
+                            "answers": [
+                                "To make the table look more professional",
+                                "To make calculations easier and comparisons clearer",
+                                "Because science teachers require it",
+                                "It saves space in the table"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Which step of the scientific method involves analyzing the collected data to draw conclusions?",
+                            "answers": [
+                                "Conducting the experiment",
+                                "Formulating a hypothesis",
+                                "Designing the experiment",
+                                "Data analysis"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "Why do scientists use tools like microscopes?",
+                            "answers": [
+                                "To make the experiment look impressive",
+                                "To make the experiment harder",
+                                "To write their notes",
+                                "To see things that are too small to be seen by the naked eye"
+                            ],
+                            "correct": 3
+                        }
+                    ]
+
+                    ,
+                "classic": 
+                    [
+                        {
+                            "question": "What is the purpose of a hypothesis in a scientific investigation?",
+                            "answers": [
+                                "To prove a theory",
+                                "To record experimental results",
+                                "To provide a testable prediction",
+                                "To describe the experimental procedure"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "What role does peer review play in scientific research?",
+                            "answers": [
+                                "It prevents any new ideas from being published",
+                                "It speeds up the publication process",
+                                "It guarantees that a study is without error",
+                                "It helps ensure the validity and reliability of research before publication"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "What does it mean if a hypothesis is falsifiable?",
+                            "answers": [
+                                "It is based on opinion",
+                                "It cannot be tested",
+                                "It is guaranteed to be true",
+                                "It can be proven false through evidence"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "What distinguishes qualitative data from quantitative data in scientific research?",
+                            "answers": [
+                                "Quantitative data involves subjective opinions",
+                                "Quantitative data is descriptive and non-numerical",
+                                "Qualitative data is descriptive and non-numerical",
+                                "Qualitative data is numerical"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "Which of these is the best title for a table showing the temperature of water at different times?",
+                            "answers": [
+                                "Water Experiment",
+                                "How Temperature Changes",
+                                "Water Temperature Over Time",
+                                "Table of Science Data"
+                            ],
+                            "correct": 2
+                        },
+                            {
+                            "question": "Which of the following is the best way to format a table heading for mass?",
+                            "answers": [
+                                "Mass in grams",
+                                "Mass (g)",
+                                "Grams",
+                                "Weight (g)"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "If a table records the speed of a moving object, what should be included in the header of the 'Speed' column?",
+                            "answers": [
+                                "Speed (m/s)",
+                                "Speed",
+                                "Meters per second",
+                                "m/s"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is the main reason for ensuring that all data in a column is aligned correctly?",
+                            "answers": [
+                                "It makes the table look better",
+                                "It ensures accurate comparisons between values",
+                                "It helps prevent errors when copying data",
+                                "It allows more data to fit into the table"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What is the main advantage of repeating an experiment multiple times?",
+                            "answers": [
+                                "It increases sample size, which reduces random error",
+                                "It decreases the amount of data to analyze",
+                                "It ensures the hypothesis is proven",
+                                "It eliminates the need for a control group"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is the significance of using a graph in representing experimental data?",
+                            "answers": [
+                                "It makes the data less clear",
+                                "It helps visualize trends and relationships",
+                                "It replaces the need for numerical data",
+                                "It complicates data interpretation"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What does the term 'data analysis' refer to in a scientific investigation?",
+                            "answers": [
+                                "Collecting measurements",
+                                "Interpreting and drawing conclusions from data",
+                                "Designing the experiment",
+                                "Recording observations without evaluation"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Why is it important to report both successful and failed experimental results?",
+                            "answers": [
+                                "To provide a complete picture of the experiment",
+                                "To confuse the audience",
+                                "To delay the publication",
+                                "To prove that the experiment was difficult"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Why should a consistent scale be used along a graph's axis?",
+                            "answers": [
+                                "To use up space on the graph",
+                                "To ensure accurate representation of data trends",
+                                "To make the graph colorful",
+                                "To allow for different units"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Which variable is deliberately changed in an experiment?",
+                            "answers": [
+                                "Control variable",
+                                "Dependent variable",
+                                "Independent variable",
+                                "Extraneous variable"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "Why is it important to record data accurately during an experiment?",
+                            "answers": [
+                                "To ensure results can be verified",
+                                "To confuse potential critics",
+                                "To make the experiment harder to repeat",
+                                "To ensure that only positive results are recorded"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Why is it important to include a control group in an experiment?",
+                            "answers": [
+                                "It ensures the experiment is fair",
+                                "It makes the experiment more interesting",
+                                "It allows the experiment to run faster",
+                                "It eliminates the need for repeated trials"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What does it mean if a result is reproducible?",
+                            "answers": [
+                                "The same result can be observed by different scientists",
+                                "It is unique to one experiment",
+                                "It cannot be replicated",
+                                "It is purely theoretical"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which of the following best describes a fair test?",
+                            "answers": [
+                                "Changing more than one variable at a time",
+                                "Keeping all variables the same except one",
+                                "Using a large sample size",
+                                "Repeating the experiment multiple times"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What does reproducibility of results indicate in an experiment?",
+                            "answers": [
+                                "That the findings are the same when repeated",
+                                "That the experiment was performed incorrectly",
+                                "That the equipment was faulty",
+                                "That the hypothesis was invalid"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which is a valid solution to improve the accuracy of results?",
+                            "answers": [
+                                "Using a more precise instrument", 
+                                "Avoiding repetitions of the experiment", 
+                                "Ignoring anomalies in the data", 
+                                "Not following safety procedures"],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What section of a scientific report summarizes the main findings?",
+                            "answers": [
+                                "Method", 
+                                "Aim", 
+                                "Conclusion", 
+                                "Hypothesis"],
+                            "correct": 2
+                        },
+                        {
+                            "question": "Which of the following is a dependent variable?",
+                            "answers": [
+                                "The temperature of water in an experiment measuring evaporation rate", 
+                                "The type of container used", 
+                                "The amount of sunlight", 
+                                "The temperature of the room"],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which of the following is a qualitative observation?",
+                            "answers": [
+                                "The color of a solution",
+                                "The temperature of a liquid",
+                                "The mass of a substance",
+                                "The volume of gas produced"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which of the following best describes why tables are used in science?",
+                            "answers": [
+                                "To make data more visually appealing",
+                                "To organise and present data clearly",
+                                "To replace the need for graphs",
+                                "To increase the amount of data collected"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "In a scientific investigation, what does the term 'accuracy' refer to?",
+                            "answers": [
+                                "The consistency of repeated measurements",
+                                "How close a measured value is to the true value",
+                                "The range of measurements",
+                                "The reliability of the measurement instrument"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What is the significance of a control in reducing bias during an experiment?",
+                            "answers": [
+                                "It ensures that all variables are changed",
+                                "It provides a baseline for comparison",
+                                "It guarantees a successful outcome",
+                                "It minimizes the need for data analysis"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Why is effective communication of scientific findings important?",
+                            "answers": [
+                                "It allows the research to be critiqued and built upon",
+                                "It hides potential errors",
+                                "It reduces the credibility of the study",
+                                "It minimizes the need for further research"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is the main reason for accurately recording data during an experiment?",
+                            "answers": [
+                                "To help in drawing conclusions",
+                                "To impress others",
+                                "To reduce the need for analysis",
+                                "To keep the experiment secret"
+                            ],
+                            "correct": 0
+                        }
+                    ]
+                    ,
+                "challenge": 
+                    [
+                        
+                        {
+                            "question": "Why is it important to have a fair test in an experiment?",
+                            "answers": [
+                                "To speed up the experiment",
+                                "To reduce the cost of the investigation",
+                                "To ensure that the experimental outcome is solely due to the variable being tested",
+                                "To guarantee a successful result"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                        "question": "How can uncontrolled variables affect the outcome of an experiment?",
+                        "answers": [
+                            "They simplify data analysis",
+                            "They have no effect on the results",
+                            "They introduce potential errors and alternative explanations",
+                            "They ensure consistent results"
+                        ],
                         "correct": 2
                     },
-                    {
-                        "question": "Why is it important to abide by safety procedures during an experiment?",
-                        "answers": ["To ensure accurate results", "To protect yourself and others", "To avoid wasting materials", "To make experiments easier"],
-                        "correct": 1
-                    },
-                    {
-                        "question": "When constructing a graph, what is typically plotted on the x-axis?",
-                        "answers": ["Dependent variable", "Independent variable", "Control variable", "Both variables"],
-                        "correct": 1
-                    }
-                ],
-                "classic": [
-                    {
-                        "question": "What should be included in a valid experimental method?",
-                        "answers": ["A detailed aim", "Clear instructions for replicability", "A list of safety procedures", "All of the above"],
-                        "correct": 3
-                    },
-                    {
-                        "question": "Which of the following ensures results are reliable?",
-                        "answers": ["Repeating the experiment", "Using precise equipment", "Only recording results once", "Using unreliable sources"],
-                        "correct": 0
-                    },
-                    {
-                        "question": "How can the reliability of collected results be evaluated?",
-                        "answers": ["By reviewing the number of trials conducted", "By identifying errors in data collection", "By comparing results with predictions", "All of the above"],
-                        "correct": 3
-                    },
-                    {
-                        "question": "What is one way to assess the validity of second-hand sources?",
-                        "answers": ["Checking if the source is recent", "Verifying the source's author and credibility", "Ensuring the source supports the hypothesis", "All of the above"],
-                        "correct": 3
-                    }
-                ],
-                "challenge": [
-                    {
-                        "question": "Which is a valid solution to improve the accuracy of results?",
-                        "answers": ["Using a more precise instrument", "Avoiding repetitions of the experiment", "Ignoring anomalies in the data", "Not following safety procedures"],
-                        "correct": 0
-                    },
-                    {
-                        "question": "What section of a scientific report summarizes the main findings?",
-                        "answers": ["Method", "Aim", "Conclusion", "Hypothesis"],
-                        "correct": 2
-                    },
-                    {
-                        "question": "Which of the following is a dependent variable?",
-                        "answers": ["The temperature of water in an experiment measuring evaporation rate", "The type of container used", "The amount of sunlight", "The temperature of the room"],
-                        "correct": 0
-                    },
-                    {
-                        "question": "What should be done if anomalies are found in experimental results?",
-                        "answers": ["Exclude them without justification", "Explain and investigate their causes", "Repeat the experiment multiple times", "Ignore them and continue"],
-                        "correct": 1
-                    }
-                ],
-                "extreme": [
-                    {
-                        "question": "How should experimental results be recorded?",
-                        "answers": ["On a piece of scrap paper", "In a structured and organized format", "In any format available", "Verbally without writing"],
-                        "correct": 1
-                    },
-                    {
-                        "question": "Which of the following is part of an experiment's aim?",
-                        "answers": ["The equipment used", "The expected results", "The purpose of the investigation", "The graph construction method"],
-                        "correct": 2
-                    },
-                    {
-                        "question": "Why is it important to include references in a scientific report?",
-                        "answers": ["To avoid plagiarism", "To strengthen the credibility of the report", "To allow others to verify the sources used", "All of the above"],
-                        "correct": 3
-                    }
-                ]
+                        {
+                            "question": "What is the role of peer review in scientific research?",
+                            "answers": [
+                                "It verifies the validity and reliability of research findings",
+                                "It creates additional work for scientists",
+                                "It discourages new ideas",
+                                "It delays the publication of research"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is the best way to structure a table measuring time and distance in an experiment?",
+                            "answers": [
+                                "Include a 'Time (s)' column and a 'Distance (m)' column",
+                                "Label the table as 'Experiment Data' without column headers",
+                                "Write all the numbers in one long list",
+                                "Use different units for each row"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is one consequence of using an inconsistent scale on a graph?",
+                            "answers": [
+                                "The graph becomes more visually appealing",
+                                "It can distort the data interpretation",
+                                "It makes it easier to compare values",
+                                "It has no impact on data accuracy"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Why might a legend be included in a graph with multiple data sets?",
+                            "answers": [
+                                "To occupy extra space",
+                                "To complicate the graph unnecessarily",
+                                "To clearly identify which data set each symbol represents",
+                                "To serve as a graph title"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "Why is it important to identify and control extraneous variables in an experiment?",
+                            "answers": [
+                                "To increase the variability in the results",
+                                "To ensure that only the independent variable affects the outcome",
+                                "To make the experiment more challenging",
+                                "To complicate the analysis"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What should be done if anomalies are found in experimental results?",
+                            "answers": [
+                                "Exclude them without justification", 
+                                "Explain and investigate their causes", 
+                                "Repeat the experiment multiple times", 
+                                "Ignore them and continue"],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What is a potential purpose of a double-blind experiment design?",
+                            "answers": [
+                                "To double the number of experimental groups",
+                                "To allow researchers to choose which data to record",
+                                "To ensure that neither participants nor researchers know which subjects are in the control group",
+                                "To ensure that the hypothesis is correct"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "How does increasing the sample size affect the reliability of experimental results?",
+                            "answers": [
+                                "It decreases variability and increases reliability",
+                                "It makes the experiment more complex",
+                                "It decreases the need for controls",
+                                "It has no impact on reliability"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Which method is best for reducing random error in measurements?",
+                            "answers": [
+                                "Using a more precise instrument",
+                                "Increasing the number of trials and averaging the results",
+                                "Altering the experimental procedure",
+                                "Ignoring inconsistent data"
+                            ],
+                            "correct": 1
+                        }
+                    ]
+                    ,
+                "extreme": 
+                    [
+                        {
+                            "question": "In a controlled experiment, why is it essential to randomize the assignment of subjects to experimental and control groups?",
+                            "answers": [
+                                "To eliminate selection bias and ensure groups are comparable",
+                                "To reduce the cost of the experiment",
+                                "To simplify data collection",
+                                "To guarantee statistically significant results"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "What is an operational definition in a scientific experiment?",
+                            "answers": [
+                                "A vague explanation of a concept",
+                                "A detailed description of how a variable is measured",
+                                "A list of materials used",
+                                "A summary of experimental results"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Which statistical test is most appropriate for determining if there is a significant difference between the means of two independent samples?",
+                            "answers": [
+                                "Paired t-test",
+                                "Chi-squared test",
+                                "Independent t-test",
+                                "ANOVA"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "When evaluating the reliability of experimental results, which factor is most indicative of reliable outcomes?",
+                            "answers": [
+                                "High statistical significance (p < 0.05)",
+                                "Consistency of results across multiple trials",
+                                "Theoretical predictions matching the results",
+                                "Low variability in measurement instruments"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "What is the primary purpose of using a double-blind procedure in experimental design?",
+                            "answers": [
+                                "To increase sample size",
+                                "To reduce participant variability",
+                                "To minimize placebo effects",
+                                "To ensure neither participants nor researchers know the treatment assignments"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "Which of the following best describes a confounding variable in an experiment?",
+                            "answers": [
+                                "A variable that influences both the dependent and independent variables, potentially skewing the results",
+                                "A variable that is deliberately manipulated to observe its effect",
+                                "A variable that is held constant throughout the experiment",
+                                "A variable that is measured as the outcome of the experiment"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "In designing an experiment, why is it important to identify and control for extraneous variables?",
+                            "answers": [
+                                "To eliminate potential alternative explanations for the results",
+                                "To reduce the cost of the experiment",
+                                "To increase the number of trials",
+                                "To simplify the data analysis process"
+                            ],
+                            "correct": 0
+                        },
+                        {
+                            "question": "Why is random sampling important in scientific investigations?",
+                            "answers": [
+                                "To guarantee the hypothesis is correct",
+                                "To reduce bias and ensure that the sample accurately represents the population",
+                                "To increase the number of participants",
+                                "To ensure that only positive results are obtained"
+                            ],
+                            "correct": 1
+                        },
+                        {
+                            "question": "Which method is most effective for minimizing measurement error in data collection?",
+                            "answers": [
+                                "Using outdated equipment",
+                                "Relying solely on a single measurement",
+                                "Performing multiple trials and averaging the results",
+                                "Ignoring potential sources of error"
+                            ],
+                            "correct": 2
+                        },
+                        {
+                            "question": "What is the purpose of using a standard unit of measurement in scientific experiments?",
+                            "answers": [
+                                "To limit the scope of the experiment",
+                                "To increase the speed of data collection",
+                                "To confuse the participants",
+                                "To ensure consistency and comparability of data"
+                            ],
+                            "correct": 3
+                        },
+                        {
+                            "question": "How does peer review contribute to the advancement of scientific knowledge?",
+                            "answers": [
+                                "By allowing experiments to be conducted without oversight",
+                                "By providing unbiased evaluation and constructive feedback on research",
+                                "By guaranteeing that research findings are flawless",
+                                "By reducing the importance of replicating studies"
+                            ],
+                            "correct": 1
+                        }
+                    ]
+
             }
         }
     ]
