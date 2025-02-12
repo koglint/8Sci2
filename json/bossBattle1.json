@@ -8,8 +8,8 @@
     "SPWin": 120,
     "SPLose": 20,
     "hpLoss": {
-        "boss": 100,
-        "user": 100
+        "boss": 10,
+        "user": 10
     },
     "topics": [
         {
