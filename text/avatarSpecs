@@ -1,4 +1,6 @@
 Teir 1
+
+
 Top (both arms and torso)
 "Create a 2D flat shirt consisting of both arms and the torso. Each section (torso and arms) must be rendered as a solid-coloured rectangle with no shading or gradients. Include a 1-pixel-wide black border around each section. Use the colour sandybrown for all sections. Place the shirt components as follows within a transparent canvas of resolution 1920x1080 pixels:
 •	Torso: Positioned from X: 814 to 1105, Y: 223 to 588

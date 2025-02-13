@@ -83,14 +83,26 @@
             "label": "Skintone7",
             "tier": 1,
             "cost": 50
+        },
+        {
+            "file": "batmanSkin.png",
+            "label": "Batmanskin",
+            "tier": 2,
+            "cost": 250
         }
     ],
     "pants": [
         {
-            "file": "BlackPants.png",
+            "file": "batmanPants.png",
+            "label": "Batmanpants",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "blackPants.png",
             "label": "Blackpants",
-            "tier": 2,
-            "cost": 100
+            "tier": 1,
+            "cost": 50
         },
         {
             "file": "BluePants.png",
@@ -148,6 +160,18 @@
         }
     ],
     "tops": [
+        {
+            "file": "blackShirt.png",
+            "label": "Blackshirt",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "blackShirtWithYellowLogo.png",
+            "label": "Blackshirtwithyellowlogo",
+            "tier": 1,
+            "cost": 50
+        },
         {
             "file": "BlueTop.png",
             "label": "Bluetop",
@@ -243,7 +267,7 @@
         {
             "file": "eyesBlack.png",
             "label": "Eyesblack",
-            "tier": 7,
+            "tier": 1,
             "cost": 50
         },
         {
@@ -255,13 +279,13 @@
         {
             "file": "eyesBrown.png",
             "label": "Eyesbrown",
-            "tier": 7,
+            "tier": 1,
             "cost": 50
         },
         {
             "file": "eyesBrownblue.png",
             "label": "Eyesbrownblue",
-            "tier": 7,
+            "tier": 1,
             "cost": 50
         },
         {
@@ -419,6 +443,12 @@
         {
             "file": "mouthYellow.png",
             "label": "Mouthyellow",
+            "tier": 1,
+            "cost": 50
+        },
+        {
+            "file": "RedMouth.png",
+            "label": "Redmouth",
             "tier": 1,
             "cost": 50
         }
