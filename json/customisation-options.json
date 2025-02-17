@@ -167,6 +167,18 @@
             "cost": 50
         },
         {
+            "file": "BatmanTop.png",
+            "label": "BatmanTop",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "BrownTop.png",
+            "label": "BrownTop",
+            "tier": 1,
+            "cost": 100
+        },
+        {
             "file": "blackShirtWithYellowLogo.png",
             "label": "Blackshirtwithyellowlogo",
             "tier": 1,
