@@ -89,6 +89,12 @@
             "label": "Batmanskin",
             "tier": 2,
             "cost": 200
+        },
+        {
+            "file": "spidermanSkin.png",
+            "label": "Spidermanskin",
+            "tier": 2,
+            "cost": 300
         }
     ],
     "pants": [
@@ -157,6 +163,12 @@
             "label": "Yellowpants",
             "tier": 1,
             "cost": 50
+        },
+        {
+            "file": "SpidermanPants.png",
+            "label": "Spidermanpants",
+            "tier": 2,
+            "cost": 300
         }
     ],
     "tops": [
@@ -267,6 +279,12 @@
             "label": "Yellowtop",
             "tier": 1,
             "cost": 50
+        },
+        {
+            "file": "SpidermanTop.png",
+            "label": "Spidermantop",
+            "tier": 2,
+            "cost": 300
         }
     ],
     "eyes": [
@@ -695,6 +713,12 @@
             "label": "Yellowshoes",
             "tier": 1,
             "cost": 50
+        },
+        {
+            "file": "SpidermanShoes.png",
+            "label": "Spidermanshoes",
+            "tier": 2,
+            "cost": 300
         }
     ],
     "masks": [
@@ -721,6 +745,12 @@
             "label": "BatmanMask",
             "tier": 2,
             "cost": 200
+        },
+        {
+            "file": "spidermanMask.png",
+            "label": "Spidermanmask",
+            "tier": 2,
+            "cost": 250
         }
     ]
 }
