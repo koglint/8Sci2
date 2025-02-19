@@ -571,6 +571,12 @@
             "label": "Yellowmaskwithsmileyfaceslim",
             "tier": 1,
             "cost": 50
+        },
+                {
+            "file": "BatmanMask.png",
+            "label": "BatmanMask",
+            "tier": 3,
+            "cost": 250
         }
     ]
 }
