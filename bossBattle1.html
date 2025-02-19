@@ -627,7 +627,7 @@
         import { auth, db } from './firebase-config.js'; // Import auth and db from your Firebase configuration
         import { doc, getDoc, updateDoc, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 
-
+        let maxDailyBattle = 10; // Maximum number of battles allowed per day
         let selectedQuestions = []; // Stores the shuffled questions
         let currentQuestionIndex = 0; // Tracks the current question
         let correctAnswersCount = 0; // Tracks the number of correct answers
@@ -1021,42 +1021,66 @@
                             questionContent.innerHTML = ''; // Clear question content
                         }
 
-                        let awardedSP = 0;
+                        let awardedSP = 0; // Initialize SP
+
+                        let incorrectAnswers = battleData.questionsAttempted - battleData.questionsCorrect;
+                        let hpPercentage = (userHP / bossData.userHP) * 100; // Calculate HP left in percentage
+                        let accuracy = (battleData.questionsCorrect / Math.max(1, battleData.questionsAttempted)) * 100; // Avoid division by zero
 
                         if (bossHP <= 0 && userHP <= 0) {
-                            dialogueText.innerHTML = '<p>The battle ended in a draw! Minimal SP gained.</p>';
-                            awardedSP = bossData.SPLose; // Award lose SP in case of a draw
+                            dialogueText.innerHTML = '<p>The battle ended in a draw! Some SP gained.</p>';
+                            awardedSP = Math.round(bossData.SPLose * 0.5); // Half of loss SP for a draw
                         } else if (bossHP <= 0) {
                             dialogueText.innerHTML = '<p>You defeated the boss! Gained SP for victory.</p>';
-                            awardedSP = bossData.SPWin; // Award win SP
+
+                            // **Option 4: Tiered SP Reward System**
+                            if (accuracy >= 100 && hpPercentage >= 80) {
+                                awardedSP = bossData.SPWin; // Full SP
+                            } else if (accuracy >= 70 && hpPercentage >= 50) {
+                                awardedSP = Math.round(bossData.SPWin * 0.8); // 80% of max SP
+                            } else if (accuracy >= 50 && hpPercentage >= 20) {
+                                awardedSP = Math.round(bossData.SPWin * 0.6); // 60% of max SP
+                            } else {
+                                awardedSP = bossData.SPLose; // Minimum SP for surviving
+                            }
+
                             replaceAvatarWithTombstone(bossContainer, true);
                         } else if (userHP <= 0) {
-                            dialogueText.innerHTML = '<p>You lost the battle. Gained minimal SP for the experience.</p>';
-                            awardedSP = bossData.SPLose; // Award lose SP
+                            dialogueText.innerHTML = '<p>You lost the battle. Gained some SP for the experience.</p>';
+
+                            // **Tiered SP for Losing**
+                            if (accuracy >= 70 && hpPercentage >= 50) {
+                                awardedSP = Math.round(bossData.SPLose * 0.8);
+                            } else if (accuracy >= 50 && hpPercentage >= 20) {
+                                awardedSP = Math.round(bossData.SPLose * 0.6);
+                            } else {
+                                awardedSP = Math.round(bossData.SPLose * 0.3); // Minimum SP
+                            }
+
                             replaceAvatarWithTombstone(userContainer, false);
                         }
 
+                        // Save battle outcome
                         battleData.completed = true;
                         battleData.outcome = bossHP <= 0 && userHP <= 0 ? 'draw' : bossHP <= 0 ? 'victory' : 'defeat';
                         battleData.SPAwarded = awardedSP;
-                        battleData.scorePercentage = Math.round((battleData.questionsCorrect / battleData.questionsAttempted) * 100);
+                        battleData.scorePercentage = Math.round((battleData.questionsCorrect / Math.max(1, battleData.questionsAttempted)) * 100);
 
                         saveBattleDataToFirestore(battleData);
                         console.log('battleData in endBattle:', battleData);
 
-
-                        const totalQuestions = totalQuestionsAsked;
-                        const correctAnswers = correctAnswersCount; // Keep track of correct answers
-                        const percentageCorrect = Math.round((correctAnswers / totalQuestions) * 100); // Calculate accuracy
+                        const totalQuestions = battleData.questionsAttempted;
+                        const correctAnswers = battleData.questionsCorrect;
+                        const percentageCorrect = Math.round((correctAnswers / totalQuestions) * 100);
 
                         // Show battle summary
                         setTimeout(() => {
                             summaryText.innerHTML = `
-                                <p>Total Questions: ${totalQuestions}</p>
-                                <p>Correct Answers: ${correctAnswers}</p>
-                                <p>Accuracy: ${percentageCorrect}%</p>
-                                <p>SP Awarded: ${awardedSP}</p>
-                            `;
+                            <p>Total Questions: ${totalQuestions}</p>
+                            <p>Correct Answers: ${correctAnswers}</p>
+                            <p>Accuracy: ${percentageCorrect}%</p>
+                            <p>SP Awarded: ${awardedSP}</p>
+                        `;
 
                             dialogueText.classList.add('hidden');
                             bossContainer.classList.add('hidden');
@@ -1069,8 +1093,9 @@
 
                             // Update the player's SP in Firestore
                             updatePlayerSP(awardedSP);
-                        }, 2000); // Allow animations to complete
+                        }, 2000); // Delay for animations
                     }
+
 
                     async function updatePlayerSP(awardedSP) {
                         auth.onAuthStateChanged(async (user) => {
@@ -1193,6 +1218,39 @@
 
 
             
+    async function canAttemptBossBattle() {
+        const user = auth.currentUser;
+        if (!user) {
+            console.error('User not logged in.');
+            return false;
+        }
+
+        try {
+            const userDocRef = doc(db, 'users', user.uid);
+            const userSnapshot = await getDoc(userDocRef);
+
+            if (!userSnapshot.exists()) {
+                console.log('No previous battle data. First attempt allowed.');
+                return true; // No previous battles, allow attempt
+            }
+
+            const battles = userSnapshot.data().battles || {};
+            const todayDate = new Date().toISOString().split('T')[0]; // Get current date (YYYY-MM-DD)
+
+            // Count how many battles occurred today
+            let battlesToday = Object.values(battles).filter(battle =>
+                battle.timestamp && battle.timestamp.startsWith(todayDate)
+            ).length;
+
+            console.log(`Battles today: ${battlesToday}`);
+
+            return battlesToday < maxDailyBattle; // Allow if less than 10 battles have been attempted today
+        } catch (error) {
+            console.error('Error checking battle attempts:', error);
+            return false;
+        }
+    }
+
     async function saveBattleDataToFirestore(battleData) {
         const user = auth.currentUser;
         if (!user) {
@@ -1201,15 +1259,20 @@
         }
 
         try {
-            console.log('Authenticated user:', user.uid);
+            const canAttempt = await canAttemptBossBattle();
+            if (!canAttempt) {
+                alert("You've reached the max of 10 boss battles today. Try again tomorrow!");
+                return;
+            }
+
+            console.log('User can attempt a boss battle.');
 
             const userDocRef = doc(db, 'users', user.uid);
             const userSnapshot = await getDoc(userDocRef);
 
             // Create a cleaned timestamp without milliseconds and 'Z'
-            const cleanedTimestamp = battleData.timestamp.split('.')[0]; // Remove milliseconds and 'Z'
+            const cleanedTimestamp = battleData.timestamp.split('.')[0];
 
-            // If user document doesn't exist, create it
             if (!userSnapshot.exists()) {
                 console.log('User document does not exist. Creating...');
                 await setDoc(userDocRef, {
@@ -1219,7 +1282,6 @@
                     createdAt: new Date().toISOString(),
                 }, { merge: true });
             } else {
-                // If user document exists, update the battles field
                 console.log('User document exists. Updating fields...');
                 await updateDoc(userDocRef, {
                     [`battles.${cleanedTimestamp}`]: battleData,
@@ -1231,6 +1293,7 @@
             console.error('Error saving battle data:', error);
         }
     }
+
 
 
 

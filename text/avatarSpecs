@@ -37,6 +37,11 @@ Long Hair
 •	Right Long Hair: Positioned from X: 1070 to 1105, Y: 3 to 222
 •	Hair: Positioned from X: 850 to 1069, Y: 3 to 53
 
+Very Long Hair
+"Create a 2D flat long hair design consisting of three parts: hair, left long hair and right long hair. Each section must be rendered as a solid-coloured rectangle with no shading or gradients. Use the colour yellow for all sections. Include a 1 pixel-wide black border around each section. Place the long hair components as follows within a transparent canvas of resolution 1920x1080 pixels:
+•	Left Long Hair: Positioned from X: 814 to 849, Y: 3 to 500
+•	Right Long Hair: Positioned from X: 1070 to 1105, Y: 3 to 500
+•	Hair: Positioned from X: 850 to 1069, Y: 3 to 53
 
 
 Skin (head, torso, both arms, crotch, both legs, both feet)

@@ -88,7 +88,7 @@
             "file": "batmanSkin.png",
             "label": "Batmanskin",
             "tier": 2,
-            "cost": 250
+            "cost": 200
         }
     ],
     "pants": [
@@ -470,31 +470,175 @@
             "file": "LongBlackHair.png",
             "label": "Longblackhair",
             "tier": 1,
-            "cost": 50
+            "cost": 100
         },
         {
             "file": "LongYellowHair.png",
             "label": "Longyellowhair",
             "tier": 1,
-            "cost": 50
+            "cost": 100
         },
         {
             "file": "noHair.png",
             "label": "Nohair",
             "tier": 1,
-            "cost": 50
+            "cost": 0
         },
         {
             "file": "ShortBrownHair.png",
             "label": "Shortbrownhair",
             "tier": 1,
-            "cost": 50
+            "cost": 100
         },
         {
             "file": "ShortYellowHair.png",
             "label": "Shortyellowhair",
             "tier": 1,
-            "cost": 50
+            "cost": 100
+        },
+        {
+            "file": "LongBrownHair.png",
+            "label": "Longbrownhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "LongDarkblueHair.png",
+            "label": "Longdarkbluehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "longGreenHair.png",
+            "label": "Longgreenhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "longLightblueHair.png",
+            "label": "Longlightbluehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "longOrangeHair.png",
+            "label": "Longorangehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "longPinkHair.png",
+            "label": "Longpinkhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "longPurpleHair.png",
+            "label": "Longpurplehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "longRedHair.png",
+            "label": "Longredhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortDarkblueHair.png",
+            "label": "Shortdarkbluehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortGreenHair.png",
+            "label": "Shortgreenhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortLightblueHair.png",
+            "label": "Shortlightbluehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortOrangeHair.png",
+            "label": "Shortorangehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortPinkHair.png",
+            "label": "Shortpinkhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortPurpleHair.png",
+            "label": "Shortpurplehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "shortRedHair.png",
+            "label": "Shortredhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "template.png",
+            "label": "Template",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongBrownHair.png",
+            "label": "Verylongbrownhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongDarkblueHair.png",
+            "label": "Verylongdarkbluehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongGreenHair.png",
+            "label": "Verylonggreenhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongLightblueHair.png",
+            "label": "Verylonglightbluehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongOrangeHair.png",
+            "label": "Verylongorangehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongPinkHair.png",
+            "label": "Verylongpinkhair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongPurpleHair.png",
+            "label": "Verylongpurplehair",
+            "tier": 2,
+            "cost": 200
+        },
+        {
+            "file": "veryLongRedHair.png",
+            "label": "Verylongredhair",
+            "tier": 2,
+            "cost": 200
         }
     ],
     "shoes": [
@@ -572,11 +716,11 @@
             "tier": 1,
             "cost": 50
         },
-                {
+        {
             "file": "BatmanMask.png",
             "label": "BatmanMask",
             "tier": 2,
-            "cost": 250
+            "cost": 200
         }
     ]
 }

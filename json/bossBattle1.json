@@ -6,7 +6,7 @@
     "bossHP": 100,
     "userHP": 100,
     "SPWin": 120,
-    "SPLose": 20,
+    "SPLose": 100,
     "hpLoss": {
         "boss": 10,
         "user": 10
