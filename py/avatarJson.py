@@ -28,7 +28,7 @@ for category in categories:
             {
                 "file": file,
                 "label": file.replace('.png', '').replace('_', ' ').title(),
-                "tier": 2,
+                "tier": 3,
                 "cost": 300
             }
             for file in os.listdir(category_path) if file.endswith('.png') and file not in existing_files

@@ -101,6 +101,66 @@
             "label": "Ratskin",
             "tier": 2,
             "cost": 300
+        },
+        {
+            "file": "blackSkinNoHead.png",
+            "label": "Blackskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "blueSkinNoHead.png",
+            "label": "Blueskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "darkbrownSkinNoHead.png",
+            "label": "Darkbrownskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "greenSkinNoHead.png",
+            "label": "Greenskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "greySkinNoHead.png",
+            "label": "Greyskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "orangeSkinNoHead.png",
+            "label": "Orangeskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "pinkSkinNoHead.png",
+            "label": "Pinkskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "redSkinNoHead.png",
+            "label": "Redskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "whiteSkinNoHead.png",
+            "label": "Whiteskinnohead",
+            "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "yellowSkinNoHead.png",
+            "label": "Yellowskinnohead",
+            "tier": 2,
+            "cost": 300
         }
     ],
     "pants": [
