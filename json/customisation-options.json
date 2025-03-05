@@ -95,6 +95,12 @@
             "label": "Spidermanskin",
             "tier": 2,
             "cost": 300
+        },
+        {
+            "file": "ratSkin.png",
+            "label": "Ratskin",
+            "tier": 2,
+            "cost": 300
         }
     ],
     "pants": [
@@ -751,6 +757,12 @@
             "label": "Spidermanmask",
             "tier": 2,
             "cost": 250
+        },
+        {
+            "file": "ratHead.png",
+            "label": "Rathead",
+            "tier": 2,
+            "cost": 300
         }
     ]
 }
