@@ -723,6 +723,12 @@
             "label": "Verylongredhair",
             "tier": 2,
             "cost": 200
+        },
+        {
+            "file": "ninjaFullTaperFade.png",
+            "label": "Ninjafulltaperfade",
+            "tier": 4,
+            "cost": 400
         }
     ],
     "shoes": [
