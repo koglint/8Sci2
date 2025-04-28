@@ -247,7 +247,7 @@
       },
       {
         "lesson": 11,
-        "lessonTitle": ["Lesson 11 - What Can Be Done Now to Fix This Mess? (Ecosystem Rehabilitation)"],
+        "lessonTitle": ["Lesson 11 - The Case Against the Culprits"],
 
         "learningIntentions": ["LI3", "LI4"],
         "titleReward": "soon",
@@ -270,7 +270,7 @@
       },
       {
         "lesson": 12,
-        "lessonTitle": ["Lesson 12 - Protecting Ecosystems"],
+        "lessonTitle": ["Lesson 12 - The Big Reveal"],
 
         "learningIntentions": ["LI3", "LI4"],
         "titleReward": "soon",
@@ -287,75 +287,6 @@
         },
         "couldDo": {
           "successCriteria": "This is the could do activity for Lesson 12",
-          "synapsePoints": 100,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        }
-      },
-      {
-        "lesson": 13,
-        "lessonTitle": ["Lesson 13 - The Case Against the Culprits"],
-
-        "learningIntentions": ["LI3", "LI4"],
-        "titleReward": "soon",
-        "successCriteria": "This is the success criteria for Lesson 13",
-        "mustDo": {
-          "successCriteria": "This is the must do activity for Lesson 13",
-          "synapsePoints": 500,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        },
-        "shouldDo": {
-          "successCriteria": "This is the should do activity for Lesson 13",
-          "synapsePoints": 300,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        },
-        "couldDo": {
-          "successCriteria": "This is the could do activity for Lesson 13",
-          "synapsePoints": 100,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        }
-      },
-      {
-        "lesson": 14,
-        "lessonTitle": ["Lesson 14 - The Big Reveal"],
-
-        "learningIntentions": ["LI3", "LI4"],
-        "titleReward": "soon",
-        "successCriteria": "This is the success criteria for Lesson 14",
-        "mustDo": {
-          "successCriteria": "This is the must do activity for Lesson 14",
-          "synapsePoints": 500,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        },
-        "shouldDo": {
-          "successCriteria": "This is the should do activity for Lesson 14",
-          "synapsePoints": 300,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        },
-        "couldDo": {
-          "successCriteria": "This is the could do activity for Lesson 14",
-          "synapsePoints": 100,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        }
-      },
-      {
-        "lesson": 15,
-        "lessonTitle": ["Lesson 15 - Daintree Restorative Health Plan"],
-
-        "learningIntentions": ["LI3", "LI4"],
-        "titleReward": "soon",
-        "successCriteria": "This is the success criteria for Lesson 15",
-        "mustDo": {
-          "successCriteria": "This is the must do activity for Lesson 15",
-          "synapsePoints": 500,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        },
-        "shouldDo": {
-          "successCriteria": "This is the should do activity for Lesson 15",
-          "synapsePoints": 300,
-          "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
-        },
-        "couldDo": {
-          "successCriteria": "This is the could do activity for Lesson 15",
           "synapsePoints": 100,
           "URL": "https://classroom.google.com/w/NzQ0MDI3MjIxODIx/tc/NzUyMzU5NTk4NjE1"
         }
