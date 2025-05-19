@@ -161,6 +161,18 @@
             "label": "Yellowskinnohead",
             "tier": 2,
             "cost": 300
+        },
+        {
+            "file": "milesMoralesSkin.png",
+            "label": "Milesmoralesskin",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "milesMoralesSpiderSuit.png",
+            "label": "Milesmoralesspidersuit",
+            "tier": 3,
+            "cost": 300
         }
     ],
     "pants": [
@@ -239,6 +251,30 @@
         {
             "file": "darkBrownPantsDesign.png",
             "label": "Darkbrownpantsdesign",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "blackSkirt.png",
+            "label": "Blackskirt",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "blueSkirt.png",
+            "label": "Blueskirt",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "rainbowPantsDesign.png",
+            "label": "Rainbowpantsdesign",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "redSkirt.png",
+            "label": "Redskirt",
             "tier": 3,
             "cost": 300
         }
@@ -356,6 +392,18 @@
             "file": "SpidermanTop.png",
             "label": "Spidermantop",
             "tier": 2,
+            "cost": 300
+        },
+        {
+            "file": "lakersJerseyTop.png",
+            "label": "Lakersjerseytop",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "rainbowShirtDesign.png",
+            "label": "Rainbowshirtdesign",
+            "tier": 3,
             "cost": 300
         }
     ],
@@ -797,6 +845,30 @@
             "label": "Spidermanshoes",
             "tier": 2,
             "cost": 300
+        },
+        {
+            "file": "blackCrocs.png",
+            "label": "Blackcrocs",
+            "tier": 5,
+            "cost": 500
+        },
+        {
+            "file": "blackShoes.png",
+            "label": "Blackshoes",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "templateShoes.png",
+            "label": "Templateshoes",
+            "tier": 3,
+            "cost": 300
+        },
+        {
+            "file": "whiteCrocs.png",
+            "label": "Whitecrocs",
+            "tier": 5,
+            "cost": 500
         }
     ],
     "masks": [
@@ -835,6 +907,36 @@
             "label": "Rathead",
             "tier": 2,
             "cost": 300
+        },
+        {
+            "file": "cartoonLeBronMask.png",
+            "label": "Cartoonlebronmask",
+            "tier": 6,
+            "cost": 600
+        },
+        {
+            "file": "laughingFaceManMask.png",
+            "label": "Laughingfacemanmask",
+            "tier": 7,
+            "cost": 700
+        },
+        {
+            "file": "leBronMask.png",
+            "label": "Lebronmask",
+            "tier": 6,
+            "cost": 600
+        },
+        {
+            "file": "leBronSmileMask.png",
+            "label": "Lebronsmilemask",
+            "tier": 5,
+            "cost": 500
+        },
+        {
+            "file": "shaqMask.png",
+            "label": "Shaqmask",
+            "tier": 8,
+            "cost": 800
         }
     ]
 }
