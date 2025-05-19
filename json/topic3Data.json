@@ -15,9 +15,9 @@
     "lessons": [
       {
         "lesson": 1,
-        "lessonTitle": ["Lesson 1 - Coming Soon"],
+        "lessonTitle": ["Lesson 1 - Rocks and Minerals"],
         "learningIntentions": ["LI1"],
-        "successCriteria": "This is the success criteria for Lesson 1",
+        "successCriteria": "To define the difference between rocks and minerals.",
         "mustDo": {
           "successCriteria": "This is the must do activity for Lesson 1",
           "synapsePoints": 100,

@@ -235,6 +235,12 @@
             "label": "Spidermanpants",
             "tier": 2,
             "cost": 300
+        },
+        {
+            "file": "darkBrownPantsDesign.png",
+            "label": "Darkbrownpantsdesign",
+            "tier": 3,
+            "cost": 300
         }
     ],
     "tops": [
